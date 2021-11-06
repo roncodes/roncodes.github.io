@@ -1,57 +1,13 @@
-# personal
+# ron.dev [roncodes.github.io]
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+A simple personal static website built with ember with content api capabilities.
 
-## Prerequisites
+## Table of Contents
+ - [About](#about)
+ - [Posts](#posts)
 
-You will need the following things properly installed on your computer.
+### About
+👋🏾 Hello, my name is Ron, and this is the source code to my perosnal website. Feel free to fork and use it however you want. Have fun!
 
-* [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/)
-* [Yarn](https://yarnpkg.com/)
-* [Ember CLI](https://ember-cli.com/)
-* [Google Chrome](https://google.com/chrome/)
-
-## Installation
-
-* `git clone <repository-url>` this repository
-* `cd personal`
-* `yarn install`
-
-## Running / Development
-
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Linting
-
-* `yarn lint`
-* `yarn lint:fix`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+### Posts
+To create blog posts just add a markdown file using a dasherized file name, set the post attributes in the header and your content below.

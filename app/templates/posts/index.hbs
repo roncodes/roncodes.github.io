@@ -1,0 +1,14 @@
+<div>
+    <h3 class="dark:text-gray-300 mb-5 font-semibold">✍🏾 My blog posts</h3>
+    
+    <ul class="text-sm">
+        {{#each @model as |post|}}
+            <li>
+                <LinkTo @route="posts.post" @model={{post}} class="flex flex-row items-center justify-evenly space-x-2">
+                    <span>{{post.dateCreated}} - </span> 
+                    <span class="dark:text-gray-300">{{post.title}}</span>
+                </LinkTo>
+            </li>
+        {{/each}}
+    </ul>
+</div>
