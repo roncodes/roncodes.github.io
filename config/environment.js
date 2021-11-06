@@ -21,6 +21,18 @@ module.exports = function (environment) {
 			// Here you can pass flags/options to your application instance
 			// when it is created
 		},
+
+		// set social link urls
+		social: {
+			github: 'https://github.com/roncodes',
+			twitter: 'https://twitter.com/wreckitron28',
+			twitch: 'https://www.twitch.tv/wreckitron28',
+			youtube: 'https://www.youtube.com/channel/UCmM_EzTI4T7qxDc-YDiKkgw',
+			instagram: 'https://www.instagram.com/wreckitron28',
+			tiktok: '',
+			facebook: '',
+			linkedin: 'https://www.linkedin.com/in/ronald-a-richardson/',
+		},
 	};
 
 	ENV['ember-meta'] = {

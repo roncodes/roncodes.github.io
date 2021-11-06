@@ -26,8 +26,8 @@
   function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
   class ApplicationAdapter extends _jsonApi.default {
-    constructor(...args) {
-      super(...args);
+    constructor() {
+      super(...arguments);
 
       _defineProperty(this, "namespace", 'api');
     }
@@ -57,8 +57,8 @@
   function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
   class App extends _application.default {
-    constructor(...args) {
-      super(...args);
+    constructor() {
+      super(...arguments);
 
       _defineProperty(this, "modulePrefix", _environment.default.modulePrefix);
 
@@ -128,7 +128,7 @@
     }
   });
 });
-;define("personal/components/footer", ["exports", "@ember/component", "@ember/template-factory", "@glimmer/component"], function (_exports, _component, _templateFactory, _component2) {
+;define("personal/components/footer", ["exports", "@ember/component", "@ember/template-factory", "@glimmer/component", "personal/utils/clean-object", "personal/utils/config"], function (_exports, _component, _templateFactory, _component2, _cleanObject, _config) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -143,47 +143,35 @@
           <div class="max-w-7xl mx-auto flex flex-col px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start space-y-5">
               <div class="flex-1 flex">
                   <nav class="flex flex-col space-y-2 md:space-y-0 md:flex-row md:space-x-10 lowercase">
-                      <a href="https://github.com/roncodes" class="text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200">
-                          <FaIcon @icon="github" @prefix="fab" />
-                          <span>github</span>
-                      </a>
-                      <a href="https://twitter.com/wreckitron28" class="text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200">
-                          <FaIcon @icon="twitter" @prefix="fab" />
-                          <span>twitter</span>
-                      </a>
-                      <a href="https://www.twitch.tv/wreckitron28" class="text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200">
-                          <FaIcon @icon="twitch" @prefix="fab" />
-                          <span>twitch</span>
-                      </a>
-                      <a href="https://www.youtube.com/channel/UCmM_EzTI4T7qxDc-YDiKkgw" class="text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200">
-                          <FaIcon @icon="youtube" @prefix="fab" />
-                          <span>youtube</span>
-                      </a>
-                      <a href="https://www.instagram.com/wreckitron28" class="text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200">
-                          <FaIcon @icon="instagram" @prefix="fab" />
-                          <span>ig</span>
-                      </a>
-                      <a href="https://www.linkedin.com/in/ronald-a-richardson/" class="text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200">
-                          <FaIcon @icon="linkedin" @prefix="fab" />
-                          <span>linkedin</span>
-                      </a>
+                      {{#each-in this.socialLinks as |social url|}}
+                          <a href={{url}} class="text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200">
+                              <FaIcon @icon={{social}} @prefix="fab" />
+                              <span>{{social}}</span>
+                          </a>    
+                      {{/each-in}}
                   </nav>
               </div>
-              <div class="flex-1 flex">
+              <div class="flex-1 flex flex-col space-y-2">
                   <div class="text-xs dark:text-gray-200">&copy; all rights reserved, ronald a. richardson</div>
+                  <div class="text-xs dark:text-gray-200">{{config "tag"}}</div>
               </div>
           </div>
       </div>
   </div>
   */
   {
-    "id": "AtqDuosw",
-    "block": "[[[11,0],[24,0,\"relative\"],[17,1],[12],[1,\"\\n    \"],[10,0],[14,0,\"relative z-20 border-t border-gray-200 dark:border-gray-800 mt-0 md:mt-20\"],[12],[1,\"\\n        \"],[10,0],[14,0,\"max-w-7xl mx-auto flex flex-col px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start space-y-5\"],[12],[1,\"\\n            \"],[10,0],[14,0,\"flex-1 flex\"],[12],[1,\"\\n                \"],[10,\"nav\"],[14,0,\"flex flex-col space-y-2 md:space-y-0 md:flex-row md:space-x-10 lowercase\"],[12],[1,\"\\n                    \"],[10,3],[14,6,\"https://github.com/roncodes\"],[14,0,\"text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200\"],[12],[1,\"\\n                        \"],[8,[39,0],null,[[\"@icon\",\"@prefix\"],[\"github\",\"fab\"]],null],[1,\"\\n                        \"],[10,1],[12],[1,\"github\"],[13],[1,\"\\n                    \"],[13],[1,\"\\n                    \"],[10,3],[14,6,\"https://twitter.com/wreckitron28\"],[14,0,\"text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200\"],[12],[1,\"\\n                        \"],[8,[39,0],null,[[\"@icon\",\"@prefix\"],[\"twitter\",\"fab\"]],null],[1,\"\\n                        \"],[10,1],[12],[1,\"twitter\"],[13],[1,\"\\n                    \"],[13],[1,\"\\n                    \"],[10,3],[14,6,\"https://www.twitch.tv/wreckitron28\"],[14,0,\"text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200\"],[12],[1,\"\\n                        \"],[8,[39,0],null,[[\"@icon\",\"@prefix\"],[\"twitch\",\"fab\"]],null],[1,\"\\n                        \"],[10,1],[12],[1,\"twitch\"],[13],[1,\"\\n                    \"],[13],[1,\"\\n                    \"],[10,3],[14,6,\"https://www.youtube.com/channel/UCmM_EzTI4T7qxDc-YDiKkgw\"],[14,0,\"text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200\"],[12],[1,\"\\n                        \"],[8,[39,0],null,[[\"@icon\",\"@prefix\"],[\"youtube\",\"fab\"]],null],[1,\"\\n                        \"],[10,1],[12],[1,\"youtube\"],[13],[1,\"\\n                    \"],[13],[1,\"\\n                    \"],[10,3],[14,6,\"https://www.instagram.com/wreckitron28\"],[14,0,\"text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200\"],[12],[1,\"\\n                        \"],[8,[39,0],null,[[\"@icon\",\"@prefix\"],[\"instagram\",\"fab\"]],null],[1,\"\\n                        \"],[10,1],[12],[1,\"ig\"],[13],[1,\"\\n                    \"],[13],[1,\"\\n                    \"],[10,3],[14,6,\"https://www.linkedin.com/in/ronald-a-richardson/\"],[14,0,\"text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200\"],[12],[1,\"\\n                        \"],[8,[39,0],null,[[\"@icon\",\"@prefix\"],[\"linkedin\",\"fab\"]],null],[1,\"\\n                        \"],[10,1],[12],[1,\"linkedin\"],[13],[1,\"\\n                    \"],[13],[1,\"\\n                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n            \"],[10,0],[14,0,\"flex-1 flex\"],[12],[1,\"\\n                \"],[10,0],[14,0,\"text-xs dark:text-gray-200\"],[12],[1,\"© all rights reserved, ronald a. richardson\"],[13],[1,\"\\n            \"],[13],[1,\"\\n        \"],[13],[1,\"\\n    \"],[13],[1,\"\\n\"],[13]],[\"&attrs\"],false,[\"fa-icon\"]]",
+    "id": "5ZfVMkZN",
+    "block": "[[[11,0],[24,0,\"relative\"],[17,1],[12],[1,\"\\n    \"],[10,0],[14,0,\"relative z-20 border-t border-gray-200 dark:border-gray-800 mt-0 md:mt-20\"],[12],[1,\"\\n        \"],[10,0],[14,0,\"max-w-7xl mx-auto flex flex-col px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start space-y-5\"],[12],[1,\"\\n            \"],[10,0],[14,0,\"flex-1 flex\"],[12],[1,\"\\n                \"],[10,\"nav\"],[14,0,\"flex flex-col space-y-2 md:space-y-0 md:flex-row md:space-x-10 lowercase\"],[12],[1,\"\\n\"],[42,[28,[37,1],[[30,0,[\"socialLinks\"]]],null],null,[[[1,\"                        \"],[10,3],[15,6,[30,2]],[14,0,\"text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200\"],[12],[1,\"\\n                            \"],[8,[39,2],null,[[\"@icon\",\"@prefix\"],[[30,3],\"fab\"]],null],[1,\"\\n                            \"],[10,1],[12],[1,[30,3]],[13],[1,\"\\n                        \"],[13],[1,\"    \\n\"]],[2,3]],null],[1,\"                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n            \"],[10,0],[14,0,\"flex-1 flex flex-col space-y-2\"],[12],[1,\"\\n                \"],[10,0],[14,0,\"text-xs dark:text-gray-200\"],[12],[1,\"© all rights reserved, ronald a. richardson\"],[13],[1,\"\\n                \"],[10,0],[14,0,\"text-xs dark:text-gray-200\"],[12],[1,[28,[35,3],[\"tag\"],null]],[13],[1,\"\\n            \"],[13],[1,\"\\n        \"],[13],[1,\"\\n    \"],[13],[1,\"\\n\"],[13]],[\"&attrs\",\"url\",\"social\"],false,[\"each\",\"-each-in\",\"fa-icon\",\"config\"]]",
     "moduleName": "personal/components/footer.hbs",
     "isStrictMode": false
   });
 
-  class FooterComponent extends _component2.default {}
+  class FooterComponent extends _component2.default {
+    get socialLinks() {
+      return (0, _cleanObject.default)((0, _config.default)('social'));
+    }
+
+  }
 
   _exports.default = FooterComponent;
   (0, _component.setComponentTemplate)(__COLOCATED_TEMPLATE__, FooterComponent);
@@ -207,8 +195,8 @@
   function _initializerWarningHelper(descriptor, context) { throw new Error('Decorating class property failed. Please ensure that ' + 'proposal-class-properties is enabled and runs after the decorators transform.'); }
 
   let HeadContent = (_dec = (0, _service.inject)('head-data'), (_class = class HeadContent extends _component.default {
-    constructor(...args) {
-      super(...args);
+    constructor() {
+      super(...arguments);
 
       _initializerDefineProperty(this, "model", _descriptor, this);
     }
@@ -353,8 +341,8 @@
   });
 
   let HeaderComponent = (_class = class HeaderComponent extends _component2.default {
-    constructor(...args) {
-      super(...args);
+    constructor() {
+      super(...arguments);
 
       _initializerDefineProperty(this, "router", _descriptor, this);
 
@@ -367,7 +355,9 @@
       }
     }
 
-    toggleMobileMenu(explicit = null) {
+    toggleMobileMenu() {
+      let explicit = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
       if (explicit !== null && typeof explicit !== 'boolean') {
         return this.toggleMobileMenu();
       }
@@ -493,8 +483,8 @@
   });
 
   let SwitchComponent = (_dec = (0, _object.computed)('activeColor', 'args.{activeColor,inactiveColor}', 'inactiveColor', 'isActive'), (_class = class SwitchComponent extends _component2.default {
-    constructor(...args) {
-      super(...args);
+    constructor() {
+      super(...arguments);
 
       _initializerDefineProperty(this, "isActive", _descriptor, this);
     }
@@ -567,8 +557,8 @@
   function _initializerWarningHelper(descriptor, context) { throw new Error('Decorating class property failed. Please ensure that ' + 'proposal-class-properties is enabled and runs after the decorators transform.'); }
 
   let ApplicationController = (_class = class ApplicationController extends _controller.default {
-    constructor(...args) {
-      super(...args);
+    constructor() {
+      super(...arguments);
 
       _initializerDefineProperty(this, "theme", _descriptor, this);
     }
@@ -642,7 +632,8 @@
   _exports.appVersion = appVersion;
   _exports.default = void 0;
 
-  function appVersion(_, hash = {}) {
+  function appVersion(_) {
+    let hash = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     const version = _environment.default.APP.version; // e.g. 1.0.0-alpha.1+4jds75hf
     // Allow use of 'hideSha' and 'hideVersion' For backwards compatibility
 
@@ -669,6 +660,21 @@
   }
 
   var _default = (0, _helper.helper)(appVersion);
+
+  _exports.default = _default;
+});
+;define("personal/helpers/config", ["exports", "@ember/component/helper", "personal/utils/config"], function (_exports, _helper, _config) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = (0, _helper.helper)(function config(_ref) {
+    let [path] = _ref;
+    return (0, _config.default)(path);
+  });
 
   _exports.default = _default;
 });
@@ -1117,8 +1123,8 @@
   function _initializerWarningHelper(descriptor, context) { throw new Error('Decorating class property failed. Please ensure that ' + 'proposal-class-properties is enabled and runs after the decorators transform.'); }
 
   let PostModel = (_dec = (0, _model.attr)('string'), _dec2 = (0, _model.attr)('string'), _dec3 = (0, _model.attr)('string'), _dec4 = (0, _model.attr)('string'), _dec5 = (0, _model.attr)('string'), _dec6 = (0, _model.attr)('string'), _dec7 = (0, _model.attr)('string'), _dec8 = (0, _model.attr)(), _dec9 = (0, _model.attr)(), _dec10 = (0, _model.attr)(), _dec11 = (0, _model.attr)('date'), _dec12 = (0, _model.attr)('date'), _dec13 = (0, _object.computed)('title'), _dec14 = (0, _object.computed)('createdAt', 'created_at'), _dec15 = (0, _object.computed)('createdAt', 'created_at'), (_class = class PostModel extends _model.default {
-    constructor(...args) {
-      super(...args);
+    constructor() {
+      super(...arguments);
 
       _initializerDefineProperty(this, "title", _descriptor, this);
 
@@ -1270,8 +1276,8 @@
   function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
   class Router extends _router.default {
-    constructor(...args) {
-      super(...args);
+    constructor() {
+      super(...arguments);
 
       _defineProperty(this, "location", _environment.default.locationType);
 
@@ -1345,9 +1351,10 @@
   _exports.default = void 0;
 
   class PostsPostRoute extends _route.default {
-    model({
-      id
-    }) {
+    model(_ref) {
+      let {
+        id
+      } = _ref;
       return this.store.findRecord('post', id);
     }
 
@@ -1936,27 +1943,30 @@
         full: '100%',
         screen: '100vh'
       }),
-      inset: (theme, {
-        negative
-      }) => ({
-        auto: 'auto',
-        ...theme('spacing'),
-        ...negative(theme('spacing')),
-        '1/2': '50%',
-        '1/3': '33.333333%',
-        '2/3': '66.666667%',
-        '1/4': '25%',
-        '2/4': '50%',
-        '3/4': '75%',
-        full: '100%',
-        '-1/2': '-50%',
-        '-1/3': '-33.333333%',
-        '-2/3': '-66.666667%',
-        '-1/4': '-25%',
-        '-2/4': '-50%',
-        '-3/4': '-75%',
-        '-full': '-100%'
-      }),
+      inset: (theme, _ref) => {
+        let {
+          negative
+        } = _ref;
+        return {
+          auto: 'auto',
+          ...theme('spacing'),
+          ...negative(theme('spacing')),
+          '1/2': '50%',
+          '1/3': '33.333333%',
+          '2/3': '66.666667%',
+          '1/4': '25%',
+          '2/4': '50%',
+          '3/4': '75%',
+          full: '100%',
+          '-1/2': '-50%',
+          '-1/3': '-33.333333%',
+          '-2/3': '-66.666667%',
+          '-1/4': '-25%',
+          '-2/4': '-50%',
+          '-3/4': '-75%',
+          '-full': '-100%'
+        };
+      },
       keyframes: {
         spin: {
           to: {
@@ -2014,39 +2024,45 @@
         disc: 'disc',
         decimal: 'decimal'
       },
-      margin: (theme, {
-        negative
-      }) => ({
-        auto: 'auto',
-        ...theme('spacing'),
-        ...negative(theme('spacing'))
-      }),
+      margin: (theme, _ref2) => {
+        let {
+          negative
+        } = _ref2;
+        return {
+          auto: 'auto',
+          ...theme('spacing'),
+          ...negative(theme('spacing'))
+        };
+      },
       maxHeight: theme => ({ ...theme('spacing'),
         full: '100%',
         screen: '100vh'
       }),
-      maxWidth: (theme, {
-        breakpoints
-      }) => ({
-        none: 'none',
-        0: '0rem',
-        xs: '20rem',
-        sm: '24rem',
-        md: '28rem',
-        lg: '32rem',
-        xl: '36rem',
-        '2xl': '42rem',
-        '3xl': '48rem',
-        '4xl': '56rem',
-        '5xl': '64rem',
-        '6xl': '72rem',
-        '7xl': '80rem',
-        full: '100%',
-        min: 'min-content',
-        max: 'max-content',
-        prose: '65ch',
-        ...breakpoints(theme('screens'))
-      }),
+      maxWidth: (theme, _ref3) => {
+        let {
+          breakpoints
+        } = _ref3;
+        return {
+          none: 'none',
+          0: '0rem',
+          xs: '20rem',
+          sm: '24rem',
+          md: '28rem',
+          lg: '32rem',
+          xl: '36rem',
+          '2xl': '42rem',
+          '3xl': '48rem',
+          '4xl': '56rem',
+          '5xl': '64rem',
+          '6xl': '72rem',
+          '7xl': '80rem',
+          full: '100%',
+          min: 'min-content',
+          max: 'max-content',
+          prose: '65ch',
+          ...breakpoints(theme('screens'))
+        };
+      },
       minHeight: {
         0: '0px',
         full: '100%',
@@ -2190,11 +2206,14 @@
         6: '6deg',
         12: '12deg'
       },
-      space: (theme, {
-        negative
-      }) => ({ ...theme('spacing'),
-        ...negative(theme('spacing'))
-      }),
+      space: (theme, _ref4) => {
+        let {
+          negative
+        } = _ref4;
+        return { ...theme('spacing'),
+          ...negative(theme('spacing'))
+        };
+      },
       stroke: {
         current: 'currentColor'
       },
@@ -2253,25 +2272,28 @@
         out: 'cubic-bezier(0, 0, 0.2, 1)',
         'in-out': 'cubic-bezier(0.4, 0, 0.2, 1)'
       },
-      translate: (theme, {
-        negative
-      }) => ({ ...theme('spacing'),
-        ...negative(theme('spacing')),
-        '1/2': '50%',
-        '1/3': '33.333333%',
-        '2/3': '66.666667%',
-        '1/4': '25%',
-        '2/4': '50%',
-        '3/4': '75%',
-        full: '100%',
-        '-1/2': '-50%',
-        '-1/3': '-33.333333%',
-        '-2/3': '-66.666667%',
-        '-1/4': '-25%',
-        '-2/4': '-50%',
-        '-3/4': '-75%',
-        '-full': '-100%'
-      }),
+      translate: (theme, _ref5) => {
+        let {
+          negative
+        } = _ref5;
+        return { ...theme('spacing'),
+          ...negative(theme('spacing')),
+          '1/2': '50%',
+          '1/3': '33.333333%',
+          '2/3': '66.666667%',
+          '1/4': '25%',
+          '2/4': '50%',
+          '3/4': '75%',
+          full: '100%',
+          '-1/2': '-50%',
+          '-1/3': '-33.333333%',
+          '-2/3': '-66.666667%',
+          '-1/4': '-25%',
+          '-2/4': '-50%',
+          '-3/4': '-75%',
+          '-full': '-100%'
+        };
+      },
       width: theme => ({
         auto: 'auto',
         ...theme('spacing'),
@@ -2653,12 +2675,48 @@
     }
   });
 });
+;define("personal/utils/clean-object", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = cleanObject;
+
+  function cleanObject(obj) {
+    let emptyStrings = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+
+    for (var propName in obj) {
+      if (obj[propName] === null || obj[propName] === undefined) {
+        delete obj[propName];
+      }
+
+      if (emptyStrings === true && obj[propName] === '') {
+        delete obj[propName];
+      }
+    }
+
+    return obj;
+  }
+});
+;define("personal/utils/config", ["exports", "@ember/object", "personal/config/environment"], function (_exports, _object, _environment) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = config;
+
+  function config(path) {
+    return (0, _object.get)(_environment.default, path);
+  }
+});
 ;
 
 ;define('personal/config/environment', [], function() {
   
           var exports = {
-            'default': {"modulePrefix":"personal","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":false,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"personal","version":"0.0.0+e82df1e8"},"ember-meta":{"description":"entrepreneur, software engineer, roboticist, adventurer, gamer","imgSrc":"/meta/favicon.png","siteName":"ron.dev","title":"ron.dev - ronald a. richardson - entrepreneur, software engineer, roboticist, adventurer, gamer","twitterUsername":"@WreckItRon28","url":"https://ron.dev/"},"ember-cli-markdown-resolver":{"folders":{"posts":"app/posts"}},"exportApplicationGlobal":true}
+            'default': {"modulePrefix":"personal","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":false,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"personal","version":"0.1.0+4c7791db"},"social":{"github":"https://github.com/roncodes","twitter":"https://twitter.com/wreckitron28","twitch":"https://www.twitch.tv/wreckitron28","youtube":"https://www.youtube.com/channel/UCmM_EzTI4T7qxDc-YDiKkgw","instagram":"https://www.instagram.com/wreckitron28","tiktok":"","facebook":"","linkedin":"https://www.linkedin.com/in/ronald-a-richardson/"},"ember-meta":{"description":"entrepreneur, software engineer, roboticist, adventurer, gamer","imgSrc":"/meta/favicon.png","siteName":"ron.dev","title":"ron.dev - ronald a. richardson - entrepreneur, software engineer, roboticist, adventurer, gamer","twitterUsername":"@WreckItRon28","url":"https://ron.dev/"},"ember-cli-markdown-resolver":{"folders":{"posts":"app/posts"}},"exportApplicationGlobal":true,"currentRevision":"4c7791db65","longRevision":"4c7791db65199c9fb20d7e7e5c63121a34032728","tag":"v0.1.0","branch":"main"}
           };
           Object.defineProperty(exports, '__esModule', {value: true});
           return exports;
@@ -2667,7 +2725,7 @@
 
 ;
           if (!runningTests) {
-            require("personal/app")["default"].create({"name":"personal","version":"0.0.0+e82df1e8"});
+            require("personal/app")["default"].create({"name":"personal","version":"0.1.0+4c7791db"});
           }
         
 //# sourceMappingURL=ron.dev.map

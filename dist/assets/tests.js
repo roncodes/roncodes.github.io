@@ -190,6 +190,28 @@ define("personal/tests/integration/components/switch-test", ["@ember/template-fa
     });
   });
 });
+define("personal/tests/integration/helpers/config-test", ["@ember/template-factory", "qunit", "ember-qunit", "@ember/test-helpers"], function (_templateFactory, _qunit, _emberQunit, _testHelpers) {
+  "use strict";
+
+  (0, _qunit.module)('Integration | Helper | config', function (hooks) {
+    (0, _emberQunit.setupRenderingTest)(hooks); // TODO: Replace this with your real tests.
+
+    (0, _qunit.test)('it renders', async function (assert) {
+      this.set('inputValue', '1234');
+      await (0, _testHelpers.render)((0, _templateFactory.createTemplateFactory)(
+      /*
+        {{config this.inputValue}}
+      */
+      {
+        "id": "Q/4VskFP",
+        "block": "[[[1,[28,[35,0],[[30,0,[\"inputValue\"]]],null]]],[],false,[\"config\"]]",
+        "moduleName": "(unknown template module)",
+        "isStrictMode": false
+      }));
+      assert.dom(this.element).hasText('1234');
+    });
+  });
+});
 define("personal/tests/integration/helpers/html-safe-test", ["@ember/template-factory", "qunit", "ember-qunit", "@ember/test-helpers"], function (_templateFactory, _qunit, _emberQunit, _testHelpers) {
   "use strict";
 
@@ -341,10 +363,32 @@ define("personal/tests/unit/serializers/application-test", ["qunit", "ember-quni
     });
   });
 });
+define("personal/tests/unit/utils/clean-object-test", ["personal/utils/clean-object", "qunit"], function (_cleanObject, _qunit) {
+  "use strict";
+
+  (0, _qunit.module)('Unit | Utility | clean-object', function () {
+    // TODO: Replace this with your real tests.
+    (0, _qunit.test)('it works', function (assert) {
+      let result = (0, _cleanObject.default)();
+      assert.ok(result);
+    });
+  });
+});
+define("personal/tests/unit/utils/config-test", ["personal/utils/config", "qunit"], function (_config, _qunit) {
+  "use strict";
+
+  (0, _qunit.module)('Unit | Utility | config', function () {
+    // TODO: Replace this with your real tests.
+    (0, _qunit.test)('it works', function (assert) {
+      let result = (0, _config.default)();
+      assert.ok(result);
+    });
+  });
+});
 define('personal/config/environment', [], function() {
   
           var exports = {
-            'default': {"modulePrefix":"personal","environment":"test","rootURL":"/","locationType":"none","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":false,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"LOG_ACTIVE_GENERATION":false,"LOG_VIEW_LOOKUPS":false,"rootElement":"#ember-testing","autoboot":false,"name":"personal","version":"0.0.0+e82df1e8"},"ember-meta":{"description":"entrepreneur, software engineer, roboticist, adventurer, gamer","imgSrc":"/meta/favicon.png","siteName":"ron.dev","title":"ron.dev - ronald a. richardson - entrepreneur, software engineer, roboticist, adventurer, gamer","twitterUsername":"@WreckItRon28","url":"https://ron.dev/"},"ember-cli-markdown-resolver":{"folders":{"posts":"app/posts"}},"exportApplicationGlobal":true}
+            'default': {"modulePrefix":"personal","environment":"test","rootURL":"/","locationType":"none","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":false,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"LOG_ACTIVE_GENERATION":false,"LOG_VIEW_LOOKUPS":false,"rootElement":"#ember-testing","autoboot":false,"name":"personal","version":"0.1.0+4c7791db"},"social":{"github":"https://github.com/roncodes","twitter":"https://twitter.com/wreckitron28","twitch":"https://www.twitch.tv/wreckitron28","youtube":"https://www.youtube.com/channel/UCmM_EzTI4T7qxDc-YDiKkgw","instagram":"https://www.instagram.com/wreckitron28","tiktok":"","facebook":"","linkedin":"https://www.linkedin.com/in/ronald-a-richardson/"},"ember-meta":{"description":"entrepreneur, software engineer, roboticist, adventurer, gamer","imgSrc":"/meta/favicon.png","siteName":"ron.dev","title":"ron.dev - ronald a. richardson - entrepreneur, software engineer, roboticist, adventurer, gamer","twitterUsername":"@WreckItRon28","url":"https://ron.dev/"},"ember-cli-markdown-resolver":{"folders":{"posts":"app/posts"}},"exportApplicationGlobal":true,"currentRevision":"4c7791db65","longRevision":"4c7791db65199c9fb20d7e7e5c63121a34032728","tag":"v0.1.0","branch":"main"}
           };
           Object.defineProperty(exports, '__esModule', {value: true});
           return exports;

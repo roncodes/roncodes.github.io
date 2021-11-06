@@ -13,7 +13,7 @@ export default class PostsPostRoute extends Route {
 			content: post.html,
 			author: post.author,
 			date: post.createdAt,
-			slug: post.id
+			slug: post.id,
 		};
 	}
 }
