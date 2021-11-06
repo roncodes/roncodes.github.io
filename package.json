@@ -13,6 +13,7 @@
 	},
 	"scripts": {
 		"deploy": "git subtree push --prefix dist origin gh-pages",
+		"deploy:force": "git push origin `git subtree split --prefix dist main`:gh-pages --force",
 		"build": "ember build --environment=production",
 		"lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
 		"lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
