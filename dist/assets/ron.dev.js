@@ -153,15 +153,15 @@
               </div>
               <div class="flex-1 flex flex-col space-y-2">
                   <div class="text-xs dark:text-gray-200">&copy; all rights reserved, ronald a. richardson</div>
-                  <div class="text-xs dark:text-gray-200">{{config "tag"}}</div>
+                  <div class="text-xs dark:text-gray-200">v{{app-version versionOnly=true}}</div>
               </div>
           </div>
       </div>
   </div>
   */
   {
-    "id": "5ZfVMkZN",
-    "block": "[[[11,0],[24,0,\"relative\"],[17,1],[12],[1,\"\\n    \"],[10,0],[14,0,\"relative z-20 border-t border-gray-200 dark:border-gray-800 mt-0 md:mt-20\"],[12],[1,\"\\n        \"],[10,0],[14,0,\"max-w-7xl mx-auto flex flex-col px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start space-y-5\"],[12],[1,\"\\n            \"],[10,0],[14,0,\"flex-1 flex\"],[12],[1,\"\\n                \"],[10,\"nav\"],[14,0,\"flex flex-col space-y-2 md:space-y-0 md:flex-row md:space-x-10 lowercase\"],[12],[1,\"\\n\"],[42,[28,[37,1],[[30,0,[\"socialLinks\"]]],null],null,[[[1,\"                        \"],[10,3],[15,6,[30,2]],[14,0,\"text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200\"],[12],[1,\"\\n                            \"],[8,[39,2],null,[[\"@icon\",\"@prefix\"],[[30,3],\"fab\"]],null],[1,\"\\n                            \"],[10,1],[12],[1,[30,3]],[13],[1,\"\\n                        \"],[13],[1,\"    \\n\"]],[2,3]],null],[1,\"                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n            \"],[10,0],[14,0,\"flex-1 flex flex-col space-y-2\"],[12],[1,\"\\n                \"],[10,0],[14,0,\"text-xs dark:text-gray-200\"],[12],[1,\"© all rights reserved, ronald a. richardson\"],[13],[1,\"\\n                \"],[10,0],[14,0,\"text-xs dark:text-gray-200\"],[12],[1,[28,[35,3],[\"tag\"],null]],[13],[1,\"\\n            \"],[13],[1,\"\\n        \"],[13],[1,\"\\n    \"],[13],[1,\"\\n\"],[13]],[\"&attrs\",\"url\",\"social\"],false,[\"each\",\"-each-in\",\"fa-icon\",\"config\"]]",
+    "id": "TwHsRqrN",
+    "block": "[[[11,0],[24,0,\"relative\"],[17,1],[12],[1,\"\\n    \"],[10,0],[14,0,\"relative z-20 border-t border-gray-200 dark:border-gray-800 mt-0 md:mt-20\"],[12],[1,\"\\n        \"],[10,0],[14,0,\"max-w-7xl mx-auto flex flex-col px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start space-y-5\"],[12],[1,\"\\n            \"],[10,0],[14,0,\"flex-1 flex\"],[12],[1,\"\\n                \"],[10,\"nav\"],[14,0,\"flex flex-col space-y-2 md:space-y-0 md:flex-row md:space-x-10 lowercase\"],[12],[1,\"\\n\"],[42,[28,[37,1],[[30,0,[\"socialLinks\"]]],null],null,[[[1,\"                        \"],[10,3],[15,6,[30,2]],[14,0,\"text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200\"],[12],[1,\"\\n                            \"],[8,[39,2],null,[[\"@icon\",\"@prefix\"],[[30,3],\"fab\"]],null],[1,\"\\n                            \"],[10,1],[12],[1,[30,3]],[13],[1,\"\\n                        \"],[13],[1,\"    \\n\"]],[2,3]],null],[1,\"                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n            \"],[10,0],[14,0,\"flex-1 flex flex-col space-y-2\"],[12],[1,\"\\n                \"],[10,0],[14,0,\"text-xs dark:text-gray-200\"],[12],[1,\"© all rights reserved, ronald a. richardson\"],[13],[1,\"\\n                \"],[10,0],[14,0,\"text-xs dark:text-gray-200\"],[12],[1,\"v\"],[1,[28,[35,3],null,[[\"versionOnly\"],[true]]]],[13],[1,\"\\n            \"],[13],[1,\"\\n        \"],[13],[1,\"\\n    \"],[13],[1,\"\\n\"],[13]],[\"&attrs\",\"url\",\"social\"],false,[\"each\",\"-each-in\",\"fa-icon\",\"app-version\"]]",
     "moduleName": "personal/components/footer.hbs",
     "isStrictMode": false
   });
@@ -2716,7 +2716,7 @@
 ;define('personal/config/environment', [], function() {
   
           var exports = {
-            'default': {"modulePrefix":"personal","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":false,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"personal","version":"v0.1.1+d1af4536"},"social":{"github":"https://github.com/roncodes","twitter":"https://twitter.com/wreckitron28","twitch":"https://www.twitch.tv/wreckitron28","youtube":"https://www.youtube.com/channel/UCmM_EzTI4T7qxDc-YDiKkgw","instagram":"https://www.instagram.com/wreckitron28","tiktok":"","facebook":"","linkedin":"https://www.linkedin.com/in/ronald-a-richardson/"},"ember-meta":{"description":"entrepreneur, software engineer, roboticist, adventurer, gamer","imgSrc":"/meta/favicon.png","siteName":"ron.dev","title":"ron.dev - ronald a. richardson - entrepreneur, software engineer, roboticist, adventurer, gamer","twitterUsername":"@WreckItRon28","url":"https://ron.dev/"},"ember-cli-markdown-resolver":{"folders":{"posts":"app/posts"}},"exportApplicationGlobal":true,"currentRevision":"d1af4536e4","longRevision":"d1af4536e45691c92db53649c09895742165fa38","tag":"v0.1.1","branch":"main"}
+            'default': {"modulePrefix":"personal","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":false,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"personal","version":"0.1.1+9ab22106"},"social":{"github":"https://github.com/roncodes","twitter":"https://twitter.com/wreckitron28","twitch":"https://www.twitch.tv/wreckitron28","youtube":"https://www.youtube.com/channel/UCmM_EzTI4T7qxDc-YDiKkgw","instagram":"https://www.instagram.com/wreckitron28","tiktok":"","facebook":"","linkedin":"https://www.linkedin.com/in/ronald-a-richardson/"},"ember-meta":{"description":"entrepreneur, software engineer, roboticist, adventurer, gamer","imgSrc":"/meta/favicon.png","siteName":"ron.dev","title":"ron.dev - ronald a. richardson - entrepreneur, software engineer, roboticist, adventurer, gamer","twitterUsername":"@WreckItRon28","url":"https://ron.dev/"},"ember-cli-markdown-resolver":{"folders":{"posts":"app/posts"}},"exportApplicationGlobal":true,"currentRevision":"9ab22106b1","longRevision":"9ab22106b11d22a3a2127f0acad3a60fb126796c","tag":null,"branch":"main"}
           };
           Object.defineProperty(exports, '__esModule', {value: true});
           return exports;
@@ -2725,7 +2725,7 @@
 
 ;
           if (!runningTests) {
-            require("personal/app")["default"].create({"name":"personal","version":"v0.1.1+d1af4536"});
+            require("personal/app")["default"].create({"name":"personal","version":"0.1.1+9ab22106"});
           }
         
 //# sourceMappingURL=ron.dev.map

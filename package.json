@@ -1,9 +1,9 @@
 {
 	"name": "personal",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"private": true,
 	"description": "My personal website build with ember.",
-	"repository": "",
+	"repository": "https://github.com/roncodes/roncodes.github.io",
 	"license": "MIT",
 	"author": "Ronald A. Richardson",
 	"homepage": "https://github.com/roncodes/roncodes.github.io",
