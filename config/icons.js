@@ -1,6 +1,6 @@
 module.exports = function () {
 	return {
-		'free-regular-svg-icons': 'all',
-		'free-brands-svg-icons': 'all',
+		// 'free-regular-svg-icons': [],
+		'free-brands-svg-icons': ['github', 'twitter', 'twitch', 'youtube', 'instagram', 'tiktok', 'facebook', 'linkedin'],
 	};
 };

@@ -3,6 +3,7 @@
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 const StaticSiteJson = require('broccoli-static-site-json');
 const tailwind = require('tailwindcss');
+const funnel = require('broccoli-funnel');
 
 module.exports = function (defaults) {
 	let app = new EmberApp(defaults, {
@@ -32,8 +33,6 @@ module.exports = function (defaults) {
 						},
 					},
 					tailwind('./app/tailwind/tailwind.config.js'),
-					// postCssPresetEnv({ stage: 1 }),
-					// require('postcss-nested'),
 					require('autoprefixer'),
 				],
 			},
@@ -65,5 +64,11 @@ module.exports = function (defaults) {
 		collate: true,
 	});
 
-	return app.toTree([postsJson]);
+	// copy index.html to error.html for gh-pages fallback
+	const indexFallback = funnel('app', {
+		files: ['index.html'],
+		getDestinationPath: (relativePath) => 'error.html'
+	});
+
+	return app.toTree([postsJson, indexFallback]);
 };
