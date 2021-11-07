@@ -5,6 +5,7 @@ const isProduction = EmberApp.env() === 'production';
 module.exports = {
 	purge: {
 		enable: isProduction,
+		mode: 'all',
 		content: ['./app/index.html', './app/templates/**/*.hbs', './app/components/**/*.hbs'],
 	},
 	darkMode: 'class', // or 'media' or 'class'
