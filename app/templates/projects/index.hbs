@@ -1,7 +1,0 @@
-<h3 class="dark:text-gray-100">My blog posts</h3>
-
-<ul>
-    {{#each @model as |post|}}
-        <li><LinkTo @route="posts.post" @model={{post}}>{{post.title}}</LinkTo></li>
-    {{/each}}
-</ul>
