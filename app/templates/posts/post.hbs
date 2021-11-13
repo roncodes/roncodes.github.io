@@ -1,5 +1,10 @@
 <div class="post">
-    <h3 class="dark:text-gray-300 mb-5 font-semibold">{{@model.title}}</h3>
+    <div class="post-title">
+        <h3 class="page-title">{{@model.title}}</h3>
+        <div class="post-meta flex flex-row space-x-2">
+            <div class="post-date">{{@model.dateCreated}}</div>
+        </div>
+    </div>
     
     <div class="post-content">
         {{html-safe @model.html}}

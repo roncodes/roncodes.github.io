@@ -17,3 +17,28 @@ body, html {
 body.dark {
     @apply bg-gray-900;
 }
+
+.page-title {
+    @apply text-xl font-semibold my-10 text-gray-900;
+}
+
+body.dark .page-title {
+    @apply text-gray-300;
+}
+
+.post-title {
+    @apply w-full border-b border-gray-600 pb-4 mb-10;
+}
+
+.post-title > .page-title {
+    @apply mb-1;
+}
+
+nav.main-nav > a {
+    @apply flex border border-transparent rounded-lg px-4 py-1.5 mr-2;
+}
+
+body.dark nav.main-nav > a.active,
+nav.main-nav > a.active {
+    @apply border-green-400 text-green-400;
+}

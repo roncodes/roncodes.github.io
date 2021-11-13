@@ -10,7 +10,7 @@ module.exports = function (defaults) {
 		storeConfigInMeta: false,
 
 		fingerprint: {
-			enabled: false
+			enabled: false,
 		},
 
 		outputPaths: {
@@ -71,7 +71,7 @@ module.exports = function (defaults) {
 	// copy index.html to error.html for gh-pages fallback
 	const indexFallback = funnel('app', {
 		files: ['index.html'],
-		getDestinationPath: (relativePath) => 'error.html'
+		getDestinationPath: (relativePath) => 'error.html',
 	});
 
 	return app.toTree([postsJson, indexFallback]);

@@ -1,6 +1,6 @@
 <div class="relative" ...attributes>
     <div class="relative z-20">
-        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10">
+        <div class="max-w-7xl mx-auto flex justify-between items-center py-5 px-8 md:justify-start md:space-x-4">
             <div class="flex items-center">
                 <LinkTo @route="home" class="flex items-center">
                     <img class="h-8 w-auto sm:h-10" src="/images/hahaha.gif" alt="ron.dev">
@@ -17,7 +17,7 @@
                 </button>
             </div>
             <div class="hidden md:flex-1 md:flex md:items-center md:justify-between">
-                <nav class="flex space-x-10 lowercase">
+                <nav class="main-nav flex lowercase">
                     <LinkTo @route="posts" class="text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200">
                         Posts
                     </LinkTo>
@@ -30,6 +30,12 @@
                     <LinkTo @route="gaming" class="text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200">
                         Gaming
                     </LinkTo>
+                    <LinkTo @route="art" class="text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200">
+                        Art
+                    </LinkTo>
+                    <LinkTo @route="writing" class="text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200">
+                        Writing
+                    </LinkTo>
                 </nav>
                 <div class="flex items-center md:ml-12">
                     <Switch @isActive={{eq @theme "dark"}} @label="Night Mode" @onToggle={{this.onToggleTheme}} />
@@ -40,8 +46,8 @@
     {{#if this.mobileMenuIsOpen}}
         <div class="z-40 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
             <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white dark:bg-gray-800 divide-y-2 divide-gray-50">
-                <div class="pt-2 pb-6 px-2">
-                    <div class="flex items-center justify-between">
+                <div class="pt-2 pb-6">
+                    <div class="flex items-center justify-between px-6">
                         <div>
                             <LinkTo @route="home" class="flex items-center">
                                 <img class="h-8 w-auto sm:h-10" src="/images/hahaha.gif" alt="ron.dev">
@@ -59,7 +65,7 @@
                         </div>
                     </div>
                     <div class="mt-6">
-                        <nav class="grid gap-y-5 lowercase">
+                        <nav class="mobile-main-nav grid gap-y-5 lowercase">
                             <a href="javascript:;" {{on "click" (fn this.transitionTo "posts")}} class="p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 dark:hover:text-gray-200">
                                 <span class="ml-2 text-base font-medium text-gray-900 dark:text-gray-200">
                                     Posts
@@ -78,6 +84,16 @@
                             <a href="javascript:;" {{on "click" (fn this.transitionTo "gaming")}} class="p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 dark:hover:text-gray-200">
                                 <span class="ml-2 text-base font-medium text-gray-900 dark:text-gray-200">
                                     Gaming
+                                </span>
+                            </a>
+                            <a href="javascript:;" {{on "click" (fn this.transitionTo "art")}} class="p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 dark:hover:text-gray-200">
+                                <span class="ml-2 text-base font-medium text-gray-900 dark:text-gray-200">
+                                    Art
+                                </span>
+                            </a>
+                            <a href="javascript:;" {{on "click" (fn this.transitionTo "writing")}} class="p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 dark:hover:text-gray-200">
+                                <span class="ml-2 text-base font-medium text-gray-900 dark:text-gray-200">
+                                    Writing
                                 </span>
                             </a>
                         </nav>

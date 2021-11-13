@@ -1,7 +1,31 @@
-<h3 class="dark:text-gray-100">My blog posts</h3>
+<div>
+    <h3 class="page-title">🗂 My projects</h3>
 
-<ul>
-    {{#each @model as |post|}}
-        <li><LinkTo @route="posts.post" @model={{post}}>{{post.title}}</LinkTo></li>
-    {{/each}}
-</ul>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+        {{#each this.projects as |project|}}
+            <div class="flex flex-col rounded-md border border-gray-300">
+                <div class="px-4 py-2 border-b border-gray-300 truncate">
+                    <h3>{{project.title}}</h3>
+                </div>
+                <div class="p-4">
+                    {{#if project.logo_url}}
+                        <img src={{project.logo_url}} class="h-6 mb-3" title={{project.title}} />
+                    {{/if}}
+                    <p class="text-sm">
+                        {{project.description}}
+                    </p>
+                </div>
+                {{#if project.urls}}
+                    <div class="border-t border-gray-300 px-4 py-2 flex flex-row flex-grow-0 flex-shrink-0 space-x-4">
+                        {{#each-in project.urls as |icon url|}}
+                            <a href={{url}} target={{concat "_" project.title}}>
+                                <FaIcon @icon={{icon}} @prefix={{if (eq icon 'link') 'fas' 'fab'}} class="mr-0.5" />
+                                <span>{{icon}}</span>
+                            </a>
+                        {{/each-in}}
+                    </div>
+                {{/if}}
+            </div>
+        {{/each}}
+    </div>
+</div>

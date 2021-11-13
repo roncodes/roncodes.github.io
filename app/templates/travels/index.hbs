@@ -1,2 +1,13 @@
-{{page-title "Index"}}
-{{outlet}}
+<div>
+    <h3 class="page-title">🌍 My travels</h3>
+    
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-10">
+        {{#each this.places as |place|}}
+            <div class="flex flex-col rounded-md border border-gray-300 hover:border-green-400 hover:text-green-400 truncate">
+                <div class="px-4 py-2">
+                    <h3>{{place}}</h3>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

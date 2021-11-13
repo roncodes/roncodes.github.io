@@ -1,2 +1,20 @@
-{{page-title "Index"}}
-{{outlet}}
+<div>
+    <h3 class="page-title">🎮 Horror game junkie</h3>
+
+    <div class="mb-10">
+        <p>
+            I'm going to let it be well known that I'm a horro game junkie, I almost exclusively play horror game titles.
+            On this page I will be working to review my favorite horror titles, and link to my game play footage.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {{#each this.games as |game|}}
+            <div class="flex flex-col rounded-md border border-gray-300 hover:border-green-400 hover:text-green-400 truncate">
+                <div class="px-4 py-2">
+                    <h3>{{game}}</h3>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

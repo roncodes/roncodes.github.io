@@ -14,4 +14,6 @@ Router.map(function () {
 	this.route('projects', function () {});
 	this.route('travels', function () {});
 	this.route('gaming', function () {});
+	this.route('art', function () {});
+	this.route('writing', function () {});
 });
