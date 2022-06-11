@@ -44,7 +44,7 @@ nav.main-nav > a.active {
 }
 
 .project {
-    @apply flex flex-col ml-8 mb-3 pl-6 pb-1 border-l-4 border-blue-400 flex-grow-0 flex-shrink-0;
+    @apply flex flex-col lg:ml-8 mb-3 pl-6 pb-1 border-l-4 border-blue-400 flex-grow-0 flex-shrink-0;
 }
 
 .project > .project-header {
@@ -54,6 +54,7 @@ nav.main-nav > a.active {
 .project > .project-header > .project-title {
     @apply font-semibold text-white;
 }
+
 .project > .project-header > .project-type {
     @apply flex flex-row px-4 py-0.5 rounded-md border border-black shadow-sm bg-blue-500 text-white text-sm;
 }
@@ -63,11 +64,11 @@ nav.main-nav > a.active {
 }
 
 .project .project-subprojects {
-    @apply ml-9 pr-3 mt-6;
+    @apply lg:ml-9 pr-3 mt-6;
 }
 
 .project .project-subprojects .project-subprojects-title {
-    @apply -ml-9 mb-4;
+    @apply lg:-ml-9 mb-4;
 }
 
 .project .project-subprojects > ul {
