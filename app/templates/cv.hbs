@@ -75,7 +75,7 @@
             <div class="cv-experience-container">
                 <table class="cv-table">
                     <tbody>
-                        {{#each this.data.experience as |experience|}}
+                        {{#each (reverse this.data.experience) as |experience|}}
                             <tr class="cv-experience-row with-{{experience.highlights.length}}-highlights">
                                 <td>
                                     <div class="cv-experience-title">{{experience.title}}</div>
