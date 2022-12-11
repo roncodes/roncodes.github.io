@@ -115,3 +115,7 @@ nav.main-nav > a.active {
 .project .project-link.play-store > span {
     @apply text-green-400;
 }
+
+.href-tooltip {
+    @apply rounded-md bg-black shadow-sm border border-black px-2 py-1 text-white text-xs flex items-center justify-center truncate;
+}

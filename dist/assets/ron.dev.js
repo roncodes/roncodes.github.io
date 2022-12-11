@@ -85,6 +85,747 @@
     }
   });
 });
+;define("personal/components/attach/popover", ["exports", "@ember/component", "@ember/template-factory", "@glimmer/component", "@glimmer/tracking", "@ember/object", "@ember/object/internals", "@ember/template", "@ember/runloop"], function (_exports, _component, _templateFactory, _component2, _tracking, _object, _internals, _template, _runloop) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _dec, _dec2, _dec3, _dec4, _dec5, _class, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19, _descriptor20, _descriptor21, _descriptor22, _descriptor23, _descriptor24, _descriptor25, _descriptor26, _descriptor27;
+
+  function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
+
+  function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+  function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) { var desc = {}; Object.keys(descriptor).forEach(function (key) { desc[key] = descriptor[key]; }); desc.enumerable = !!desc.enumerable; desc.configurable = !!desc.configurable; if ('value' in desc || desc.initializer) { desc.writable = true; } desc = decorators.slice().reverse().reduce(function (desc, decorator) { return decorator(target, property, desc) || desc; }, desc); if (context && desc.initializer !== void 0) { desc.value = desc.initializer ? desc.initializer.call(context) : void 0; desc.initializer = undefined; } if (desc.initializer === void 0) { Object.defineProperty(target, property, desc); desc = null; } return desc; }
+
+  function _initializerWarningHelper(descriptor, context) { throw new Error('Decorating class property failed. Please ensure that ' + 'proposal-class-properties is enabled and runs after the decorators transform.'); }
+
+  const __COLOCATED_TEMPLATE__ = (0, _templateFactory.createTemplateFactory)(
+  /*
+    <div {{did-insert this.setupComponent}}>
+      {{#if (and this.currentTarget (or (not this.lazyRender) this.mustRender))}}
+          <Floating id={{this.id}} class="ember-attacher" @ariaRole={{@ariaRole}} @placement={{this.placement}} @container={{this.floatingContainer}} @target={{this.currentTarget}} @registerAPI={{this.registerAPI}} @renderInPlace={{this.renderInPlace}} @arrow={{this.arrow}} @offset={{@offset}} @shiftOptions={{@shiftOptions}} as |floating|>
+              <div class="{{this.className}} {{@classNames}}" style={{this.computedStyle}}>
+                  {{yield}}
+  
+                  {{#if this.arrow}}
+                      <div x-arrow></div>
+                  {{/if}}
+                  {{#if (eq this.animation 'fill')}}
+                      <div x-circle style="{{this.circleTransitionDuration}}"></div>
+                  {{/if}}
+              </div>
+          </Floating>
+      {{/if}}
+  </div>
+  */
+  {
+    "id": "n+50lT0Q",
+    "block": "[[[11,0],[4,[38,0],[[30,0,[\"setupComponent\"]]],null],[12],[1,\"\\n\"],[41,[28,[37,2],[[30,0,[\"currentTarget\"]],[28,[37,3],[[28,[37,4],[[30,0,[\"lazyRender\"]]],null],[30,0,[\"mustRender\"]]],null]],null],[[[1,\"        \"],[8,[39,5],[[16,1,[30,0,[\"id\"]]],[24,0,\"ember-attacher\"]],[[\"@ariaRole\",\"@placement\",\"@container\",\"@target\",\"@registerAPI\",\"@renderInPlace\",\"@arrow\",\"@offset\",\"@shiftOptions\"],[[30,1],[30,0,[\"placement\"]],[30,0,[\"floatingContainer\"]],[30,0,[\"currentTarget\"]],[30,0,[\"registerAPI\"]],[30,0,[\"renderInPlace\"]],[30,0,[\"arrow\"]],[30,2],[30,3]]],[[\"default\"],[[[[1,\"\\n            \"],[10,0],[15,0,[29,[[30,0,[\"className\"]],\" \",[30,5]]]],[15,5,[30,0,[\"computedStyle\"]]],[12],[1,\"\\n                \"],[18,6,null],[1,\"\\n\\n\"],[41,[30,0,[\"arrow\"]],[[[1,\"                    \"],[10,0],[14,\"x-arrow\",\"\"],[12],[13],[1,\"\\n\"]],[]],null],[41,[28,[37,7],[[30,0,[\"animation\"]],\"fill\"],null],[[[1,\"                    \"],[10,0],[14,\"x-circle\",\"\"],[15,5,[30,0,[\"circleTransitionDuration\"]]],[12],[13],[1,\"\\n\"]],[]],null],[1,\"            \"],[13],[1,\"\\n        \"]],[4]]]]],[1,\"\\n\"]],[]],null],[13]],[\"@ariaRole\",\"@offset\",\"@shiftOptions\",\"floating\",\"@classNames\",\"&default\"],false,[\"did-insert\",\"if\",\"and\",\"or\",\"not\",\"floating\",\"yield\",\"eq\"]]",
+    "moduleName": "personal/components/attach/popover.hbs",
+    "isStrictMode": false
+  });
+
+  let AttachPopoverComponent = (_dec = (0, _object.computed)('transitionDuration'), _dec2 = (0, _object.computed)('class', 'arrow', 'animation', 'isStartingAnimation'), _dec3 = (0, _object.computed)('style', 'transitionDuration', 'isShown'), _dec4 = (0, _object.computed)('showOn'), _dec5 = (0, _object.computed)('hideOn'), (_class = class AttachPopoverComponent extends _component2.default {
+    constructor() {
+      super(...arguments);
+
+      _initializerDefineProperty(this, "animation", _descriptor, this);
+
+      _initializerDefineProperty(this, "arrow", _descriptor2, this);
+
+      _initializerDefineProperty(this, "flip", _descriptor3, this);
+
+      _initializerDefineProperty(this, "hideDelay", _descriptor4, this);
+
+      _initializerDefineProperty(this, "hideDuration", _descriptor5, this);
+
+      _initializerDefineProperty(this, "hideOn", _descriptor6, this);
+
+      _initializerDefineProperty(this, "interactive", _descriptor7, this);
+
+      _initializerDefineProperty(this, "isOffset", _descriptor8, this);
+
+      _initializerDefineProperty(this, "isShown", _descriptor9, this);
+
+      _initializerDefineProperty(this, "lazyRender", _descriptor10, this);
+
+      _initializerDefineProperty(this, "modifiers", _descriptor11, this);
+
+      _initializerDefineProperty(this, "placement", _descriptor12, this);
+
+      _initializerDefineProperty(this, "parentNode", _descriptor13, this);
+
+      _initializerDefineProperty(this, "floatingContainer", _descriptor14, this);
+
+      _initializerDefineProperty(this, "floatingOptions", _descriptor15, this);
+
+      _initializerDefineProperty(this, "floatingTarget", _descriptor16, this);
+
+      _initializerDefineProperty(this, "renderInPlace", _descriptor17, this);
+
+      _initializerDefineProperty(this, "currentTarget", _descriptor18, this);
+
+      _initializerDefineProperty(this, "showDelay", _descriptor19, this);
+
+      _initializerDefineProperty(this, "showDuration", _descriptor20, this);
+
+      _initializerDefineProperty(this, "showOn", _descriptor21, this);
+
+      _initializerDefineProperty(this, "style", _descriptor22, this);
+
+      _initializerDefineProperty(this, "useCapture", _descriptor23, this);
+
+      _initializerDefineProperty(this, "transitionDuration", _descriptor24, this);
+
+      _initializerDefineProperty(this, "isStartingAnimation", _descriptor25, this);
+
+      _initializerDefineProperty(this, "mustRender", _descriptor26, this);
+
+      _initializerDefineProperty(this, "onChange", _descriptor27, this);
+    }
+
+    get circleTransitionDuration() {
+      const {
+        transitionDuration
+      } = this;
+      return (0, _template.htmlSafe)(`transition-duration: ${Math.round(transitionDuration / 1.25)}ms`);
+    }
+
+    get className() {
+      const showOrHideClass = `ember-attacher-${this.isStartingAnimation ? 'show' : 'hide'}`;
+      const arrowClass = `ember-attacher-${this.arrow ? 'with' : 'without'}-arrow`;
+      return `ember-attacher-${this.animation} ${showOrHideClass} ${arrowClass}`;
+    }
+
+    get computedStyle() {
+      const {
+        style,
+        transitionDuration,
+        isShown
+      } = this;
+      return (0, _template.htmlSafe)(`transition-duration: ${transitionDuration}ms; pointer-events: ${isShown ? 'auto' : 'none'}; ${style ?? ''}`);
+    }
+
+    get showEvents() {
+      let {
+        showOn
+      } = this;
+
+      if (showOn === undefined) {
+        showOn = 'mouseenter focus';
+      }
+
+      return showOn === null ? [] : showOn.split(' ');
+    }
+
+    get hideEvents() {
+      let {
+        hideOn
+      } = this;
+
+      if (hideOn === undefined) {
+        hideOn = 'mouseleave blur escapekey';
+      }
+
+      return hideOn === null ? [] : hideOn.split(' ');
+    }
+
+    registerAPI(api) {
+      this.floatingElement = api.floatingElement;
+      this.floatingTarget = api.floatingTarget;
+      this.computePosition = api.computePosition;
+    }
+
+    setDefaultOptions() {
+      for (const option in this.args) {
+        if (this.args[option] === undefined) {
+          continue;
+        }
+
+        (0, _object.set)(this, option, this.args[option]);
+      }
+    }
+
+    setupComponent(element) {
+      // apply default arguments
+      this.setDefaultOptions(); // set last used capture arg
+
+      this.lastUseCaptureArgumentValue = this.useCapture; // Used to determine the attachments initial parent element
+
+      this.parentNode = this.floatingTarget?.parentNode ?? element.parentNode; // The debounced _hide() and _how() are stored here so they can be cancelled when necessary
+
+      this.delayedVisibilityToggle = null; // id for this element
+
+      this.id = this.id || `${(0, _internals.guidFor)(this)}-floating-ui`; // The final source of truth on whether or not all hide() or show() actions have completed
+
+      this.isHidden = true; // Holds a delayed function to toggle the visibility of the attachment.
+      // Used to make sure animations can complete before the attachment is hidden.
+
+      this.animationTimeout = null; // Used to store event listeners so they can be removed when necessary.
+
+      this.hideListenersOnDocumentByEvent = {};
+      this.hideListenersOnTargetByEvent = {};
+      this.showListenersOnTargetByEvent = {}; // Let's go
+
+      this.initializeAttacher();
+    }
+
+    initializeAttacher() {
+      this.removeEventListeners();
+      this.currentTarget = this.floatingTarget || this.parentNode;
+      this.addListenersForShowEvents();
+      this.addListenersForHideEvents();
+
+      if (!this.isHidden || this.isShown) {
+        // Even if the attachment is already shown, we still want to
+        // call this.show() to make sure its position is updated for a potentially new target.
+        this.show();
+      }
+    }
+
+    debouncedHideIfMouseOutsideTargetOrAttachment(event) {
+      (0, _runloop.debounce)(this, this.hideIfMouseOutsideTargetOrAttachment, event, 10);
+    }
+
+    hide() {
+      const {
+        floatingElement
+      } = this;
+
+      if (!floatingElement) {
+        this.animationTimeout = requestAnimationFrame(() => {
+          this.animationTimeout = this.hide();
+        });
+        return;
+      }
+
+      cancelAnimationFrame(this.animationTimeout);
+      this.animationTimeout = requestAnimationFrame(() => {
+        // Avoid a race condition where we attempt to hide after the component is being destroyed.
+        if (this.isDestroyed || this.isDestroying) {
+          return;
+        }
+
+        const hideDuration = parseInt(this.hideDuration);
+        (0, _runloop.run)(() => {
+          if (this.isDestroyed || this.isDestroying) {
+            return;
+          }
+
+          this.transitionDuration = hideDuration;
+          this.isStartingAnimation = false;
+          this.floatingElement.setAttribute('aria-hidden', 'true'); // Wait for any animations to complete before hiding the attachment
+
+          this.setIsVisibleAfterDelay(false, hideDuration);
+        });
+        this.isHidden = true;
+      });
+    }
+
+    hideAfterDelay() {
+      (0, _runloop.cancel)(this.delayedVisibilityToggle);
+      const hideDelay = parseInt(this.hideDelay);
+      this.delayedVisibilityToggle = (0, _runloop.debounce)(this, this.hide, hideDelay, !hideDelay);
+    }
+
+    hideIfMouseOutsideTargetOrAttachment(event) {
+      const target = this.currentTarget;
+
+      if (!target) {
+        return;
+      } // If cursor is not on the attachment or target, hide the popover
+
+
+      if (!target.contains(event.target) && !(this.isOffset && this.isCursorBetweenTargetAndAttachment(event)) && this.floatingElement && !this.floatingElement.contains(event.target)) {
+        // Remove this listener before hiding the attachment
+        delete this.hideListenersOnDocumentByEvent.mousemove;
+        document.removeEventListener('mousemove', this.hideIfMouseOutsideTargetOrAttachment, this.useCapture);
+        this.hideAfterDelay();
+      }
+    }
+
+    hideOnClickOut(event) {
+      const targetReceivedClick = this.currentTarget.contains(event.target);
+
+      if (this.interactive) {
+        if (!targetReceivedClick && !this.floatingElement.contains(event.target)) {
+          this.hideAfterDelay();
+        }
+      } else if (!targetReceivedClick) {
+        this.hideAfterDelay();
+      }
+    }
+
+    hideOnEscapeKey(event) {
+      if (event.keyCode === 27) {
+        return this.hideAfterDelay();
+      }
+    }
+
+    hideOnLostFocus(event) {
+      if (event.relatedTarget === null) {
+        this.hideAfterDelay();
+      }
+
+      if (!this.currentTarget) {
+        return;
+      }
+
+      const targetContainsFocus = this.currentTarget.contains(event.relatedTarget);
+
+      if (this.interactive) {
+        if (!targetContainsFocus && !this.floatingElement.contains(event.relatedTarget)) {
+          this.hideAfterDelay();
+        }
+      } else if (!targetContainsFocus) {
+        this.hideAfterDelay();
+      }
+    }
+
+    removeEventListeners() {
+      const {
+        currentTarget
+      } = this;
+      Object.keys(this.hideListenersOnDocumentByEvent).forEach(eventType => {
+        document.removeEventListener(eventType, this.hideListenersOnDocumentByEvent[eventType], this.useCapture);
+        delete this.hideListenersOnDocumentByEvent[eventType];
+      });
+
+      if (!currentTarget) {
+        return;
+      }
+
+      [this.hideListenersOnTargetByEvent, this.showListenersOnTargetByEvent].forEach(eventToListener => {
+        Object.keys(eventToListener).forEach(event => {
+          this.currentTarget.removeEventListener(event, eventToListener[event], this.useCapture);
+        });
+      });
+    }
+
+    addListenersForHideEvents() {
+      const hideOn = this.hideEvents;
+      const target = this.currentTarget; // Target or component was destroyed
+
+      if (!target || this.isDestroyed || this.isDestroying) {
+        return;
+      }
+
+      if (hideOn.includes('click')) {
+        const showOnClickListener = this.showListenersOnTargetByEvent.click;
+
+        if (showOnClickListener) {
+          target.removeEventListener('click', showOnClickListener, this.useCapture);
+          delete this.showListenersOnTargetByEvent.click;
+        }
+
+        this.hideListenersOnTargetByEvent.click = this.hideAfterDelay;
+        target.addEventListener('click', this.hideAfterDelay, this.useCapture);
+      }
+
+      if (hideOn.includes('clickout')) {
+        const clickoutEvent = 'ontouchstart' in window ? 'touchend' : 'click';
+        this.hideListenersOnDocumentByEvent[clickoutEvent] = this.hideOnClickOut;
+        document.addEventListener(clickoutEvent, this.hideOnClickOut, this.useCapture);
+      }
+
+      if (hideOn.includes('escapekey')) {
+        this.hideListenersOnDocumentByEvent.keydown = this.hideOnEscapeKey;
+        document.addEventListener('keydown', this.hideOnEscapeKey, this.useCapture);
+      } // Hides the attachment when the mouse leaves the target
+      // (or leaves both target and attachment for interactive attachments)
+
+
+      if (hideOn.includes('mouseleave')) {
+        this.hideListenersOnTargetByEvent.mouseleave = this.hideOnMouseLeaveTarget;
+        target.addEventListener('mouseleave', this.hideOnMouseLeaveTarget, this.useCapture);
+      } // Hides the attachment when focus is lost on the target
+
+
+      ['blur', 'focusout'].forEach(eventType => {
+        if (hideOn.includes(eventType)) {
+          this.hideListenersOnTargetByEvent[eventType] = this.hideOnLostFocus;
+          target.addEventListener(eventType, this.hideOnLostFocus, this.useCapture);
+        }
+      });
+    }
+
+    hideOnMouseLeaveTarget() {
+      if (this.interactive) {
+        // TODO(kjb) Should debounce this, but hiding appears sluggish if you debounce.
+        //   - If you debounce with immediate fire, you get a bug where you can move out of the
+        //   attachment and not trigger the hide because the hide check was debounced
+        //   - Ideally we would debounce with an immediate run, then instead of debouncing, we would
+        //   queue another fire at the end of the debounce period
+        if (!this.hideListenersOnDocumentByEvent.mousemove) {
+          this.hideListenersOnDocumentByEvent.mousemove = this.hideIfMouseOutsideTargetOrAttachment;
+          document.addEventListener('mousemove', this.hideIfMouseOutsideTargetOrAttachment, this.useCapture);
+        }
+      } else {
+        this.hideAfterDelay();
+      }
+    }
+
+    showAfterDelay() {
+      (0, _runloop.cancel)(this.delayedVisibilityToggle);
+      this.mustRender = true;
+      this.addListenersForHideEvents();
+      const showDelay = parseInt(this.showDelay);
+      this.delayedVisibilityToggle = (0, _runloop.debounce)(this, this.show, showDelay, !showDelay);
+    }
+
+    show() {
+      const {
+        currentTarget
+      } = this;
+      cancelAnimationFrame(this.animationTimeout);
+
+      if (!currentTarget) {
+        return;
+      }
+
+      this.mustRender = true; // Make the attachment visible immediately so transition animations can take place
+
+      this.setIsVisibleAfterDelay(true, 0);
+      this.startShowAnimation();
+    }
+
+    startShowAnimation() {
+      // Recompute position before showing animation
+      if (typeof this.computePosition === 'function') {
+        this.computePosition(this.floatingTarget, this.floatingElement);
+      } // Start the show animation on the next cycle so CSS transitions can have an effect.
+      // If we start the animation immediately, the transition won't work because
+      // `display: none` => `display: ''` is not transition-able.
+      // All included animations set opaque: 0, so the attachment is still effectively hidden until
+      // the final RAF occurs.
+
+
+      this.animationTimeout = requestAnimationFrame(() => {
+        if (this.isDestroyed || this.isDestroying || !this.currentTarget) {
+          return;
+        }
+
+        const floatingElement = this.floatingElement; // Wait until the element is visible before continuing
+
+        if (!floatingElement || floatingElement.style.display === 'none') {
+          this.animationTimeout = this.startShowAnimation();
+          return;
+        } // Wait for the above positioning to take effect before starting the show animation,
+        // else the positioning itself will be animated, causing animation glitches.
+
+
+        this.animationTimeout = requestAnimationFrame(() => {
+          if (this.isDestroyed || this.isDestroying || !this.currentTarget) {
+            return;
+          }
+
+          (0, _runloop.run)(() => {
+            if (this.isDestroyed || this.isDestroying || !this.currentTarget) {
+              return;
+            } // Make the popper element visible now that it has been positioned
+
+
+            floatingElement.style.visibility = '';
+            this.transitionDuration = parseInt(this.showDuration);
+            this.isStartingAnimation = true;
+            floatingElement.setAttribute('aria-hidden', 'false');
+          });
+          this.isHidden = false;
+        });
+      });
+    }
+
+    setIsVisibleAfterDelay(isVisible, delay) {
+      const {
+        floatingElement
+      } = this;
+
+      if (!floatingElement) {
+        this.animationTimeout = requestAnimationFrame(() => {
+          this.animationTimeout = this.setIsVisibleAfterDelay(isVisible, delay);
+        });
+        return;
+      }
+
+      const onChange = this.onChange;
+
+      if (delay) {
+        this.delayedVisibilityToggle = (0, _runloop.later)(this, () => {
+          this.animationTimeout = requestAnimationFrame(() => {
+            if (!this.isDestroyed && !this.isDestroying) {
+              this.floatingElement.style.display = isVisible ? '' : 'none'; // Prevent jank by making the attachment invisible until positioned.
+              // The visibility style will be toggled by this.startShowAnimation()
+
+              this.floatingElement.style.visibility = isVisible ? 'hidden' : '';
+
+              if (onChange) {
+                onChange(isVisible);
+              }
+            }
+          });
+        }, delay);
+      } else {
+        this.floatingElement.style.display = isVisible ? '' : 'none'; // Prevent jank by making the attachment invisible until positioned.
+        // The visibility style will be toggled by this.startShowAnimation()
+
+        this.floatingElement.style.visibility = isVisible ? 'hidden' : '';
+
+        if (onChange) {
+          onChange(isVisible);
+        }
+      }
+    }
+
+    addListenersForShowEvents() {
+      const {
+        currentTarget
+      } = this;
+
+      if (!currentTarget) {
+        return;
+      }
+
+      this.showEvents.forEach(event => {
+        this.showListenersOnTargetByEvent[event] = this.showAfterDelay;
+        this.currentTarget.addEventListener(event, this.showAfterDelay, this.useCapture);
+      });
+    }
+
+  }, (_descriptor = _applyDecoratedDescriptor(_class.prototype, "animation", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return 'fill';
+    }
+  }), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, "arrow", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return false;
+    }
+  }), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, "flip", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return null;
+    }
+  }), _descriptor4 = _applyDecoratedDescriptor(_class.prototype, "hideDelay", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return 0;
+    }
+  }), _descriptor5 = _applyDecoratedDescriptor(_class.prototype, "hideDuration", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return 300;
+    }
+  }), _descriptor6 = _applyDecoratedDescriptor(_class.prototype, "hideOn", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return 'mouseleave blur escapekey';
+    }
+  }), _descriptor7 = _applyDecoratedDescriptor(_class.prototype, "interactive", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return false;
+    }
+  }), _descriptor8 = _applyDecoratedDescriptor(_class.prototype, "isOffset", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return false;
+    }
+  }), _descriptor9 = _applyDecoratedDescriptor(_class.prototype, "isShown", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return false;
+    }
+  }), _descriptor10 = _applyDecoratedDescriptor(_class.prototype, "lazyRender", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return false;
+    }
+  }), _descriptor11 = _applyDecoratedDescriptor(_class.prototype, "modifiers", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return null;
+    }
+  }), _descriptor12 = _applyDecoratedDescriptor(_class.prototype, "placement", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return 'top';
+    }
+  }), _descriptor13 = _applyDecoratedDescriptor(_class.prototype, "parentNode", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: null
+  }), _descriptor14 = _applyDecoratedDescriptor(_class.prototype, "floatingContainer", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return '.ember-application';
+    }
+  }), _descriptor15 = _applyDecoratedDescriptor(_class.prototype, "floatingOptions", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return null;
+    }
+  }), _descriptor16 = _applyDecoratedDescriptor(_class.prototype, "floatingTarget", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return null;
+    }
+  }), _descriptor17 = _applyDecoratedDescriptor(_class.prototype, "renderInPlace", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return false;
+    }
+  }), _descriptor18 = _applyDecoratedDescriptor(_class.prototype, "currentTarget", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return null;
+    }
+  }), _descriptor19 = _applyDecoratedDescriptor(_class.prototype, "showDelay", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return 0;
+    }
+  }), _descriptor20 = _applyDecoratedDescriptor(_class.prototype, "showDuration", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return 300;
+    }
+  }), _descriptor21 = _applyDecoratedDescriptor(_class.prototype, "showOn", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return 'mouseenter focus';
+    }
+  }), _descriptor22 = _applyDecoratedDescriptor(_class.prototype, "style", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return null;
+    }
+  }), _descriptor23 = _applyDecoratedDescriptor(_class.prototype, "useCapture", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return false;
+    }
+  }), _descriptor24 = _applyDecoratedDescriptor(_class.prototype, "transitionDuration", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return 0;
+    }
+  }), _descriptor25 = _applyDecoratedDescriptor(_class.prototype, "isStartingAnimation", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return false;
+    }
+  }), _descriptor26 = _applyDecoratedDescriptor(_class.prototype, "mustRender", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return false;
+    }
+  }), _descriptor27 = _applyDecoratedDescriptor(_class.prototype, "onChange", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return null;
+    }
+  }), _applyDecoratedDescriptor(_class.prototype, "circleTransitionDuration", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "circleTransitionDuration"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "className", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "className"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "computedStyle", [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, "computedStyle"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "showEvents", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "showEvents"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "hideEvents", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "hideEvents"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "registerAPI", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "registerAPI"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setDefaultOptions", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "setDefaultOptions"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setupComponent", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "setupComponent"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "initializeAttacher", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "initializeAttacher"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "debouncedHideIfMouseOutsideTargetOrAttachment", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "debouncedHideIfMouseOutsideTargetOrAttachment"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "hide", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "hide"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "hideAfterDelay", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "hideAfterDelay"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "hideIfMouseOutsideTargetOrAttachment", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "hideIfMouseOutsideTargetOrAttachment"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "hideOnClickOut", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "hideOnClickOut"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "hideOnEscapeKey", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "hideOnEscapeKey"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "hideOnLostFocus", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "hideOnLostFocus"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "removeEventListeners", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "removeEventListeners"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "addListenersForHideEvents", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "addListenersForHideEvents"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "hideOnMouseLeaveTarget", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "hideOnMouseLeaveTarget"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "showAfterDelay", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "showAfterDelay"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "show", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "show"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "startShowAnimation", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "startShowAnimation"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setIsVisibleAfterDelay", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "setIsVisibleAfterDelay"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "addListenersForShowEvents", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "addListenersForShowEvents"), _class.prototype)), _class));
+  _exports.default = AttachPopoverComponent;
+  (0, _component.setComponentTemplate)(__COLOCATED_TEMPLATE__, AttachPopoverComponent);
+});
+;define("personal/components/attach/tooltip", ["exports", "@ember/component", "@ember/template-factory", "@glimmer/component", "@glimmer/tracking", "@ember/object"], function (_exports, _component, _templateFactory, _component2, _tracking, _object) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _dec, _class;
+
+  function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) { var desc = {}; Object.keys(descriptor).forEach(function (key) { desc[key] = descriptor[key]; }); desc.enumerable = !!desc.enumerable; desc.configurable = !!desc.configurable; if ('value' in desc || desc.initializer) { desc.writable = true; } desc = decorators.slice().reverse().reduce(function (desc, decorator) { return decorator(target, property, desc) || desc; }, desc); if (context && desc.initializer !== void 0) { desc.value = desc.initializer ? desc.initializer.call(context) : void 0; desc.initializer = undefined; } if (desc.initializer === void 0) { Object.defineProperty(target, property, desc); desc = null; } return desc; }
+
+  const __COLOCATED_TEMPLATE__ = (0, _templateFactory.createTemplateFactory)(
+  /*
+    <Attach::Popover @classNames="ember-attacher-tooltip" @ariaRole="tooltip" @renderInPlace={{@renderInPlace}} @placement={{this.placement}} @arrow={{@arrow}} @offset={{@offset}} @shiftOptions={{@shiftOptions}} @animation={{@animation}} @arrow={{@arrow}} @hideOn={{@hideOn}} @showOn={{@showOn}} @interactive={{@interactive}} @isShown={{@isShown}} @lazyRender={{@lazyRender}} @showDelay={{@showDelay}} @showDuration={{@showDuration}} @transitionDuration={{@transitionDuration}} ...attribute>{{yield}}</Attach::Popover>
+  */
+  {
+    "id": "ptG68HCk",
+    "block": "[[[8,[39,0],[[24,\"...attribute\",\"\"]],[[\"@classNames\",\"@ariaRole\",\"@renderInPlace\",\"@placement\",\"@arrow\",\"@offset\",\"@shiftOptions\",\"@animation\",\"@arrow\",\"@hideOn\",\"@showOn\",\"@interactive\",\"@isShown\",\"@lazyRender\",\"@showDelay\",\"@showDuration\",\"@transitionDuration\"],[\"ember-attacher-tooltip\",\"tooltip\",[30,1],[30,0,[\"placement\"]],[30,2],[30,3],[30,4],[30,5],[30,2],[30,6],[30,7],[30,8],[30,9],[30,10],[30,11],[30,12],[30,13]]],[[\"default\"],[[[[18,14,null]],[]]]]]],[\"@renderInPlace\",\"@arrow\",\"@offset\",\"@shiftOptions\",\"@animation\",\"@hideOn\",\"@showOn\",\"@interactive\",\"@isShown\",\"@lazyRender\",\"@showDelay\",\"@showDuration\",\"@transitionDuration\",\"&default\"],false,[\"attach/popover\",\"yield\"]]",
+    "moduleName": "personal/components/attach/tooltip.hbs",
+    "isStrictMode": false
+  });
+
+  let AttachTooltipComponent = (_dec = (0, _object.computed)('args.placement'), (_class = class AttachTooltipComponent extends _component2.default {
+    get placement() {
+      const {
+        placement
+      } = this.args;
+
+      if (typeof placement === 'string') {
+        return placement;
+      }
+
+      return 'right';
+    }
+
+  }, (_applyDecoratedDescriptor(_class.prototype, "placement", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "placement"), _class.prototype)), _class));
+  _exports.default = AttachTooltipComponent;
+  (0, _component.setComponentTemplate)(__COLOCATED_TEMPLATE__, AttachTooltipComponent);
+});
 ;define("personal/components/body", ["exports", "@ember/component", "@ember/template-factory", "@glimmer/component"], function (_exports, _component, _templateFactory, _component2) {
   "use strict";
 
@@ -125,6 +866,252 @@
       return _faIcon.default;
     }
   });
+});
+;define("personal/components/floating", ["exports", "@ember/component", "@ember/template-factory", "@glimmer/component", "@glimmer/tracking", "@ember/object", "@ember/array", "@floating-ui/dom"], function (_exports, _component, _templateFactory, _component2, _tracking, _object, _array, _dom) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _dec, _dec2, _class, _descriptor, _descriptor2;
+
+  function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
+
+  function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+  function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) { var desc = {}; Object.keys(descriptor).forEach(function (key) { desc[key] = descriptor[key]; }); desc.enumerable = !!desc.enumerable; desc.configurable = !!desc.configurable; if ('value' in desc || desc.initializer) { desc.writable = true; } desc = decorators.slice().reverse().reduce(function (desc, decorator) { return decorator(target, property, desc) || desc; }, desc); if (context && desc.initializer !== void 0) { desc.value = desc.initializer ? desc.initializer.call(context) : void 0; desc.initializer = undefined; } if (desc.initializer === void 0) { Object.defineProperty(target, property, desc); desc = null; } return desc; }
+
+  function _initializerWarningHelper(descriptor, context) { throw new Error('Decorating class property failed. Please ensure that ' + 'proposal-class-properties is enabled and runs after the decorators transform.'); }
+
+  const __COLOCATED_TEMPLATE__ = (0, _templateFactory.createTemplateFactory)(
+  /*
+    {{#if @renderInPlace}}
+      <div {{did-insert this.setupComponent}} role={{@ariaRole}} x-placement={{@placement}} ...attributes>
+          {{yield}}
+      </div>
+  {{else}}
+      <div class="floating--parent-finder" {{did-insert this.findParent}} />
+      {{#if this.floatingContainer}}
+          {{#in-element this.floatingContainer insertBefore=null}}
+              <div {{did-insert this.setupComponent}} role={{@ariaRole}} x-placement={{@placement}} ...attributes>
+                  {{yield}}
+  
+                  {{#if @arrow}}
+                      <div x-arrow></div>
+                  {{/if}}
+              </div>
+          {{/in-element}}
+      {{/if}}
+  {{/if}}
+  */
+  {
+    "id": "hqCR1YSE",
+    "block": "[[[41,[30,1],[[[1,\"    \"],[11,0],[16,\"role\",[30,2]],[16,\"x-placement\",[30,3]],[17,4],[4,[38,1],[[30,0,[\"setupComponent\"]]],null],[12],[1,\"\\n        \"],[18,6,null],[1,\"\\n    \"],[13],[1,\"\\n\"]],[]],[[[1,\"    \"],[11,0],[24,0,\"floating--parent-finder\"],[4,[38,1],[[30,0,[\"findParent\"]]],null],[12],[13],[1,\"\\n\"],[41,[30,0,[\"floatingContainer\"]],[[[40,[[[1,\"            \"],[11,0],[16,\"role\",[30,2]],[16,\"x-placement\",[30,3]],[17,4],[4,[38,1],[[30,0,[\"setupComponent\"]]],null],[12],[1,\"\\n                \"],[18,6,null],[1,\"\\n\\n\"],[41,[30,5],[[[1,\"                    \"],[10,0],[14,\"x-arrow\",\"\"],[12],[13],[1,\"\\n\"]],[]],null],[1,\"            \"],[13],[1,\"\\n\"]],[]],\"%cursor:0%\",[28,[37,4],[[30,0,[\"floatingContainer\"]]],null],null]],[]],null]],[]]]],[\"@renderInPlace\",\"@ariaRole\",\"@placement\",\"&attrs\",\"@arrow\",\"&default\"],false,[\"if\",\"did-insert\",\"yield\",\"in-element\",\"-in-el-null\"]]",
+    "moduleName": "personal/components/floating.hbs",
+    "isStrictMode": false
+  });
+
+  const {
+    assign
+  } = Object;
+  let FloatingComponent = (_dec = (0, _object.computed)('args.shiftOptions'), _dec2 = (0, _object.computed)('args.{container,target}', 'target'), (_class = class FloatingComponent extends _component2.default {
+    constructor() {
+      super(...arguments);
+
+      _initializerDefineProperty(this, "element", _descriptor, this);
+
+      _initializerDefineProperty(this, "target", _descriptor2, this);
+    }
+
+    get defaultOptions() {
+      const {
+        shiftOptions
+      } = this.args;
+      return {
+        placement: 'bottom',
+        strategy: 'absolute',
+        middleware: [(0, _dom.flip)(), (0, _dom.shift)(shiftOptions)]
+      };
+    }
+
+    get floatingContainer() {
+      const {
+        container,
+        target
+      } = this.args;
+      const trackedTarget = this.target;
+
+      if (container === undefined && target === undefined) {
+        return trackedTarget instanceof Element ? trackedTarget.parentNode : trackedTarget;
+      }
+
+      let floatingContainer = document.body;
+
+      if (container === undefined && target instanceof Element) {
+        floatingContainer = target.parentNode || target.closest('section') || target.closest('main') || target.closest('body');
+      }
+
+      if (container instanceof Element) {
+        floatingContainer = container;
+      } else if (typeof container === 'string') {
+        const selector = container;
+        const possibleContainers = document.querySelectorAll(selector);
+        floatingContainer = possibleContainers[0];
+      }
+
+      return floatingContainer;
+    }
+
+    resolveTarget(element) {
+      const {
+        target
+      } = this.args;
+
+      if (this.target instanceof Element) {
+        return this.target;
+      }
+
+      let possibleTarget = element instanceof Element ? element.parentNode : document.body;
+
+      if (target instanceof Element) {
+        possibleTarget = target;
+      } else if (typeof target === 'string') {
+        const selector = target;
+        const possibleTargets = self.document.querySelectorAll(selector);
+        possibleTarget = possibleTargets[0];
+      }
+
+      return possibleTarget;
+    }
+
+    findParent(parentFinderNode) {
+      const {
+        container,
+        target
+      } = this.args;
+
+      if (container === undefined && target === undefined) {
+        // set target from parent finder node and remove
+        this.target = parentFinderNode.parentNode;
+      }
+
+      parentFinderNode.remove();
+    }
+
+    getMiddleware(element) {
+      const {
+        defaultOptions
+      } = this;
+      const mware = this.args.middleware;
+      const offsetBy = this.args.offset;
+      const displayArrow = this.args.offset;
+      const middleware = (0, _array.isArray)(mware) ? mware : defaultOptions.middleware;
+
+      if (typeof offsetBy === 'number') {
+        middleware.push((0, _dom.offset)(offsetBy));
+      }
+
+      if (displayArrow === true) {
+        const arrowNode = element.closest('[x-arrow]');
+
+        if (arrowNode instanceof Element) {
+          middleware.push((0, _dom.arrow)(arrowNode));
+        }
+      }
+
+      return middleware;
+    }
+
+    getOptions(element) {
+      const {
+        defaultOptions
+      } = this;
+      const {
+        placement,
+        strategy
+      } = this.args;
+      const middleware = this.getMiddleware(element);
+      return {
+        placement: placement || defaultOptions.placement,
+        strategy: strategy || defaultOptions.strategy,
+        middleware
+      };
+    }
+
+    setupComponent(element) {
+      const {
+        registerAPI
+      } = this.args;
+      const target = this.target = this.resolveTarget(element);
+
+      if (typeof registerAPI === 'function') {
+        registerAPI({
+          floatingElement: element,
+          floatingTarget: target,
+          computePosition: this.computePosition.bind(this)
+        });
+      }
+
+      return this.computePosition(target, element);
+    }
+
+    computePosition(target, element) {
+      const {
+        onPositionComputed
+      } = this.args;
+      const {
+        placement,
+        strategy,
+        middleware
+      } = this.getOptions(element);
+      assign(element.style, {
+        position: strategy
+      });
+      (0, _dom.computePosition)(target, element, {
+        placement,
+        strategy,
+        middleware
+      }).then(_ref2 => {
+        let {
+          x,
+          y
+        } = _ref2;
+        assign(element.style, {
+          position: 'absolute',
+          pointerEvents: 'none',
+          willChange: 'transform',
+          top: '0',
+          left: '0',
+          transform: `translate3d(${Math.round(x)}px,${Math.round(y)}px,0)`
+        });
+
+        if (typeof onPositionComputed === 'function') {
+          onPositionComputed({
+            floatingElement: element,
+            floatingTarget: target,
+            computePosition: this.computePosition.bind(this),
+            x,
+            y
+          });
+        }
+      });
+    }
+
+  }, (_descriptor = _applyDecoratedDescriptor(_class.prototype, "element", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: null
+  }), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, "target", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: null
+  }), _applyDecoratedDescriptor(_class.prototype, "defaultOptions", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "defaultOptions"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "floatingContainer", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "floatingContainer"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "resolveTarget", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "resolveTarget"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "findParent", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "findParent"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "getMiddleware", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "getMiddleware"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "getOptions", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "getOptions"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setupComponent", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "setupComponent"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "computePosition", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "computePosition"), _class.prototype)), _class));
+  _exports.default = FloatingComponent;
+  (0, _component.setComponentTemplate)(__COLOCATED_TEMPLATE__, FloatingComponent);
 });
 ;define("personal/components/footer", ["exports", "@ember/component", "@ember/template-factory", "@glimmer/component", "@ember/object", "@ember/object/computed", "personal/utils/clean-object", "personal/utils/config"], function (_exports, _component, _templateFactory, _component2, _object, _computed, _cleanObject, _config) {
   "use strict";
@@ -292,15 +1279,27 @@
               <div class="flex flex-row justify-end items-center dark:text-gray-400 -mr-3">
                   <LinkTo @route="home" class="flex items-center justify-center w-8 hover:opacity-50">
                       <FaIcon @icon="home" />
+                      <Attach::Tooltip @animation="scale" @placement="bottom" @showOn="mouseenter focus">
+                          <div class="href-tooltip">Home</div>
+                      </Attach::Tooltip>
                   </LinkTo>
                   <LinkTo @route="cv" class="flex items-center justify-center w-8 hover:opacity-50">
                       <FaIcon @icon="file-lines" />
+                      <Attach::Tooltip @animation="scale" @placement="bottom" @showOn="mouseenter focus">
+                          <div class="href-tooltip">CV</div>
+                      </Attach::Tooltip>
                   </LinkTo>
                   <button type="button" class="flex items-center justify-center w-8 hover:opacity-50" {{on "click" this.onPrint}}>
                       <FaIcon @icon="print" />
+                      <Attach::Tooltip @animation="scale" @placement="bottom" @showOn="mouseenter focus">
+                          <div class="href-tooltip">Print/ PDF</div>
+                      </Attach::Tooltip>
                   </button>
                   <button type="button" class="flex items-center justify-center w-8 hover:opacity-50" {{on "click" this.onToggleTheme}}>
                       <FaIcon @icon={{if this.isDarkMode "lightbulb" "lightbulb-on"}} />
+                      <Attach::Tooltip @animation="scale" @placement="bottom" @showOn="mouseenter focus">
+                          <div class="href-tooltip">{{if this.isDarkMode "Lights on!" "Lights off!"}}</div>
+                      </Attach::Tooltip>
                   </button>
               </div>
           </PageContainer>
@@ -308,8 +1307,8 @@
   {{/if}}
   */
   {
-    "id": "eKoe7H9z",
-    "block": "[[[41,[30,0,[\"visible\"]],[[[1,\"    \"],[11,0],[24,0,\"relative print:hidden\"],[17,1],[12],[1,\"\\n        \"],[8,[39,1],[[24,0,\"flex flex-row justify-end my-6\"]],null,[[\"default\"],[[[[1,\"\\n            \"],[10,0],[14,0,\"flex flex-row justify-end items-center dark:text-gray-400 -mr-3\"],[12],[1,\"\\n                \"],[8,[39,2],[[24,0,\"flex items-center justify-center w-8 hover:opacity-50\"]],[[\"@route\"],[\"home\"]],[[\"default\"],[[[[1,\"\\n                    \"],[8,[39,3],null,[[\"@icon\"],[\"home\"]],null],[1,\"\\n                \"]],[]]]]],[1,\"\\n                \"],[8,[39,2],[[24,0,\"flex items-center justify-center w-8 hover:opacity-50\"]],[[\"@route\"],[\"cv\"]],[[\"default\"],[[[[1,\"\\n                    \"],[8,[39,3],null,[[\"@icon\"],[\"file-lines\"]],null],[1,\"\\n                \"]],[]]]]],[1,\"\\n                \"],[11,\"button\"],[24,0,\"flex items-center justify-center w-8 hover:opacity-50\"],[24,4,\"button\"],[4,[38,4],[\"click\",[30,0,[\"onPrint\"]]],null],[12],[1,\"\\n                    \"],[8,[39,3],null,[[\"@icon\"],[\"print\"]],null],[1,\"\\n                \"],[13],[1,\"\\n                \"],[11,\"button\"],[24,0,\"flex items-center justify-center w-8 hover:opacity-50\"],[24,4,\"button\"],[4,[38,4],[\"click\",[30,0,[\"onToggleTheme\"]]],null],[12],[1,\"\\n                    \"],[8,[39,3],null,[[\"@icon\"],[[52,[30,0,[\"isDarkMode\"]],\"lightbulb\",\"lightbulb-on\"]]],null],[1,\"\\n                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n        \"]],[]]]]],[1,\"\\n    \"],[13],[1,\"\\n\"]],[]],null]],[\"&attrs\"],false,[\"if\",\"page-container\",\"link-to\",\"fa-icon\",\"on\"]]",
+    "id": "bJjBk5SP",
+    "block": "[[[41,[30,0,[\"visible\"]],[[[1,\"    \"],[11,0],[24,0,\"relative print:hidden\"],[17,1],[12],[1,\"\\n        \"],[8,[39,1],[[24,0,\"flex flex-row justify-end my-6\"]],null,[[\"default\"],[[[[1,\"\\n            \"],[10,0],[14,0,\"flex flex-row justify-end items-center dark:text-gray-400 -mr-3\"],[12],[1,\"\\n                \"],[8,[39,2],[[24,0,\"flex items-center justify-center w-8 hover:opacity-50\"]],[[\"@route\"],[\"home\"]],[[\"default\"],[[[[1,\"\\n                    \"],[8,[39,3],null,[[\"@icon\"],[\"home\"]],null],[1,\"\\n                    \"],[8,[39,4],null,[[\"@animation\",\"@placement\",\"@showOn\"],[\"scale\",\"bottom\",\"mouseenter focus\"]],[[\"default\"],[[[[1,\"\\n                        \"],[10,0],[14,0,\"href-tooltip\"],[12],[1,\"Home\"],[13],[1,\"\\n                    \"]],[]]]]],[1,\"\\n                \"]],[]]]]],[1,\"\\n                \"],[8,[39,2],[[24,0,\"flex items-center justify-center w-8 hover:opacity-50\"]],[[\"@route\"],[\"cv\"]],[[\"default\"],[[[[1,\"\\n                    \"],[8,[39,3],null,[[\"@icon\"],[\"file-lines\"]],null],[1,\"\\n                    \"],[8,[39,4],null,[[\"@animation\",\"@placement\",\"@showOn\"],[\"scale\",\"bottom\",\"mouseenter focus\"]],[[\"default\"],[[[[1,\"\\n                        \"],[10,0],[14,0,\"href-tooltip\"],[12],[1,\"CV\"],[13],[1,\"\\n                    \"]],[]]]]],[1,\"\\n                \"]],[]]]]],[1,\"\\n                \"],[11,\"button\"],[24,0,\"flex items-center justify-center w-8 hover:opacity-50\"],[24,4,\"button\"],[4,[38,5],[\"click\",[30,0,[\"onPrint\"]]],null],[12],[1,\"\\n                    \"],[8,[39,3],null,[[\"@icon\"],[\"print\"]],null],[1,\"\\n                    \"],[8,[39,4],null,[[\"@animation\",\"@placement\",\"@showOn\"],[\"scale\",\"bottom\",\"mouseenter focus\"]],[[\"default\"],[[[[1,\"\\n                        \"],[10,0],[14,0,\"href-tooltip\"],[12],[1,\"Print/ PDF\"],[13],[1,\"\\n                    \"]],[]]]]],[1,\"\\n                \"],[13],[1,\"\\n                \"],[11,\"button\"],[24,0,\"flex items-center justify-center w-8 hover:opacity-50\"],[24,4,\"button\"],[4,[38,5],[\"click\",[30,0,[\"onToggleTheme\"]]],null],[12],[1,\"\\n                    \"],[8,[39,3],null,[[\"@icon\"],[[52,[30,0,[\"isDarkMode\"]],\"lightbulb\",\"lightbulb-on\"]]],null],[1,\"\\n                    \"],[8,[39,4],null,[[\"@animation\",\"@placement\",\"@showOn\"],[\"scale\",\"bottom\",\"mouseenter focus\"]],[[\"default\"],[[[[1,\"\\n                        \"],[10,0],[14,0,\"href-tooltip\"],[12],[1,[52,[30,0,[\"isDarkMode\"]],\"Lights on!\",\"Lights off!\"]],[13],[1,\"\\n                    \"]],[]]]]],[1,\"\\n                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n        \"]],[]]]]],[1,\"\\n    \"],[13],[1,\"\\n\"]],[]],null]],[\"&attrs\"],false,[\"if\",\"page-container\",\"link-to\",\"fa-icon\",\"attach/tooltip\",\"on\"]]",
     "moduleName": "personal/components/header.hbs",
     "isStrictMode": false
   });
@@ -2615,7 +3614,7 @@
         role: 'Lead Software Engineer/ Consultant',
         dates: [new Date('Dec 2015'), new Date('May 2017')],
         location: 'Seattle, WA/ Remote',
-        highlights: ['I worked with the head of Google\'s Telephony Platform to develop a custom Freeswitch solution to handle and route hundreds of thousands of phone calls.', 'I designed and developed the Dial Digits web application, which is used for configuring Freeswitch, managing call logs, and viewing reports. I also scaled the Freeswitch infrastructure and web application to handle high call volumes, resulting in company revenue reaching millions of dollars.']
+        highlights: ["I worked with the head of Google's Telephony Platform to develop a custom Freeswitch solution to handle and route hundreds of thousands of phone calls.", 'I designed and developed the Dial Digits web application, which is used for configuring Freeswitch, managing call logs, and viewing reports. I also scaled the Freeswitch infrastructure and web application to handle high call volumes, resulting in company revenue reaching millions of dollars.']
       }, {
         title: 'Ebazaa Pte Ltd',
         role: 'CTO',
@@ -2653,7 +3652,7 @@
       }],
       projects: [{
         name: 'Horror Movie Night',
-        description: 'Horror Movie Night or HMN is a mobile app and community for horror enthusiast, the core feature of HMN is to recommend a scary horror movie based on the users mood. Since it\'s debut HMN has grown to over 3,000 active users between Play Store and Apple App Store.',
+        description: "Horror Movie Night or HMN is a mobile app and community for horror enthusiast, the core feature of HMN is to recommend a scary horror movie based on the users mood. Since it's debut HMN has grown to over 3,000 active users between Play Store and Apple App Store.",
         url: 'https://horrormovienight.app',
         version: 'v1',
         status: 'Active'
@@ -2691,7 +3690,7 @@
 ;define('personal/config/environment', [], function() {
   
           var exports = {
-            'default': {"modulePrefix":"personal","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":false,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"personal","version":"0.1.1+d1801eb1"},"social":{"github":"https://github.com/roncodes","twitter":"https://twitter.com/wreckitron28","twitch":"https://www.twitch.tv/wreckitron28","youtube":"https://www.youtube.com/channel/UCmM_EzTI4T7qxDc-YDiKkgw","instagram":"https://www.instagram.com/wreckitron28","tiktok":"","facebook":"","linkedin":"https://www.linkedin.com/in/ronald-a-richardson/","deviantart":"https://www.deviantart.com/ghosted28"},"fontawesome":{"defaultPrefix":"fad"},"ember-meta":{"description":"entrepreneur, software engineer, roboticist, adventurer, gamer","imgSrc":"/meta/favicon.png","siteName":"ron.dev","title":"ron.dev - ronald a. richardson - entrepreneur, software engineer, roboticist, adventurer, gamer","twitterUsername":"@WreckItRon28","url":"https://ron.dev/"},"ember-cli-markdown-resolver":{"folders":{"posts":"app/posts"}},"exportApplicationGlobal":true,"currentRevision":"d1801eb12d","longRevision":"d1801eb12dbbfec048a989810b5f196ad0790576","tag":null,"branch":"main"}
+            'default': {"modulePrefix":"personal","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":false,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"personal","version":"0.1.1+c64293c5"},"social":{"github":"https://github.com/roncodes","twitter":"https://twitter.com/wreckitron28","twitch":"https://www.twitch.tv/wreckitron28","youtube":"https://www.youtube.com/channel/UCmM_EzTI4T7qxDc-YDiKkgw","instagram":"https://www.instagram.com/wreckitron28","tiktok":"","facebook":"","linkedin":"https://www.linkedin.com/in/ronald-a-richardson/","deviantart":"https://www.deviantart.com/ghosted28"},"fontawesome":{"defaultPrefix":"fad"},"ember-meta":{"description":"entrepreneur, software engineer, roboticist, adventurer, gamer","imgSrc":"/meta/favicon.png","siteName":"ron.dev","title":"ron.dev - ronald a. richardson - entrepreneur, software engineer, roboticist, adventurer, gamer","twitterUsername":"@WreckItRon28","url":"https://ron.dev/"},"ember-cli-markdown-resolver":{"folders":{"posts":"app/posts"}},"exportApplicationGlobal":true,"currentRevision":"c64293c5c6","longRevision":"c64293c5c631a25e166a3d1f7d9108992e2e2959","tag":null,"branch":"main"}
           };
           Object.defineProperty(exports, '__esModule', {value: true});
           return exports;
@@ -2700,7 +3699,7 @@
 
 ;
           if (!runningTests) {
-            require("personal/app")["default"].create({"name":"personal","version":"0.1.1+d1801eb1"});
+            require("personal/app")["default"].create({"name":"personal","version":"0.1.1+c64293c5"});
           }
         
 //# sourceMappingURL=ron.dev.map

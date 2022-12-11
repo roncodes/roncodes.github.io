@@ -6,17 +6,44 @@ export default function getCvData() {
 		phones: ['+65 9637 9222', '+1 704 303 8110'],
 		github: 'roncodes',
 		skills: [
-			['Business Development', 'UI/UX for Digital Products', 'Adobe Photoshop/ Illustrator/ Figma', 'Robotics & Embedded Systems'],
-			['Desktop Software Development', 'Mobile Application Development', 'Web Application Development', 'Package/ Library Development'],
-			['DevOps', 'Amazon Web Services', 'Docker/ Kubernetes', 'Git/ Subversion'],
-			['Unit Testing', 'Automated UI Testing', 'QA', 'CSS/ Stylesheet Processors'],
+			[
+				'Business Development',
+				'UI/UX for Digital Products',
+				'Adobe Photoshop/ Illustrator/ Figma',
+				'Robotics & Embedded Systems',
+			],
+			[
+				'Desktop Software Development',
+				'Mobile Application Development',
+				'Web Application Development',
+				'Package/ Library Development',
+			],
+			[
+				'DevOps',
+				'Amazon Web Services',
+				'Docker/ Kubernetes',
+				'Git/ Subversion',
+			],
+			[
+				'Unit Testing',
+				'Automated UI Testing',
+				'QA',
+				'CSS/ Stylesheet Processors',
+			],
 		],
 		languages: [
 			['C', 'C++', 'Rust', 'Javascript', 'PHP'],
 			['Typescript', 'Dart', 'Java', 'Python'],
 			['Lua', 'Scala', 'Groovy', 'Elixir'],
 		],
-		frameworks: ['React/ React Native', 'Flutter', 'Ember.js', 'Laravel', 'Grails', 'Freeswitch'],
+		frameworks: [
+			'React/ React Native',
+			'Flutter',
+			'Ember.js',
+			'Laravel',
+			'Grails',
+			'Freeswitch',
+		],
 		experience: [
 			{
 				title: 'Freelance',
@@ -34,7 +61,7 @@ export default function getCvData() {
 				location: 'Charlotte, NC',
 				highlights: [
 					'As a Marine I operated in the combat operations center, I was responsible for tracking hundreds of Marines, convoys, and missions.',
-					'I also participated in bulk fueling operations for mission-critical vehicles and served as a fire team leader, overseeing the completion of all necessary work and tasks for successful mission completion.'
+					'I also participated in bulk fueling operations for mission-critical vehicles and served as a fire team leader, overseeing the completion of all necessary work and tasks for successful mission completion.',
 				],
 			},
 			{
@@ -55,7 +82,7 @@ export default function getCvData() {
 				highlights: [
 					'I have developed web applications for SMEs and enterprise companies, including notable clients such as Salesforce, Infusionsoft, Plivo, Shamrock Farms, and Authority Labs.',
 					'I have also written several official SDKs for these companies, which are available on Github.',
-					'In addition to leading technical consulting projects, I have used my SEO and marketing skills to help companies increase their online presence.'
+					'In addition to leading technical consulting projects, I have used my SEO and marketing skills to help companies increase their online presence.',
 				],
 			},
 			{
@@ -65,7 +92,7 @@ export default function getCvData() {
 				location: 'Seattle, WA',
 				highlights: [
 					'I assisted in the onboarding of over a hundred companies through the custom-built "Rewards Genius" platform, which has now become Tango Card\'s premier offering.',
-					'I designed and developed the frontend and backend for the Rewards Genius platform, as well as internal tools to improve efficiency for the engineering team.'
+					'I designed and developed the frontend and backend for the Rewards Genius platform, as well as internal tools to improve efficiency for the engineering team.',
 				],
 			},
 			{
@@ -74,7 +101,7 @@ export default function getCvData() {
 				dates: [new Date('Oct 2014'), new Date('May 2017')],
 				location: 'Seattle, WA/ Remote',
 				highlights: [
-					'I have helped consult numerous SME companies and professionals on scaling their business with software solutions. I have also developed and designed web applications for businesses through the customer onboarding phase.'
+					'I have helped consult numerous SME companies and professionals on scaling their business with software solutions. I have also developed and designed web applications for businesses through the customer onboarding phase.',
 				],
 			},
 			{
@@ -83,8 +110,8 @@ export default function getCvData() {
 				dates: [new Date('Dec 2015'), new Date('May 2017')],
 				location: 'Seattle, WA/ Remote',
 				highlights: [
-					'I worked with the head of Google\'s Telephony Platform to develop a custom Freeswitch solution to handle and route hundreds of thousands of phone calls.', 
-					'I designed and developed the Dial Digits web application, which is used for configuring Freeswitch, managing call logs, and viewing reports. I also scaled the Freeswitch infrastructure and web application to handle high call volumes, resulting in company revenue reaching millions of dollars.'
+					"I worked with the head of Google's Telephony Platform to develop a custom Freeswitch solution to handle and route hundreds of thousands of phone calls.",
+					'I designed and developed the Dial Digits web application, which is used for configuring Freeswitch, managing call logs, and viewing reports. I also scaled the Freeswitch infrastructure and web application to handle high call volumes, resulting in company revenue reaching millions of dollars.',
 				],
 			},
 			{
@@ -105,7 +132,7 @@ export default function getCvData() {
 				highlights: [
 					'I developed and built a freight container marketplace using Fleetbase as the development framework. I worked closely with the Port Klang Authority and Ministry of Transport to design and develop a port integrated system to reduce congestion and increase subcontract transactions between hauliers.',
 					'I have a deep understanding of the end-to-end business of freight forwarding and haulage in the SE Asia region, and have consulted several haulier companies on using our digital solution to increase business.',
-					'I conducted presentations with government organizations and assisted in integrating our solution into each port terminal. I also created and narrated the launch video for the LinkHaul system.'
+					'I conducted presentations with government organizations and assisted in integrating our solution into each port terminal. I also created and narrated the launch video for the LinkHaul system.',
 				],
 			},
 			{
@@ -143,24 +170,27 @@ export default function getCvData() {
 		projects: [
 			{
 				name: 'Horror Movie Night',
-				description: 'Horror Movie Night or HMN is a mobile app and community for horror enthusiast, the core feature of HMN is to recommend a scary horror movie based on the users mood. Since it\'s debut HMN has grown to over 3,000 active users between Play Store and Apple App Store.',
+				description:
+					"Horror Movie Night or HMN is a mobile app and community for horror enthusiast, the core feature of HMN is to recommend a scary horror movie based on the users mood. Since it's debut HMN has grown to over 3,000 active users between Play Store and Apple App Store.",
 				url: 'https://horrormovienight.app',
 				version: 'v1',
-				status: 'Active'
+				status: 'Active',
 			},
 			{
 				name: 'AR Net',
-				description: 'AR Net is a REST API based augmented reality network, with an open public API users are able to publish 3D objects to the physical world using GeoJSON. Additionally there is an open source app which allows users to create "worlds" and publish objects to the AR Net.',
+				description:
+					'AR Net is a REST API based augmented reality network, with an open public API users are able to publish 3D objects to the physical world using GeoJSON. Additionally there is an open source app which allows users to create "worlds" and publish objects to the AR Net.',
 				url: 'https://github.com/cybereye-digital',
 				version: 'v1',
-				status: 'Paused'
+				status: 'Paused',
 			},
 			{
 				name: 'Cloudrealms',
-				description: 'Cloudrealms is javascript library for developing web based RPG and MMORPG games, the engine is capable of generating tile based game canvas and handling animations, additionally able to handle rpg game mechanics with both promise and event based flow.',
+				description:
+					'Cloudrealms is javascript library for developing web based RPG and MMORPG games, the engine is capable of generating tile based game canvas and handling animations, additionally able to handle rpg game mechanics with both promise and event based flow.',
 				url: 'https://github.com/cloudrealmsrpg/cloudrealms.js',
 				version: 'v2',
-				status: 'Paused'
+				status: 'Paused',
 			},
 		],
 	};

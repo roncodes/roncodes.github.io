@@ -28,6 +28,7 @@
 	},
 	"dependencies": {
 		"@embroider/macros": "^1.8.3",
+		"@floating-ui/dom": "^1.0.9",
 		"ember-cli-string-helpers": "^6.1.0"
 	},
 	"devDependencies": {

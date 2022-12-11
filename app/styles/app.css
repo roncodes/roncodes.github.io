@@ -4,4 +4,5 @@
 @import 'tailwindcss/utilities';
 /* @import 'utilities.css'; */
 @import 'styles.css';
+@import 'attacher.css';
 @import 'cv.css';

@@ -4,15 +4,27 @@
             <div class="flex flex-row justify-end items-center dark:text-gray-400 -mr-3">
                 <LinkTo @route="home" class="flex items-center justify-center w-8 hover:opacity-50">
                     <FaIcon @icon="home" />
+                    <Attach::Tooltip @animation="scale" @placement="bottom" @showOn="mouseenter focus">
+                        <div class="href-tooltip">Home</div>
+                    </Attach::Tooltip>
                 </LinkTo>
                 <LinkTo @route="cv" class="flex items-center justify-center w-8 hover:opacity-50">
                     <FaIcon @icon="file-lines" />
+                    <Attach::Tooltip @animation="scale" @placement="bottom" @showOn="mouseenter focus">
+                        <div class="href-tooltip">CV</div>
+                    </Attach::Tooltip>
                 </LinkTo>
                 <button type="button" class="flex items-center justify-center w-8 hover:opacity-50" {{on "click" this.onPrint}}>
                     <FaIcon @icon="print" />
+                    <Attach::Tooltip @animation="scale" @placement="bottom" @showOn="mouseenter focus">
+                        <div class="href-tooltip">Print/ PDF</div>
+                    </Attach::Tooltip>
                 </button>
                 <button type="button" class="flex items-center justify-center w-8 hover:opacity-50" {{on "click" this.onToggleTheme}}>
                     <FaIcon @icon={{if this.isDarkMode "lightbulb" "lightbulb-on"}} />
+                    <Attach::Tooltip @animation="scale" @placement="bottom" @showOn="mouseenter focus">
+                        <div class="href-tooltip">{{if this.isDarkMode "Lights on!" "Lights off!"}}</div>
+                    </Attach::Tooltip>
                 </button>
             </div>
         </PageContainer>
