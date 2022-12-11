@@ -19,7 +19,7 @@ body.dark {
 }
 
 .page-title {
-    @apply text-xl font-semibold my-10 text-gray-900;
+    @apply text-xl font-semibold text-gray-900;
 }
 
 body.dark .page-title {

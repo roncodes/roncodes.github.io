@@ -1,0 +1,473 @@
+.cv {
+	@apply font-serif dark:text-white;
+}
+
+.cv::before {
+	content: 'v0.0.1';
+	font-size: 0.75rem;
+	line-height: 0.75rem;
+	letter-spacing: 0.1rem;
+	@apply dark:text-gray-200 -mb-3 flex flex-row justify-end font-mono;
+}
+
+.cv .cv-section {
+	@apply my-8 pt-6 pl-4 border-t border-gray-100 print:border-gray-100 dark:border-gray-700;
+}
+
+.cv .cv-section > .cv-section-title {
+	@apply text-lg mb-3 md:mb-4;
+}
+
+.cv .cv-section.cv-header {
+	@apply flex flex-row items-start justify-between;
+}
+
+.cv .cv-section.cv-header > .cv-title .cv-name {
+	@apply text-2xl font-bold mb-2;
+}
+
+/* .cv .cv-section.cv-header > .cv-title .cv-personal-details {
+    @apply pl-4;
+} */
+
+.cv .cv-section.cv-header > .cv-title .cv-personal-detail {
+	@apply flex flex-row items-center text-xs mt-2 dark:text-gray-300;
+}
+
+ul.cv-links > li {
+	@apply text-sm flex items-center justify-end;
+}
+
+.cv ul.cv-list {
+	list-style: circle;
+}
+
+.cv ul.cv-list > li {
+	@apply mb-2 text-sm dark:text-gray-100;
+}
+
+.cv .cv-section .cv-grid-list > ul {
+	list-style: circle;
+	@apply pl-5;
+}
+
+.cv .cv-section .cv-grid-list {
+	@apply grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4;
+}
+
+.cv .cv-section .cv-grid-list figcaption,
+.cv .cv-section .cv-grid-list ul li,
+.cv .cv-section .cv-grid-list > ul > li {
+	@apply text-xs mb-2 dark:text-gray-100;
+}
+
+.cv .cv-section .cv-grid-list figcaption {
+	@apply italic;
+}
+
+.cv .cv-section .cv-grid-list figcaption + ul {
+	list-style: circle;
+	@apply pl-4;
+}
+
+.cv .cv-table {
+	@apply text-xs m-0 p-0 table-auto;
+}
+
+.cv .cv-table .cv-experience-row:first-child td {
+	@apply pt-0;
+}
+
+.cv .cv-table .cv-experience-row td {
+	@apply border-b border-gray-100 dark:border-gray-700 py-5 table-row md:table-cell;
+	vertical-align: top;
+}
+
+.cv .cv-table .cv-experience-row td:first-child {
+	width: 27%;
+}
+
+.cv .cv-table .cv-experience-row td:first-child > div:last-child {
+	@apply mb-5 md:mb-0;
+}
+
+.cv .cv-table .cv-experience-row td .cv-list {
+	@apply pl-5 pt-5 pb-5 md:pl-0 md:pt-0 md:pb-0;
+}
+
+.cv .cv-table tr.cv-experience-row:last-child td {
+	@apply border-b-0;
+}
+
+.cv .cv-table .cv-experience-row .cv-experience-title {
+	@apply text-base font-semibold mb-0.5 pt-5 md:pt-0 relative;
+}
+.cv .cv-table .cv-experience-row .cv-experience-version {
+	@apply mb-2;
+}
+
+.cv .cv-table .cv-experience-row .cv-experience-title .cv-experience-title-status {
+	@apply text-xs text-gray-900 dark:text-gray-700 rounded-md px-2 py-0.5 flex flex-row items-center justify-center shadow-sm border border-gray-900 dark:border-gray-800 absolute top-0 right-0;
+}
+
+.cv .cv-table .cv-experience-row .cv-experience-title .cv-experience-title-status.status-paused {
+	@apply bg-orange-600 text-orange-100 border-orange-700;
+}
+
+.cv .cv-table .cv-experience-row .cv-experience-title .cv-experience-title-status.status-active {
+	@apply bg-green-600 text-green-100 border-green-700;
+}
+
+.cv .cv-table .cv-experience-row .cv-experience-role {
+	@apply text-sm mb-1;
+}
+
+.cv .cv-table .cv-experience-row .cv-experience-dates,
+.cv .cv-table .cv-experience-row .cv-experience-location {
+	@apply dark:text-gray-100;
+}
+
+.cv .cv-table .cv-experience-row td:last-child p {
+	@apply text-sm;
+	margin-block-start: 0;
+	margin-block-end: 0;
+}
+
+@page  
+{ 
+    size: auto;
+    margin-top: 1.5rem;
+    margin-bottom: 0rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+} 
+
+@media print {
+    --p-sm-font-size: 7px;
+    --p-md-font-size: 9px;
+    --p-lg-font-size: 10px;
+
+	body {
+        @apply bg-white dark:bg-white;
+        width: 210mm !important;
+        height: 297mm !important;
+        margin: auto !important;
+    }
+
+    * {
+        box-sizing: border-box;
+        touch-action: pan-x pan-y;
+    }
+
+    .page-container-wrapper,
+    .page-container,
+	.cv-container {
+        background: #fff !important;
+		margin: auto !important;
+        max-width: 100% !important;
+        width: 100% !important;
+	}
+
+	.cv {
+		@apply text-gray-900 dark:text-gray-900;
+	}
+
+	.cv::before {
+		font-size: var(--p-sm-font-size) !important;
+		line-height: 1rem !important;
+	}
+
+	.cv,
+	.cv::before,
+	.cv *,
+	.cv .cv-section.cv-header > .cv-title .cv-personal-detail {
+		@apply text-gray-900 dark:text-gray-900;
+        font-size: 7px !important;
+	}
+
+	.cv .cv-section.cv-header {
+		border: 0 !important;
+	}
+
+	.cv .cv-section.cv-header > .cv-title .cv-name {
+		font-size: 14px !important;
+		line-height: 1rem !important;
+	}
+
+	.cv .cv-section.cv-header > .cv-title .cv-personal-detail > div:first-child,
+	.cv svg.svg--inline--fa {
+		display: none !important;
+	}
+
+	.cv .cv-section.cv-header > .cv-title .cv-personal-details {
+		padding-left: 0px !important;
+	}
+
+	.cv .cv-section.cv-header > .cv-title .cv-personal-details > .cv-personal-detail {
+		font-size: 7px !important;
+        line-height: 9px !important;
+	}
+
+	.cv .cv-section {
+		border: 0 !important;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+    .cv .cv-section:first-child {
+        margin-bottom: .75rem !important;
+    }
+
+    .cv .cv-section:first-child {
+        margin-bottom: .75rem !important;
+    }
+
+    .cv .cv-section:nth-child(3) {
+        margin-top: .5rem !important;
+    }
+
+	/* .cv .cv-section.cv-section-experience,
+	.cv .cv-section.cv-section-education,
+	.cv .cv-section.cv-section-projects {
+		margin-top: -.5rem !important;
+	} */
+
+    .cv .cv-section.cv-section-experience .cv-experience-container {
+        margin-top: -1.35rem !important;
+    }
+
+    .cv .cv-section.cv-section-education .cv-experience-container {
+        margin-top: -1.35rem !important;
+    }
+    
+    .cv .cv-section.cv-section-projects .cv-experience-container {
+        margin-top: -1.35rem !important;
+    }
+
+	.cv .cv-section .cv-section-title {
+		font-size: 10px !important;
+        font-weight: 800 !important;
+		margin-bottom: 0px !important;
+	}
+
+	.cv .cv-section .cv-grid-list {
+		display: flex !important;
+        flex-grow: 0 !important;
+        flex-shrink: 1 !important;
+        margin-top: -0.25rem !important;
+	}
+
+	.cv .cv-section .cv-grid-list > * {
+		flex: 1 !important;
+	}
+
+    .cv .cv-section .cv-grid-list > ul {
+        list-style: none;
+        padding-left: 0 !important;
+    }
+
+	.cv .cv-section .cv-grid-list figcaption,
+	.cv .cv-section .cv-grid-list ul li,
+	.cv .cv-section .cv-grid-list > ul > li {
+		@apply text-gray-900 dark:text-gray-900;
+        font-size: 7px !important;
+		line-height: 12px !important;
+	}
+
+	.cv .cv-section.cv-header > .cv-title .cv-personal-detail {
+		@apply text-gray-900;
+		font-size: 7px !important;
+		line-height: 12px !important;
+		margin-bottom: -9px !important;
+	}
+
+	.cv .cv-section.cv-header > .cv-title .cv-personal-detail svg {
+		display: none !important;
+	}
+
+	.cv .cv-section .cv-grid-list figcaption,
+	.cv .cv-section .cv-grid-list ul li,
+	.cv .cv-section .cv-grid-list > ul > li {
+		@apply text-gray-900;
+		font-size: 7px !important;
+		margin-bottom: -0.25rem !important;
+	}
+
+	.cv .cv-table {
+		table-layout: fixed !important;
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+	}
+
+    .cv .cv-table tbody,
+    .cv .cv-table thead {
+        display: block !important;
+    }
+
+    .cv .cv-table tbody tr,
+    .cv .cv-table thead tr {
+        display: flex !important;
+        flex-direction: row !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 1 !important;
+    }
+
+    .cv .cv-table tbody tr td {
+        display: flex !important;
+        flex-direction: column !important;
+        padding-top: 0rem !important;
+		padding-bottom: 0rem !important;
+		vertical-align: top !important;
+        border-collapse: collapse !important;
+        margin-bottom: 0 !important;
+    }
+
+    .cv .cv-table tbody tr td div,
+    .cv .cv-table tbody tr td li,
+    .cv .cv-table tbody tr td ul {
+        margin-bottom: 0 !important;
+    }
+
+    .cv .cv-section.cv-section-projects .cv-table tbody,
+    .cv .cv-section.cv-section-education .cv-table tbody {
+        display: flex !important;
+        flex-direction: row !important;
+        flex: 1 !important;
+    }
+
+    .cv .cv-section.cv-section-projects .cv-table tbody tr,
+    .cv .cv-section.cv-section-education .cv-table tbody tr {
+        display: flex !important;
+        flex-direction: column !important;
+        flex: 1 !important;
+    }
+
+    .cv .cv-section.cv-section-projects .cv-table tbody tr td,
+    .cv .cv-section.cv-section-education .cv-table tbody tr td {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+    }
+
+    .cv .cv-section.cv-section-experience .cv-table .cv-experience-row.with-1-highlights {
+        margin-bottom: -.5rem !important;
+    } 
+
+    .cv .cv-section.cv-section-experience .cv-table .cv-experience-row.with-2-highlights {
+        margin-bottom: -1.5rem !important;
+    } 
+
+    .cv .cv-section.cv-section-experience .cv-table .cv-experience-row.with-3-highlights {
+        margin-bottom: -2rem !important;
+    } 
+
+    .cv .cv-section.cv-section-experience .cv-table .cv-experience-row:last-child {
+        margin-bottom: 0rem !important;
+    } 
+
+    /* .cv .cv-section.cv-section-experience .cv-table .cv-experience-row:first-child {
+        margin-top: -1.25rem !important;
+    }
+
+    .cv .cv-section.cv-section-experience .cv-table .cv-experience-row:nth-child(2) {
+        margin-top: -.75rem !important;
+    }
+
+    .cv .cv-section.cv-section-experience .cv-table .cv-experience-row:nth-child(6) {
+        margin-top: 0rem !important;
+    }
+
+    .cv .cv-section.cv-section-experience .cv-table .cv-experience-row:nth-child(5),
+    .cv .cv-section.cv-section-experience .cv-table .cv-experience-row:nth-child(7),
+    .cv .cv-section.cv-section-experience .cv-table .cv-experience-row:nth-child(8),
+    .cv .cv-section.cv-section-experience .cv-table .cv-experience-row:nth-child(9) {
+        margin-top: -2rem !important;
+    }
+
+    .cv .cv-section.cv-section-experience .cv-table .cv-experience-row {
+        margin-top: -1.75rem !important;
+    } */
+
+	.cv .cv-table .cv-experience-row td {
+		@apply text-gray-900 dark:text-gray-900 border-0;
+		padding-top: 0rem !important;
+		padding-bottom: 0rem !important;
+		vertical-align: top !important;
+	}
+
+	.cv .cv-table .cv-experience-row:first-child td {
+		padding-top: 0rem !important;
+	}
+
+	.cv .cv-table tr td {
+		vertical-align: top !important;
+		padding: 0 !important;
+	}
+
+	.cv .cv-table .cv-experience-row td:first-child {
+		width: 12rem !important;
+		max-width: 12rem !important;
+		min-width: 12rem !important;
+	}
+
+	.cv .cv-table .cv-experience-row td:last-child {
+		flex: 1 !important;
+	}
+
+    .cv .cv-section.cv-section-education .cv-table .cv-experience-row > td > .cv-experience-title,
+    .cv .cv-section.cv-section-projects .cv-table .cv-experience-row > td > .cv-experience-title,
+	.cv .cv-table .cv-experience-row .cv-experience-title {
+		font-size: 8px !important;
+		line-height: 12px !important;
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+        font-weight: 600 !important;
+        white-space: nowrap !important;
+        text-overflow: ellipsis !important;
+	}
+
+    .cv .cv-table .cv-experience-row .cv-experience-version {
+        display: none !important;
+    }
+
+    .cv .cv-table .cv-experience-row .cv-experience-role,
+    .cv .cv-table .cv-experience-row .cv-experience-study,
+    .cv .cv-table .cv-experience-row .cv-experience-location,
+    .cv .cv-table .cv-experience-row .cv-experience-version,
+    .cv .cv-table .cv-experience-row .cv-experience-dates,
+    .cv .cv-table .cv-experience-row .cv-experience-url,
+    .cv .cv-table .cv-experience-row .cv-experience-description {
+        @apply text-gray-900 dark:text-gray-900;
+        font-size: 7px !important;
+		line-height: 10px !important;
+        margin-bottom: 0px !important;
+    }
+
+    .cv .cv-table .cv-experience-row .cv-experience-url {
+        margin-top: .5rem !important;
+    }
+
+	.cv .cv-table .cv-experience-row .cv-list li {
+		@apply text-gray-900 dark:text-gray-900;
+		font-size: 7px !important;
+		line-height: 12px !important;
+        margin-bottom: 0px !important;
+        padding: 0px !important;
+	}
+
+    .cv .cv-table .cv-experience-row .cv-experience-title .cv-experience-title-status {
+        @apply text-gray-900 dark:text-gray-900;
+        position: relative;
+        display: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        font-size: 7px !important;
+		line-height: 12px !important;
+		border: 0 !important;
+		background-color: #fff !important;
+    }
+}

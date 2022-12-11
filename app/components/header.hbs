@@ -1,74 +1,20 @@
-<div class="relative" ...attributes>
-    <div class="relative flex-1 z-20">
-        <div class="max-w-7xl mx-auto flex justify-between items-center py-5 px-8">
-            <div class="flex items-center">
-                <LinkTo @route="home" class="flex items-center">
-                    <img class="h-8 w-auto sm:h-10" src="/images/hahaha.gif" alt="ron.dev">
-                    <h3 class="ml-5 font-bold text-base text-green-500">ron.dev</h3>
+{{#if this.visible}}
+    <div class="relative print:hidden" ...attributes>
+        <PageContainer class="flex flex-row justify-end my-6">
+            <div class="flex flex-row justify-end items-center dark:text-gray-400 -mr-3">
+                <LinkTo @route="home" class="flex items-center justify-center w-8 hover:opacity-50">
+                    <FaIcon @icon="home" />
                 </LinkTo>
+                <LinkTo @route="cv" class="flex items-center justify-center w-8 hover:opacity-50">
+                    <FaIcon @icon="file-lines" />
+                </LinkTo>
+                <button type="button" class="flex items-center justify-center w-8 hover:opacity-50" {{on "click" this.onPrint}}>
+                    <FaIcon @icon="print" />
+                </button>
+                <button type="button" class="flex items-center justify-center w-8 hover:opacity-50" {{on "click" this.onToggleTheme}}>
+                    <FaIcon @icon={{if this.isDarkMode "lightbulb" "lightbulb-on"}} />
+                </button>
             </div>
-            <div>
-                <Switch @isActive={{eq @theme "dark"}} @label="Night Mode" @onToggle={{this.onToggleTheme}} />
-            </div>
-        </div>
+        </PageContainer>
     </div>
-    {{#if this.mobileMenuIsOpen}}
-        <div class="z-40 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
-            <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white dark:bg-gray-800 divide-y-2 divide-gray-50">
-                <div class="pt-2 pb-6">
-                    <div class="flex items-center justify-between px-6">
-                        <div>
-                            <LinkTo @route="home" class="flex items-center">
-                                <img class="h-8 w-auto sm:h-10" src="/images/hahaha.gif" alt="ron.dev">
-                                <h3 class="ml-5 font-bold text-base text-green-500">ron.dev</h3>
-                            </LinkTo>
-                        </div>
-                        <div class="-mr-2">
-                            <button {{on "click" this.closeMobileMenu}} type="button" class="bg-white dark:bg-gray-800 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                                <span class="sr-only">Close menu</span>
-                                <!-- Heroicon name: outline/x -->
-                                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="mt-6">
-                        <nav class="mobile-main-nav grid gap-y-5 lowercase">
-                            <a href="javascript:;" {{on "click" (fn this.transitionTo "posts")}} class="p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 dark:hover:text-gray-200">
-                                <span class="ml-2 text-base font-medium text-gray-900 dark:text-gray-200">
-                                    Posts
-                                </span>
-                            </a>
-                            <a href="javascript:;" {{on "click" (fn this.transitionTo "projects")}} class="p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 dark:hover:text-gray-200">
-                                <span class="ml-2 text-base font-medium text-gray-900 dark:text-gray-200">
-                                    Projects
-                                </span>
-                            </a>
-                            <a href="javascript:;" {{on "click" (fn this.transitionTo "travels")}} class="p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 dark:hover:text-gray-200">
-                                <span class="ml-2 text-base font-medium text-gray-900 dark:text-gray-200">
-                                    Travels
-                                </span>
-                            </a>
-                            <a href="javascript:;" {{on "click" (fn this.transitionTo "gaming")}} class="p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 dark:hover:text-gray-200">
-                                <span class="ml-2 text-base font-medium text-gray-900 dark:text-gray-200">
-                                    Gaming
-                                </span>
-                            </a>
-                            <a href="javascript:;" {{on "click" (fn this.transitionTo "art")}} class="p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 dark:hover:text-gray-200">
-                                <span class="ml-2 text-base font-medium text-gray-900 dark:text-gray-200">
-                                    Art
-                                </span>
-                            </a>
-                            <a href="javascript:;" {{on "click" (fn this.transitionTo "writing")}} class="p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 dark:hover:text-gray-200">
-                                <span class="ml-2 text-base font-medium text-gray-900 dark:text-gray-200">
-                                    Writing
-                                </span>
-                            </a>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {{/if}}
-</div>
+{{/if}}

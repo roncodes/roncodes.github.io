@@ -1,5 +1,5 @@
 <Root @theme={{this.theme}} @onInsert={{this.initialize}}>
-    <Header @theme={{this.theme}} @onToggleTheme={{this.toggleTheme}} />
+    <Header @theme={{this.theme}} @onToggleTheme={{this.toggleTheme}} @onPrint={{this.print}} @visible={{this.showHeader}} />
     <Body class="dark:text-gray-400">{{outlet}}</Body>
-    <Footer @theme={{this.theme}} @onToggleTheme={{this.toggleTheme}} />
+    <Footer @theme={{this.theme}} @onToggleTheme={{this.toggleTheme}} @visible={{this.showFooter}} />
 </Root>

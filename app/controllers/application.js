@@ -4,6 +4,26 @@ import { action } from '@ember/object';
 
 export default class ApplicationController extends Controller {
 	@tracked theme = 'light';
+	@tracked showHeader = true;
+	@tracked showFooter = true;
+
+	@action hideLayout() {
+		this.showHeader = false;
+		this.showFooter = false;
+	}
+
+	@action hideFooter() {
+		this.showFooter = false;
+	}
+
+	@action showLayout() {
+		this.showHeader = true;
+		this.showFooter = true;
+	}
+
+	@action print() {
+		window.print();
+	}
 
 	@action toggleTheme() {
 		this.theme = this.theme === 'light' ? 'dark' : 'light';

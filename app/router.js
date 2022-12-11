@@ -16,4 +16,5 @@ Router.map(function () {
 	this.route('gaming', function () {});
 	this.route('art', function () {});
 	this.route('writing', function () {});
+	this.route('cv');
 });

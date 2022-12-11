@@ -34,6 +34,10 @@ module.exports = function (environment) {
 			linkedin: 'https://www.linkedin.com/in/ronald-a-richardson/',
 			deviantart: 'https://www.deviantart.com/ghosted28',
 		},
+
+		fontawesome: {
+			defaultPrefix: 'fad',
+		},
 	};
 
 	ENV['ember-meta'] = {

@@ -1,6 +1,27 @@
 module.exports = function () {
 	return {
-		'free-solid-svg-icons': ['link'],
+		'pro-solid-svg-icons': [
+			'home',
+			'file-lines',
+			'link',
+			'map-marker',
+			'lightbulb',
+			'lightbulb-on',
+			'phone',
+			'envelope',
+			'print',
+		],
+		'pro-duotone-svg-icons': [
+			'home',
+			'file-lines',
+			'link',
+			'map-marker',
+			'lightbulb',
+			'lightbulb-on',
+			'phone',
+			'envelope',
+			'print',
+		],
 		'free-brands-svg-icons': [
 			'github',
 			'twitter',

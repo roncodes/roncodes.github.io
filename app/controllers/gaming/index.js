@@ -25,6 +25,6 @@ export default class GamingIndexController extends Controller {
 		'inside',
 		'little nightmares',
 		'little nightmares 2',
-		'a plague tale: innocence'
+		'a plague tale: innocence',
 	];
 }

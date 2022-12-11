@@ -3,6 +3,7 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 const isProduction = EmberApp.env() === 'production';
 
 module.exports = {
+	content: ['./app/**/*.{hbs,js}'],
 	purge: {
 		enable: isProduction,
 		mode: 'all',
@@ -17,7 +18,7 @@ module.exports = {
 		colors: {
 			transparent: 'transparent',
 			black: colors.black,
-			gray: colors.trueGray,
+			gray: colors.neutral,
 			white: colors.white,
 			blue: colors.blue,
 			green: colors.emerald,

@@ -1,0 +1,153 @@
+{{page-title "Ronald A. Richardson - Senior Software Engineer - CV"}}
+<div class="cv-container my-12">
+    <div class="cv">
+        <div class="cv-section cv-header cv-section-header">
+            <div class="cv-title">
+                <h1 class="cv-name">{{this.data.name}}</h1>
+                <div class="cv-personal-details">
+                    <div class="cv-personal-detail">
+                        <div class="w-6">
+                            <FaIcon @icon="map-marker"></FaIcon>
+                        </div>
+                        <span>{{this.data.location}}</span>
+                    </div>
+                    <div class="cv-personal-detail">
+                        <div class="w-6">
+                            <FaIcon @icon="envelope"></FaIcon>
+                        </div>
+                        <a href="mailto:{{this.data.email}}">{{this.data.email}}</a>
+                    </div>
+                    {{#each this.data.phones as |phone|}}
+                        <div class="cv-personal-detail">
+                            <div class="w-6">
+                                <FaIcon @icon="phone"></FaIcon>
+                            </div>
+                            <a href="tel:{{phone}}">{{phone}}</a>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="print:hidden">
+                <ul class="cv-links">
+                    <li>
+                        <div class="w-6">
+                            <FaIcon @icon="github" @prefix="fab" class="mr-1" />
+                        </div>
+                        <a href="https://github.com/{{this.data.github}}" target="_github">github</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="cv-section cv-section-tools-skills">
+            <div class="cv-section-title">Tools & Skills</div>
+            <div class="cv-grid-list gap-0 md:gap-4">
+                {{#each this.data.skills as |skills|}}
+                    <ul>
+                        {{#each skills as |skill|}}
+                            <li>{{skill}}</li>
+                        {{/each}}
+                    </ul>
+                {{/each}}
+            </div>
+        </div>
+        <div class="cv-section cv-section-programming-languages">
+            <div class="cv-section-title">Programming Languages</div>
+            <div class="cv-grid-list">
+                {{#each this.data.languages as |languages|}}
+                    <ul>
+                        {{#each languages as |lang|}}
+                            <li>{{lang}}</li>
+                        {{/each}}
+                    </ul>
+                {{/each}}
+                <figure>
+                    <figcaption>Frameworks</figcaption>
+                    <ul>
+                        {{#each this.data.frameworks as |framework|}}
+                            <li>{{framework}}</li>
+                        {{/each}}
+                    </ul>
+                </figure>
+            </div>
+        </div>
+        <div class="cv-section cv-section-experience">
+            <div class="cv-section-title">Experience</div>
+            <div class="cv-experience-container">
+                <table class="cv-table">
+                    <tbody>
+                        {{#each this.data.experience as |experience|}}
+                            <tr class="cv-experience-row with-{{experience.highlights.length}}-highlights">
+                                <td>
+                                    <div class="cv-experience-title">{{experience.title}}</div>
+                                    <div class="cv-experience-role">{{experience.role}}</div>
+                                    <div class="cv-experience-dates">{{format-date (get experience.dates 0)}} - {{format-date (get experience.dates 1)}}</div>
+                                    <div class="cv-experience-location">{{experience.location}}</div>
+                                </td>
+                                <td>
+                                    <ul class="cv-list">
+                                        {{#each experience.highlights as |highlight|}}
+                                            <li>{{highlight}}</li>
+                                        {{/each}}
+                                    </ul>
+                                </td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="cv-section cv-section-education">
+            <div class="cv-section-title">Education</div>
+            <div class="cv-experience-container">
+                <table class="cv-table">
+                    <tbody>
+                        {{#each this.data.education as |education|}}
+                            <tr class="cv-experience-row">
+                                <td>
+                                    <div class="cv-experience-title">{{education.school}}</div>
+                                    {{#if education.study}}
+                                        <div class="cv-experience-study">{{education.study}}</div>
+                                    {{/if}}
+                                    {{#if (eq education.dates.length 1)}}
+                                        <div class="cv-experience-dates">{{format-date (get education.dates 0) 'yyyy'}}</div>
+                                    {{else}}
+                                        <div class="cv-experience-dates">{{format-date (get education.dates 0) 'MMM, yyyy'}} - {{format-date (get education.dates 1) 'MMM, yyyy'}}</div>
+                                    {{/if}}
+                                    <div class="cv-experience-location">{{education.location}}</div>
+                                </td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="cv-section cv-section-projects">
+            <div class="cv-section-title">Projects</div>
+            <div class="cv-experience-container">
+                <table class="cv-table">
+                    <tbody>
+                        {{#each this.data.projects as |project|}}
+                            <tr class="cv-experience-row">
+                                <td>
+                                    <div class="cv-experience-title">
+                                        {{project.name}}
+                                        {{#if project.status}}
+                                            <div class="cv-experience-title-status status-{{dasherize project.status}}">{{project.status}}</div>
+                                        {{/if}}
+                                    </div>
+                                    <div class="cv-experience-version">{{project.version}}</div>
+                                    <div class="cv-experience-description">{{project.description}}</div>
+                                    {{#if project.url}}
+                                        <div class="cv-experience-url">
+                                            <a href={{project.url}} target={{dasherize project.name}}>{{project.url}}</a>
+                                        </div>
+                                    {{/if}}
+                                </td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

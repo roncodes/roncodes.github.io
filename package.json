@@ -22,17 +22,22 @@
 		"lint:js": "eslint . --cache",
 		"lint:js:fix": "eslint . --fix",
 		"start": "npx kill-port 4200 && ember serve --port 4666",
+		"tailwind": "npx tailwindcss --watch",
 		"test": "npm-run-all lint test:*",
 		"test:ember": "ember test"
 	},
+	"dependencies": {
+		"@embroider/macros": "^1.8.3",
+		"ember-cli-string-helpers": "^6.1.0"
+	},
 	"devDependencies": {
 		"@ember/optional-features": "^2.0.0",
-		"@ember/render-modifiers": "^2.0.0",
-		"@ember/test-helpers": "^2.4.2",
-		"@fortawesome/ember-fontawesome": "^0.2.3",
-		"@fortawesome/free-brands-svg-icons": "^5.15.4",
-		"@fortawesome/free-regular-svg-icons": "^5.15.4",
-		"@fortawesome/free-solid-svg-icons": "^5.15.4",
+		"@ember/render-modifiers": "^2.0.4",
+		"@ember/test-helpers": "^2.8.1",
+		"@fortawesome/ember-fontawesome": "^0.4.1",
+		"@fortawesome/free-brands-svg-icons": "^6.2.0",
+		"@fortawesome/pro-duotone-svg-icons": "^6.2.0",
+		"@fortawesome/pro-solid-svg-icons": "^6.2.0",
 		"@fullhuman/postcss-purgecss": "^4.0.3",
 		"@glimmer/component": "^1.0.4",
 		"@glimmer/tracking": "^1.0.4",
@@ -41,7 +46,7 @@
 		"broccoli-asset-rev": "^3.0.0",
 		"broccoli-funnel": "^3.0.8",
 		"broccoli-static-site-json": "^4.4.1",
-		"date-fns": "^2.25.0",
+		"date-fns": "^2.29.3",
 		"ember-auto-import": "^1.11.3",
 		"ember-cli": "~3.28.2",
 		"ember-cli-app-version": "^5.0.0",
@@ -84,7 +89,7 @@
 		"prettier": "^2.3.2",
 		"qunit": "^2.16.0",
 		"qunit-dom": "^1.6.0",
-		"tailwindcss": "^2.2.19"
+		"tailwindcss": "^3.1.8"
 	},
 	"engines": {
 		"node": "12.* || 14.* || >= 16"
@@ -92,5 +97,10 @@
 	"ember": {
 		"edition": "octane"
 	},
-	"dependencies": {}
+	"resolutions": {
+		"@embroider/macros": "^1.8.3",
+		"@fortawesome/ember-fontawesome/**/@embroider/macros": "^1.8.3",
+		"**/@fortawesome/ember-fontawesome/**/@embroider/macros": "^1.8.3",
+		"ember-get-config/@embroider/macros": "^1.8.3"
+	}
 }
