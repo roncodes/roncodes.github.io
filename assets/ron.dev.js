@@ -3690,7 +3690,7 @@
 ;define('personal/config/environment', [], function() {
   
           var exports = {
-            'default': {"modulePrefix":"personal","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":false,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"personal","version":"0.1.1+c64293c5"},"social":{"github":"https://github.com/roncodes","twitter":"https://twitter.com/wreckitron28","twitch":"https://www.twitch.tv/wreckitron28","youtube":"https://www.youtube.com/channel/UCmM_EzTI4T7qxDc-YDiKkgw","instagram":"https://www.instagram.com/wreckitron28","tiktok":"","facebook":"","linkedin":"https://www.linkedin.com/in/ronald-a-richardson/","deviantart":"https://www.deviantart.com/ghosted28"},"fontawesome":{"defaultPrefix":"fad"},"ember-meta":{"description":"entrepreneur, software engineer, roboticist, adventurer, gamer","imgSrc":"/meta/favicon.png","siteName":"ron.dev","title":"ron.dev - ronald a. richardson - entrepreneur, software engineer, roboticist, adventurer, gamer","twitterUsername":"@WreckItRon28","url":"https://ron.dev/"},"ember-cli-markdown-resolver":{"folders":{"posts":"app/posts"}},"exportApplicationGlobal":true,"currentRevision":"c64293c5c6","longRevision":"c64293c5c631a25e166a3d1f7d9108992e2e2959","tag":null,"branch":"main"}
+            'default': {"modulePrefix":"personal","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":false,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"personal","version":"0.1.1+2626dc27"},"social":{"github":"https://github.com/roncodes","twitter":"https://twitter.com/wreckitron28","twitch":"https://www.twitch.tv/wreckitron28","youtube":"https://www.youtube.com/channel/UCmM_EzTI4T7qxDc-YDiKkgw","instagram":"https://www.instagram.com/wreckitron28","tiktok":"","facebook":"","linkedin":"https://www.linkedin.com/in/ronald-a-richardson/","deviantart":"https://www.deviantart.com/ghosted28"},"fontawesome":{"defaultPrefix":"fad"},"ember-meta":{"description":"entrepreneur, software engineer, roboticist, adventurer, gamer","imgSrc":"/meta/favicon.png","siteName":"ron.dev","title":"ron.dev - ronald a. richardson - entrepreneur, software engineer, roboticist, adventurer, gamer","twitterUsername":"@WreckItRon28","url":"https://ron.dev/"},"ember-cli-markdown-resolver":{"folders":{"posts":"app/posts"}},"exportApplicationGlobal":true,"currentRevision":"2626dc27d5","longRevision":"2626dc27d5b1925a3e76fb7039b14ea368d2bff0","tag":null,"branch":"main"}
           };
           Object.defineProperty(exports, '__esModule', {value: true});
           return exports;
@@ -3699,7 +3699,7 @@
 
 ;
           if (!runningTests) {
-            require("personal/app")["default"].create({"name":"personal","version":"0.1.1+c64293c5"});
+            require("personal/app")["default"].create({"name":"personal","version":"0.1.1+2626dc27"});
           }
         
 //# sourceMappingURL=ron.dev.map
