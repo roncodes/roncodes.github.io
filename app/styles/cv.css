@@ -135,11 +135,8 @@ ul.cv-links > li {
 
 @page  
 { 
-    size: auto;
-    margin-top: 1.5rem;
-    margin-bottom: 0rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    size: A4;
+    margin: 1rem;
 } 
 
 @media only screen and (max-width: 600px) {
@@ -174,7 +171,7 @@ ul.cv-links > li {
     --p-md-font-size: 9px;
     --p-lg-font-size: 10px;
 
-	body {
+	html, body {
         @apply bg-white dark:bg-white;
         background-color: #fff !important;
         width: 210mm !important;
