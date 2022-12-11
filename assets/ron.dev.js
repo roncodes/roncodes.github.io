@@ -95,17 +95,15 @@
 
   const __COLOCATED_TEMPLATE__ = (0, _templateFactory.createTemplateFactory)(
   /*
-    <div class="relative" ...attributes>
-      <div class="relative z-20">
-          <div class="max-w-7xl mx-auto px-8">
-             {{yield}}
-          </div>
-      </div>
+    <div class="page-container-wrapper relative z-20" ...attributes>
+      <PageContainer>
+          {{yield}}
+      </PageContainer>
   </div>
   */
   {
-    "id": "cHEbO0gq",
-    "block": "[[[11,0],[24,0,\"relative\"],[17,1],[12],[1,\"\\n    \"],[10,0],[14,0,\"relative z-20\"],[12],[1,\"\\n        \"],[10,0],[14,0,\"max-w-7xl mx-auto px-8\"],[12],[1,\"\\n           \"],[18,2,null],[1,\"\\n        \"],[13],[1,\"\\n    \"],[13],[1,\"\\n\"],[13]],[\"&attrs\",\"&default\"],false,[\"yield\"]]",
+    "id": "Z04S2ASn",
+    "block": "[[[11,0],[24,0,\"page-container-wrapper relative z-20\"],[17,1],[12],[1,\"\\n    \"],[8,[39,0],null,null,[[\"default\"],[[[[1,\"\\n        \"],[18,2,null],[1,\"\\n    \"]],[]]]]],[1,\"\\n\"],[13]],[\"&attrs\",\"&default\"],false,[\"page-container\",\"yield\"]]",
     "moduleName": "personal/components/body.hbs",
     "isStrictMode": false
   });
@@ -128,7 +126,7 @@
     }
   });
 });
-;define("personal/components/footer", ["exports", "@ember/component", "@ember/template-factory", "@glimmer/component", "@ember/object", "personal/utils/clean-object", "personal/utils/config"], function (_exports, _component, _templateFactory, _component2, _object, _cleanObject, _config) {
+;define("personal/components/footer", ["exports", "@ember/component", "@ember/template-factory", "@glimmer/component", "@ember/object", "@ember/object/computed", "personal/utils/clean-object", "personal/utils/config"], function (_exports, _component, _templateFactory, _component2, _object, _computed, _cleanObject, _config) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -136,46 +134,74 @@
   });
   _exports.default = void 0;
 
-  var _class;
+  var _dec, _dec2, _class, _descriptor;
+
+  function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
+
+  function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
   function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) { var desc = {}; Object.keys(descriptor).forEach(function (key) { desc[key] = descriptor[key]; }); desc.enumerable = !!desc.enumerable; desc.configurable = !!desc.configurable; if ('value' in desc || desc.initializer) { desc.writable = true; } desc = decorators.slice().reverse().reduce(function (desc, decorator) { return decorator(target, property, desc) || desc; }, desc); if (context && desc.initializer !== void 0) { desc.value = desc.initializer ? desc.initializer.call(context) : void 0; desc.initializer = undefined; } if (desc.initializer === void 0) { Object.defineProperty(target, property, desc); desc = null; } return desc; }
 
+  function _initializerWarningHelper(descriptor, context) { throw new Error('Decorating class property failed. Please ensure that ' + 'proposal-class-properties is enabled and runs after the decorators transform.'); }
+
   const __COLOCATED_TEMPLATE__ = (0, _templateFactory.createTemplateFactory)(
   /*
-    <div class="relative" ...attributes>
-      <div class="relative z-20 border-t border-gray-200 dark:border-gray-800 mt-0 md:mt-20">
-          <div class="max-w-7xl mx-auto flex flex-col px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start space-y-5">
-              <div class="flex-1 flex">
-                  <nav class="flex flex-col space-y-2 md:space-y-0 md:flex-row md:space-x-10 lowercase">
-                      {{#each-in this.socialLinks as |social url|}}
-                          <a href={{url}} class="text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200">
-                              <FaIcon @icon={{social}} @prefix="fab" />
-                              <span>{{social}}</span>
-                          </a>    
-                      {{/each-in}}
-                  </nav>
-              </div>
-              <div class="flex-1 flex flex-col space-y-2">
-                  <div class="text-xs dark:text-gray-200">&copy; all rights reserved, ronald a. richardson</div>
-                  <div class="text-xs dark:text-gray-200">v{{app-version versionOnly=true}}</div>
-              </div>
-              <div class="flex md:hidden">
-                  <Switch @isActive={{eq @theme "dark"}} @label="Night Mode" @labelClass="text-xs" @onToggle={{this.onToggleTheme}} />
+    {{#if this.visible}}
+      <div class="relative print:hidden" ...attributes>
+          <div class="relative z-20 border-t border-gray-200 dark:border-gray-800 mt-0 md:mt-20">
+              <div class="max-w-7xl mx-auto flex flex-col px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start space-y-5">
+                  <div class="flex-1 flex">
+                      <nav class="flex flex-col space-y-2 md:space-y-0 md:flex-row md:space-x-10 lowercase">
+                          {{#each-in this.socialLinks as |social url|}}
+                              <a href={{url}} class="text-xs font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200">
+                                  <FaIcon @icon={{social}} @prefix="fab" />
+                                  <span>{{social}}</span>
+                              </a>
+                          {{/each-in}}
+                      </nav>
+                  </div>
+                  <div class="flex-1 flex flex-col space-y-2">
+                      <div class="text-xs dark:text-gray-200">&copy; all rights reserved, ronald a. richardson</div>
+                      <div class="text-xs dark:text-gray-200">v{{app-version versionOnly=true}}</div>
+                  </div>
+                  <div class="flex dark:text-gray-400 md:hidden">
+                      <button type="button" class="flex items-center justify-center w-8 hover:opacity-50" {{on "click" this.onToggleTheme}}>
+                          <FaIcon @icon={{if this.isDarkMode "lightbulb" "lightbulb-on"}} />
+                      </button>
+                  </div>
               </div>
           </div>
       </div>
-  </div>
+  {{/if}}
   */
   {
-    "id": "4jecHti6",
-    "block": "[[[11,0],[24,0,\"relative\"],[17,1],[12],[1,\"\\n    \"],[10,0],[14,0,\"relative z-20 border-t border-gray-200 dark:border-gray-800 mt-0 md:mt-20\"],[12],[1,\"\\n        \"],[10,0],[14,0,\"max-w-7xl mx-auto flex flex-col px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start space-y-5\"],[12],[1,\"\\n            \"],[10,0],[14,0,\"flex-1 flex\"],[12],[1,\"\\n                \"],[10,\"nav\"],[14,0,\"flex flex-col space-y-2 md:space-y-0 md:flex-row md:space-x-10 lowercase\"],[12],[1,\"\\n\"],[42,[28,[37,1],[[30,0,[\"socialLinks\"]]],null],null,[[[1,\"                        \"],[10,3],[15,6,[30,2]],[14,0,\"text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200\"],[12],[1,\"\\n                            \"],[8,[39,2],null,[[\"@icon\",\"@prefix\"],[[30,3],\"fab\"]],null],[1,\"\\n                            \"],[10,1],[12],[1,[30,3]],[13],[1,\"\\n                        \"],[13],[1,\"    \\n\"]],[2,3]],null],[1,\"                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n            \"],[10,0],[14,0,\"flex-1 flex flex-col space-y-2\"],[12],[1,\"\\n                \"],[10,0],[14,0,\"text-xs dark:text-gray-200\"],[12],[1,\"© all rights reserved, ronald a. richardson\"],[13],[1,\"\\n                \"],[10,0],[14,0,\"text-xs dark:text-gray-200\"],[12],[1,\"v\"],[1,[28,[35,3],null,[[\"versionOnly\"],[true]]]],[13],[1,\"\\n            \"],[13],[1,\"\\n            \"],[10,0],[14,0,\"flex md:hidden\"],[12],[1,\"\\n                \"],[8,[39,4],null,[[\"@isActive\",\"@label\",\"@labelClass\",\"@onToggle\"],[[28,[37,5],[[30,4],\"dark\"],null],\"Night Mode\",\"text-xs\",[30,0,[\"onToggleTheme\"]]]],null],[1,\"\\n            \"],[13],[1,\"\\n        \"],[13],[1,\"\\n    \"],[13],[1,\"\\n\"],[13]],[\"&attrs\",\"url\",\"social\",\"@theme\"],false,[\"each\",\"-each-in\",\"fa-icon\",\"app-version\",\"switch\",\"eq\"]]",
+    "id": "qE4vbcBH",
+    "block": "[[[41,[30,0,[\"visible\"]],[[[1,\"    \"],[11,0],[24,0,\"relative print:hidden\"],[17,1],[12],[1,\"\\n        \"],[10,0],[14,0,\"relative z-20 border-t border-gray-200 dark:border-gray-800 mt-0 md:mt-20\"],[12],[1,\"\\n            \"],[10,0],[14,0,\"max-w-7xl mx-auto flex flex-col px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start space-y-5\"],[12],[1,\"\\n                \"],[10,0],[14,0,\"flex-1 flex\"],[12],[1,\"\\n                    \"],[10,\"nav\"],[14,0,\"flex flex-col space-y-2 md:space-y-0 md:flex-row md:space-x-10 lowercase\"],[12],[1,\"\\n\"],[42,[28,[37,2],[[30,0,[\"socialLinks\"]]],null],null,[[[1,\"                            \"],[10,3],[15,6,[30,2]],[14,0,\"text-xs font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200\"],[12],[1,\"\\n                                \"],[8,[39,3],null,[[\"@icon\",\"@prefix\"],[[30,3],\"fab\"]],null],[1,\"\\n                                \"],[10,1],[12],[1,[30,3]],[13],[1,\"\\n                            \"],[13],[1,\"\\n\"]],[2,3]],null],[1,\"                    \"],[13],[1,\"\\n                \"],[13],[1,\"\\n                \"],[10,0],[14,0,\"flex-1 flex flex-col space-y-2\"],[12],[1,\"\\n                    \"],[10,0],[14,0,\"text-xs dark:text-gray-200\"],[12],[1,\"© all rights reserved, ronald a. richardson\"],[13],[1,\"\\n                    \"],[10,0],[14,0,\"text-xs dark:text-gray-200\"],[12],[1,\"v\"],[1,[28,[35,4],null,[[\"versionOnly\"],[true]]]],[13],[1,\"\\n                \"],[13],[1,\"\\n                \"],[10,0],[14,0,\"flex dark:text-gray-400 md:hidden\"],[12],[1,\"\\n                    \"],[11,\"button\"],[24,0,\"flex items-center justify-center w-8 hover:opacity-50\"],[24,4,\"button\"],[4,[38,5],[\"click\",[30,0,[\"onToggleTheme\"]]],null],[12],[1,\"\\n                        \"],[8,[39,3],null,[[\"@icon\"],[[52,[30,0,[\"isDarkMode\"]],\"lightbulb\",\"lightbulb-on\"]]],null],[1,\"\\n                    \"],[13],[1,\"\\n                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n        \"],[13],[1,\"\\n    \"],[13],[1,\"\\n\"]],[]],null]],[\"&attrs\",\"url\",\"social\"],false,[\"if\",\"each\",\"-each-in\",\"fa-icon\",\"app-version\",\"on\"]]",
     "moduleName": "personal/components/footer.hbs",
     "isStrictMode": false
   });
 
-  let FooterComponent = (_class = class FooterComponent extends _component2.default {
+  let FooterComponent = (_dec = (0, _computed.equal)('args.theme', 'dark'), _dec2 = (0, _object.computed)('args.visible'), (_class = class FooterComponent extends _component2.default {
+    constructor() {
+      super(...arguments);
+
+      _initializerDefineProperty(this, "isDarkMode", _descriptor, this);
+    }
+
     get socialLinks() {
       return (0, _cleanObject.default)((0, _config.default)('social'));
+    }
+
+    get visible() {
+      let {
+        visible
+      } = this.args;
+
+      if (visible === undefined) {
+        visible = true;
+      }
+
+      return visible;
     }
 
     onToggleTheme() {
@@ -184,7 +210,12 @@
       }
     }
 
-  }, (_applyDecoratedDescriptor(_class.prototype, "onToggleTheme", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "onToggleTheme"), _class.prototype)), _class);
+  }, (_descriptor = _applyDecoratedDescriptor(_class.prototype, "isDarkMode", [_dec], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: null
+  }), _applyDecoratedDescriptor(_class.prototype, "visible", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "visible"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "onToggleTheme", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "onToggleTheme"), _class.prototype)), _class));
   _exports.default = FooterComponent;
   (0, _component.setComponentTemplate)(__COLOCATED_TEMPLATE__, FooterComponent);
 });
@@ -235,7 +266,7 @@
     }
   });
 });
-;define("personal/components/header", ["exports", "@ember/component", "@ember/template-factory", "@glimmer/component", "@glimmer/tracking", "@ember/object", "@ember/service"], function (_exports, _component, _templateFactory, _component2, _tracking, _object, _service) {
+;define("personal/components/header", ["exports", "@ember/component", "@ember/template-factory", "@glimmer/component", "@glimmer/tracking", "@ember/object", "@ember/object/computed", "@ember/service"], function (_exports, _component, _templateFactory, _component2, _tracking, _object, _computed, _service) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -243,7 +274,7 @@
   });
   _exports.default = void 0;
 
-  var _class, _descriptor, _descriptor2;
+  var _dec, _dec2, _class, _descriptor, _descriptor2, _descriptor3;
 
   function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
 
@@ -255,100 +286,70 @@
 
   const __COLOCATED_TEMPLATE__ = (0, _templateFactory.createTemplateFactory)(
   /*
-    <div class="relative" ...attributes>
-      <div class="relative flex-1 z-20">
-          <div class="max-w-7xl mx-auto flex justify-between items-center py-5 px-8">
-              <div class="flex items-center">
-                  <LinkTo @route="home" class="flex items-center">
-                      <img class="h-8 w-auto sm:h-10" src="/images/hahaha.gif" alt="ron.dev">
-                      <h3 class="ml-5 font-bold text-base text-green-500">ron.dev</h3>
+    {{#if this.visible}}
+      <div class="relative print:hidden" ...attributes>
+          <PageContainer class="flex flex-row justify-end my-6">
+              <div class="flex flex-row justify-end items-center dark:text-gray-400 -mr-3">
+                  <LinkTo @route="home" class="flex items-center justify-center w-8 hover:opacity-50">
+                      <FaIcon @icon="home" />
                   </LinkTo>
+                  <LinkTo @route="cv" class="flex items-center justify-center w-8 hover:opacity-50">
+                      <FaIcon @icon="file-lines" />
+                  </LinkTo>
+                  <button type="button" class="flex items-center justify-center w-8 hover:opacity-50" {{on "click" this.onPrint}}>
+                      <FaIcon @icon="print" />
+                  </button>
+                  <button type="button" class="flex items-center justify-center w-8 hover:opacity-50" {{on "click" this.onToggleTheme}}>
+                      <FaIcon @icon={{if this.isDarkMode "lightbulb" "lightbulb-on"}} />
+                  </button>
               </div>
-              <div>
-                  <Switch @isActive={{eq @theme "dark"}} @label="Night Mode" @onToggle={{this.onToggleTheme}} />
-              </div>
-          </div>
+          </PageContainer>
       </div>
-      {{#if this.mobileMenuIsOpen}}
-          <div class="z-40 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
-              <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white dark:bg-gray-800 divide-y-2 divide-gray-50">
-                  <div class="pt-2 pb-6">
-                      <div class="flex items-center justify-between px-6">
-                          <div>
-                              <LinkTo @route="home" class="flex items-center">
-                                  <img class="h-8 w-auto sm:h-10" src="/images/hahaha.gif" alt="ron.dev">
-                                  <h3 class="ml-5 font-bold text-base text-green-500">ron.dev</h3>
-                              </LinkTo>
-                          </div>
-                          <div class="-mr-2">
-                              <button {{on "click" this.closeMobileMenu}} type="button" class="bg-white dark:bg-gray-800 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                                  <span class="sr-only">Close menu</span>
-                                  <!-- Heroicon name: outline/x -->
-                                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                  </svg>
-                              </button>
-                          </div>
-                      </div>
-                      <div class="mt-6">
-                          <nav class="mobile-main-nav grid gap-y-5 lowercase">
-                              <a href="javascript:;" {{on "click" (fn this.transitionTo "posts")}} class="p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 dark:hover:text-gray-200">
-                                  <span class="ml-2 text-base font-medium text-gray-900 dark:text-gray-200">
-                                      Posts
-                                  </span>
-                              </a>
-                              <a href="javascript:;" {{on "click" (fn this.transitionTo "projects")}} class="p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 dark:hover:text-gray-200">
-                                  <span class="ml-2 text-base font-medium text-gray-900 dark:text-gray-200">
-                                      Projects
-                                  </span>
-                              </a>
-                              <a href="javascript:;" {{on "click" (fn this.transitionTo "travels")}} class="p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 dark:hover:text-gray-200">
-                                  <span class="ml-2 text-base font-medium text-gray-900 dark:text-gray-200">
-                                      Travels
-                                  </span>
-                              </a>
-                              <a href="javascript:;" {{on "click" (fn this.transitionTo "gaming")}} class="p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 dark:hover:text-gray-200">
-                                  <span class="ml-2 text-base font-medium text-gray-900 dark:text-gray-200">
-                                      Gaming
-                                  </span>
-                              </a>
-                              <a href="javascript:;" {{on "click" (fn this.transitionTo "art")}} class="p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 dark:hover:text-gray-200">
-                                  <span class="ml-2 text-base font-medium text-gray-900 dark:text-gray-200">
-                                      Art
-                                  </span>
-                              </a>
-                              <a href="javascript:;" {{on "click" (fn this.transitionTo "writing")}} class="p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 dark:hover:text-gray-200">
-                                  <span class="ml-2 text-base font-medium text-gray-900 dark:text-gray-200">
-                                      Writing
-                                  </span>
-                              </a>
-                          </nav>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      {{/if}}
-  </div>
+  {{/if}}
   */
   {
-    "id": "S5/T7U/o",
-    "block": "[[[11,0],[24,0,\"relative\"],[17,1],[12],[1,\"\\n    \"],[10,0],[14,0,\"relative flex-1 z-20\"],[12],[1,\"\\n        \"],[10,0],[14,0,\"max-w-7xl mx-auto flex justify-between items-center py-5 px-8\"],[12],[1,\"\\n            \"],[10,0],[14,0,\"flex items-center\"],[12],[1,\"\\n                \"],[8,[39,0],[[24,0,\"flex items-center\"]],[[\"@route\"],[\"home\"]],[[\"default\"],[[[[1,\"\\n                    \"],[10,\"img\"],[14,0,\"h-8 w-auto sm:h-10\"],[14,\"src\",\"/images/hahaha.gif\"],[14,\"alt\",\"ron.dev\"],[12],[13],[1,\"\\n                    \"],[10,\"h3\"],[14,0,\"ml-5 font-bold text-base text-green-500\"],[12],[1,\"ron.dev\"],[13],[1,\"\\n                \"]],[]]]]],[1,\"\\n            \"],[13],[1,\"\\n            \"],[10,0],[12],[1,\"\\n                \"],[8,[39,1],null,[[\"@isActive\",\"@label\",\"@onToggle\"],[[28,[37,2],[[30,2],\"dark\"],null],\"Night Mode\",[30,0,[\"onToggleTheme\"]]]],null],[1,\"\\n            \"],[13],[1,\"\\n        \"],[13],[1,\"\\n    \"],[13],[1,\"\\n\"],[41,[30,0,[\"mobileMenuIsOpen\"]],[[[1,\"        \"],[10,0],[14,0,\"z-40 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden\"],[12],[1,\"\\n            \"],[10,0],[14,0,\"rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white dark:bg-gray-800 divide-y-2 divide-gray-50\"],[12],[1,\"\\n                \"],[10,0],[14,0,\"pt-2 pb-6\"],[12],[1,\"\\n                    \"],[10,0],[14,0,\"flex items-center justify-between px-6\"],[12],[1,\"\\n                        \"],[10,0],[12],[1,\"\\n                            \"],[8,[39,0],[[24,0,\"flex items-center\"]],[[\"@route\"],[\"home\"]],[[\"default\"],[[[[1,\"\\n                                \"],[10,\"img\"],[14,0,\"h-8 w-auto sm:h-10\"],[14,\"src\",\"/images/hahaha.gif\"],[14,\"alt\",\"ron.dev\"],[12],[13],[1,\"\\n                                \"],[10,\"h3\"],[14,0,\"ml-5 font-bold text-base text-green-500\"],[12],[1,\"ron.dev\"],[13],[1,\"\\n                            \"]],[]]]]],[1,\"\\n                        \"],[13],[1,\"\\n                        \"],[10,0],[14,0,\"-mr-2\"],[12],[1,\"\\n                            \"],[11,\"button\"],[24,0,\"bg-white dark:bg-gray-800 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500\"],[24,4,\"button\"],[4,[38,4],[\"click\",[30,0,[\"closeMobileMenu\"]]],null],[12],[1,\"\\n                                \"],[10,1],[14,0,\"sr-only\"],[12],[1,\"Close menu\"],[13],[1,\"\\n                                \"],[3,\" Heroicon name: outline/x \"],[1,\"\\n                                \"],[10,\"svg\"],[14,0,\"h-6 w-6\"],[14,\"xmlns\",\"http://www.w3.org/2000/svg\",\"http://www.w3.org/2000/xmlns/\"],[14,\"fill\",\"none\"],[14,\"viewBox\",\"0 0 24 24\"],[14,\"stroke\",\"currentColor\"],[14,\"aria-hidden\",\"true\"],[12],[1,\"\\n                                    \"],[10,\"path\"],[14,\"stroke-linecap\",\"round\"],[14,\"stroke-linejoin\",\"round\"],[14,\"stroke-width\",\"2\"],[14,\"d\",\"M6 18L18 6M6 6l12 12\"],[12],[13],[1,\"\\n                                \"],[13],[1,\"\\n                            \"],[13],[1,\"\\n                        \"],[13],[1,\"\\n                    \"],[13],[1,\"\\n                    \"],[10,0],[14,0,\"mt-6\"],[12],[1,\"\\n                        \"],[10,\"nav\"],[14,0,\"mobile-main-nav grid gap-y-5 lowercase\"],[12],[1,\"\\n                            \"],[11,3],[24,6,\"javascript:;\"],[24,0,\"p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 dark:hover:text-gray-200\"],[4,[38,4],[\"click\",[28,[37,5],[[30,0,[\"transitionTo\"]],\"posts\"],null]],null],[12],[1,\"\\n                                \"],[10,1],[14,0,\"ml-2 text-base font-medium text-gray-900 dark:text-gray-200\"],[12],[1,\"\\n                                    Posts\\n                                \"],[13],[1,\"\\n                            \"],[13],[1,\"\\n                            \"],[11,3],[24,6,\"javascript:;\"],[24,0,\"p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 dark:hover:text-gray-200\"],[4,[38,4],[\"click\",[28,[37,5],[[30,0,[\"transitionTo\"]],\"projects\"],null]],null],[12],[1,\"\\n                                \"],[10,1],[14,0,\"ml-2 text-base font-medium text-gray-900 dark:text-gray-200\"],[12],[1,\"\\n                                    Projects\\n                                \"],[13],[1,\"\\n                            \"],[13],[1,\"\\n                            \"],[11,3],[24,6,\"javascript:;\"],[24,0,\"p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 dark:hover:text-gray-200\"],[4,[38,4],[\"click\",[28,[37,5],[[30,0,[\"transitionTo\"]],\"travels\"],null]],null],[12],[1,\"\\n                                \"],[10,1],[14,0,\"ml-2 text-base font-medium text-gray-900 dark:text-gray-200\"],[12],[1,\"\\n                                    Travels\\n                                \"],[13],[1,\"\\n                            \"],[13],[1,\"\\n                            \"],[11,3],[24,6,\"javascript:;\"],[24,0,\"p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 dark:hover:text-gray-200\"],[4,[38,4],[\"click\",[28,[37,5],[[30,0,[\"transitionTo\"]],\"gaming\"],null]],null],[12],[1,\"\\n                                \"],[10,1],[14,0,\"ml-2 text-base font-medium text-gray-900 dark:text-gray-200\"],[12],[1,\"\\n                                    Gaming\\n                                \"],[13],[1,\"\\n                            \"],[13],[1,\"\\n                            \"],[11,3],[24,6,\"javascript:;\"],[24,0,\"p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 dark:hover:text-gray-200\"],[4,[38,4],[\"click\",[28,[37,5],[[30,0,[\"transitionTo\"]],\"art\"],null]],null],[12],[1,\"\\n                                \"],[10,1],[14,0,\"ml-2 text-base font-medium text-gray-900 dark:text-gray-200\"],[12],[1,\"\\n                                    Art\\n                                \"],[13],[1,\"\\n                            \"],[13],[1,\"\\n                            \"],[11,3],[24,6,\"javascript:;\"],[24,0,\"p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 dark:hover:text-gray-200\"],[4,[38,4],[\"click\",[28,[37,5],[[30,0,[\"transitionTo\"]],\"writing\"],null]],null],[12],[1,\"\\n                                \"],[10,1],[14,0,\"ml-2 text-base font-medium text-gray-900 dark:text-gray-200\"],[12],[1,\"\\n                                    Writing\\n                                \"],[13],[1,\"\\n                            \"],[13],[1,\"\\n                        \"],[13],[1,\"\\n                    \"],[13],[1,\"\\n                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n        \"],[13],[1,\"\\n\"]],[]],null],[13]],[\"&attrs\",\"@theme\"],false,[\"link-to\",\"switch\",\"eq\",\"if\",\"on\",\"fn\"]]",
+    "id": "eKoe7H9z",
+    "block": "[[[41,[30,0,[\"visible\"]],[[[1,\"    \"],[11,0],[24,0,\"relative print:hidden\"],[17,1],[12],[1,\"\\n        \"],[8,[39,1],[[24,0,\"flex flex-row justify-end my-6\"]],null,[[\"default\"],[[[[1,\"\\n            \"],[10,0],[14,0,\"flex flex-row justify-end items-center dark:text-gray-400 -mr-3\"],[12],[1,\"\\n                \"],[8,[39,2],[[24,0,\"flex items-center justify-center w-8 hover:opacity-50\"]],[[\"@route\"],[\"home\"]],[[\"default\"],[[[[1,\"\\n                    \"],[8,[39,3],null,[[\"@icon\"],[\"home\"]],null],[1,\"\\n                \"]],[]]]]],[1,\"\\n                \"],[8,[39,2],[[24,0,\"flex items-center justify-center w-8 hover:opacity-50\"]],[[\"@route\"],[\"cv\"]],[[\"default\"],[[[[1,\"\\n                    \"],[8,[39,3],null,[[\"@icon\"],[\"file-lines\"]],null],[1,\"\\n                \"]],[]]]]],[1,\"\\n                \"],[11,\"button\"],[24,0,\"flex items-center justify-center w-8 hover:opacity-50\"],[24,4,\"button\"],[4,[38,4],[\"click\",[30,0,[\"onPrint\"]]],null],[12],[1,\"\\n                    \"],[8,[39,3],null,[[\"@icon\"],[\"print\"]],null],[1,\"\\n                \"],[13],[1,\"\\n                \"],[11,\"button\"],[24,0,\"flex items-center justify-center w-8 hover:opacity-50\"],[24,4,\"button\"],[4,[38,4],[\"click\",[30,0,[\"onToggleTheme\"]]],null],[12],[1,\"\\n                    \"],[8,[39,3],null,[[\"@icon\"],[[52,[30,0,[\"isDarkMode\"]],\"lightbulb\",\"lightbulb-on\"]]],null],[1,\"\\n                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n        \"]],[]]]]],[1,\"\\n    \"],[13],[1,\"\\n\"]],[]],null]],[\"&attrs\"],false,[\"if\",\"page-container\",\"link-to\",\"fa-icon\",\"on\"]]",
     "moduleName": "personal/components/header.hbs",
     "isStrictMode": false
   });
 
-  let HeaderComponent = (_class = class HeaderComponent extends _component2.default {
+  let HeaderComponent = (_dec = (0, _computed.equal)('args.theme', 'dark'), _dec2 = (0, _object.computed)('args.visible'), (_class = class HeaderComponent extends _component2.default {
     constructor() {
       super(...arguments);
 
       _initializerDefineProperty(this, "router", _descriptor, this);
 
       _initializerDefineProperty(this, "mobileMenuIsOpen", _descriptor2, this);
+
+      _initializerDefineProperty(this, "isDarkMode", _descriptor3, this);
+    }
+
+    get visible() {
+      let {
+        visible
+      } = this.args;
+
+      if (visible === undefined) {
+        visible = true;
+      }
+
+      return visible;
     }
 
     onToggleTheme() {
       if (typeof this.args.onToggleTheme === 'function') {
         this.args.onToggleTheme(...arguments);
+      }
+    }
+
+    onPrint() {
+      const {
+        onPrint
+      } = this.args;
+
+      if (typeof onPrint === 'function') {
+        onPrint(...arguments);
       }
     }
 
@@ -388,7 +389,12 @@
     initializer: function () {
       return false;
     }
-  }), _applyDecoratedDescriptor(_class.prototype, "onToggleTheme", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "onToggleTheme"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "toggleMobileMenu", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "toggleMobileMenu"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "closeMobileMenu", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "closeMobileMenu"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "openMobileMenu", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "openMobileMenu"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "transitionTo", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "transitionTo"), _class.prototype)), _class);
+  }), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, "isDarkMode", [_dec], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: null
+  }), _applyDecoratedDescriptor(_class.prototype, "visible", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "visible"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "onToggleTheme", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "onToggleTheme"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "onPrint", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "onPrint"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "toggleMobileMenu", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "toggleMobileMenu"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "closeMobileMenu", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "closeMobileMenu"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "openMobileMenu", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "openMobileMenu"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "transitionTo", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "transitionTo"), _class.prototype)), _class));
   _exports.default = HeaderComponent;
   (0, _component.setComponentTemplate)(__COLOCATED_TEMPLATE__, HeaderComponent);
 });
@@ -404,6 +410,31 @@
       return _markdownToHtml.default;
     }
   });
+});
+;define("personal/components/page-container", ["exports", "@ember/component", "@ember/template-factory", "@ember/component/template-only"], function (_exports, _component, _templateFactory, _templateOnly) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  const __COLOCATED_TEMPLATE__ = (0, _templateFactory.createTemplateFactory)(
+  /*
+    <div class="page-container max-w-full md:max-w-7xl print:max-w-full mx-auto px-8 print:px-0" ...attributes>
+      {{yield}}
+  </div>
+  */
+  {
+    "id": "tw8XX1OQ",
+    "block": "[[[11,0],[24,0,\"page-container max-w-full md:max-w-7xl print:max-w-full mx-auto px-8 print:px-0\"],[17,1],[12],[1,\"\\n    \"],[18,2,null],[1,\"\\n\"],[13]],[\"&attrs\",\"&default\"],false,[\"yield\"]]",
+    "moduleName": "personal/components/page-container.hbs",
+    "isStrictMode": false
+  });
+
+  var _default = (0, _component.setComponentTemplate)(__COLOCATED_TEMPLATE__, (0, _templateOnly.default)());
+
+  _exports.default = _default;
 });
 ;define("personal/components/root", ["exports", "@ember/component", "@ember/template-factory", "@glimmer/component", "@ember/object"], function (_exports, _component, _templateFactory, _component2, _object) {
   "use strict";
@@ -522,6 +553,178 @@
   _exports.default = SwitchComponent;
   (0, _component.setComponentTemplate)(__COLOCATED_TEMPLATE__, SwitchComponent);
 });
+;define("personal/components/typewriter-text", ["exports", "@ember/component", "@ember/template-factory", "@glimmer/component", "@glimmer/tracking", "@ember/object", "@ember/utils"], function (_exports, _component, _templateFactory, _component2, _tracking, _object, _utils) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _class, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6;
+
+  function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
+
+  function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+  function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) { var desc = {}; Object.keys(descriptor).forEach(function (key) { desc[key] = descriptor[key]; }); desc.enumerable = !!desc.enumerable; desc.configurable = !!desc.configurable; if ('value' in desc || desc.initializer) { desc.writable = true; } desc = decorators.slice().reverse().reduce(function (desc, decorator) { return decorator(target, property, desc) || desc; }, desc); if (context && desc.initializer !== void 0) { desc.value = desc.initializer ? desc.initializer.call(context) : void 0; desc.initializer = undefined; } if (desc.initializer === void 0) { Object.defineProperty(target, property, desc); desc = null; } return desc; }
+
+  function _initializerWarningHelper(descriptor, context) { throw new Error('Decorating class property failed. Please ensure that ' + 'proposal-class-properties is enabled and runs after the decorators transform.'); }
+
+  const __COLOCATED_TEMPLATE__ = (0, _templateFactory.createTemplateFactory)(
+  /*
+    <span class="typewriter-text" {{did-insert this.setupComponent}} ...attributes>{{yield}}</span>
+  */
+  {
+    "id": "ymaAe4Db",
+    "block": "[[[11,1],[24,0,\"typewriter-text\"],[17,1],[4,[38,0],[[30,0,[\"setupComponent\"]]],null],[12],[18,2,null],[13]],[\"&attrs\",\"&default\"],false,[\"did-insert\",\"yield\"]]",
+    "moduleName": "personal/components/typewriter-text.hbs",
+    "isStrictMode": false
+  });
+
+  let TypewriterTextComponent = (_class = class TypewriterTextComponent extends _component2.default {
+    constructor() {
+      super(...arguments);
+
+      _initializerDefineProperty(this, "nodeRef", _descriptor, this);
+
+      _initializerDefineProperty(this, "interval", _descriptor2, this);
+
+      _initializerDefineProperty(this, "typeInterval", _descriptor3, this);
+
+      _initializerDefineProperty(this, "loop", _descriptor4, this);
+
+      _initializerDefineProperty(this, "multiplePhrases", _descriptor5, this);
+
+      _initializerDefineProperty(this, "phraseDelimiter", _descriptor6, this);
+    }
+
+    async setupComponent(element) {
+      const {
+        loop,
+        interval,
+        typeInterval,
+        multiplePhrases,
+        phraseDelimiter
+      } = this.args;
+      this.nodeRef = element;
+      this.loop = (0, _utils.isEmpty)(loop) ? this.loop : loop;
+      this.interval = (0, _utils.isEmpty)(interval) ? this.interval : parseInt(interval);
+      this.typeInterval = (0, _utils.isEmpty)(typeInterval) ? this.typeInterval : parseInt(typeInterval);
+      this.multiplePhrases = (0, _utils.isEmpty)(multiplePhrases) ? this.multiplePhrases : multiplePhrases;
+      this.phraseDelimiter = (0, _utils.isEmpty)(phraseDelimiter) ? this.phraseDelimiter : phraseDelimiter;
+      this.startTypeWriting();
+    }
+
+    async startTypeWriting() {
+      let {
+        phrases
+      } = this.args;
+
+      if (!phrases) {
+        phrases = this.getPhrasesFromText();
+      }
+
+      for (let i = 0; i < phrases.length; i++) {
+        const phrase = phrases.objectAt(i);
+        this.clearText();
+
+        for (let j = 0; j < phrase.length; j++) {
+          const char = phrase[j];
+          await this.addCharacter(char);
+        }
+
+        await this.timeout(this.interval);
+
+        if (this.loop === true) {
+          phrases.pushObject(phrase);
+        }
+      }
+    }
+
+    getPhrasesFromText() {
+      const text = this.getText();
+
+      if (this.isMultiplePhrases && typeof text === 'string') {
+        return text.split(this.phraseDelimiter);
+      }
+
+      return [text];
+    }
+
+    getText() {
+      return this.nodeRef?.textContent;
+    }
+
+    clearText() {
+      this.nodeRef.textContent = ' ';
+    }
+
+    setText(text) {
+      this.nodeRef.textContent = text;
+    }
+
+    addCharacter(char) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          this.nodeRef.textContent += char;
+          resolve(true);
+        }, this.typeInterval);
+      });
+    }
+
+    timeout(ms) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve(true);
+        }, ms);
+      });
+    }
+
+  }, (_descriptor = _applyDecoratedDescriptor(_class.prototype, "nodeRef", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: null
+  }), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, "interval", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return 1200;
+    }
+  }), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, "typeInterval", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return 100;
+    }
+  }), _descriptor4 = _applyDecoratedDescriptor(_class.prototype, "loop", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return true;
+    }
+  }), _descriptor5 = _applyDecoratedDescriptor(_class.prototype, "multiplePhrases", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return true;
+    }
+  }), _descriptor6 = _applyDecoratedDescriptor(_class.prototype, "phraseDelimiter", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return ',';
+    }
+  }), _applyDecoratedDescriptor(_class.prototype, "setupComponent", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "setupComponent"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "startTypeWriting", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "startTypeWriting"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "getPhrasesFromText", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "getPhrasesFromText"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "getText", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "getText"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "clearText", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "clearText"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setText", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "setText"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "addCharacter", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "addCharacter"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "timeout", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "timeout"), _class.prototype)), _class);
+  _exports.default = TypewriterTextComponent;
+  (0, _component.setComponentTemplate)(__COLOCATED_TEMPLATE__, TypewriterTextComponent);
+});
 ;define("personal/controllers/application", ["exports", "@ember/controller", "@glimmer/tracking", "@ember/object"], function (_exports, _controller, _tracking, _object) {
   "use strict";
 
@@ -530,7 +733,7 @@
   });
   _exports.default = void 0;
 
-  var _class, _descriptor;
+  var _class, _descriptor, _descriptor2, _descriptor3;
 
   function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
 
@@ -545,6 +748,28 @@
       super(...arguments);
 
       _initializerDefineProperty(this, "theme", _descriptor, this);
+
+      _initializerDefineProperty(this, "showHeader", _descriptor2, this);
+
+      _initializerDefineProperty(this, "showFooter", _descriptor3, this);
+    }
+
+    hideLayout() {
+      this.showHeader = false;
+      this.showFooter = false;
+    }
+
+    hideFooter() {
+      this.showFooter = false;
+    }
+
+    showLayout() {
+      this.showHeader = true;
+      this.showFooter = true;
+    }
+
+    print() {
+      window.print();
     }
 
     toggleTheme() {
@@ -572,8 +797,79 @@
     initializer: function () {
       return 'light';
     }
-  }), _applyDecoratedDescriptor(_class.prototype, "toggleTheme", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "toggleTheme"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "initialize", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "initialize"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setBodyTheme", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "setBodyTheme"), _class.prototype)), _class);
+  }), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, "showHeader", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return true;
+    }
+  }), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, "showFooter", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return true;
+    }
+  }), _applyDecoratedDescriptor(_class.prototype, "hideLayout", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "hideLayout"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "hideFooter", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "hideFooter"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "showLayout", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "showLayout"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "print", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "print"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "toggleTheme", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "toggleTheme"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "initialize", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "initialize"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setBodyTheme", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "setBodyTheme"), _class.prototype)), _class);
   _exports.default = ApplicationController;
+});
+;define("personal/controllers/cv", ["exports", "@ember/controller", "@ember/object", "@ember/object/computed", "personal/utils/get-cv-data"], function (_exports, _controller, _object, _computed, _getCvData) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _dec, _dec2, _dec3, _class, _descriptor, _descriptor2, _descriptor3;
+
+  function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
+
+  function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+  function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) { var desc = {}; Object.keys(descriptor).forEach(function (key) { desc[key] = descriptor[key]; }); desc.enumerable = !!desc.enumerable; desc.configurable = !!desc.configurable; if ('value' in desc || desc.initializer) { desc.writable = true; } desc = decorators.slice().reverse().reduce(function (desc, decorator) { return decorator(target, property, desc) || desc; }, desc); if (context && desc.initializer !== void 0) { desc.value = desc.initializer ? desc.initializer.call(context) : void 0; desc.initializer = undefined; } if (desc.initializer === void 0) { Object.defineProperty(target, property, desc); desc = null; } return desc; }
+
+  function _initializerWarningHelper(descriptor, context) { throw new Error('Decorating class property failed. Please ensure that ' + 'proposal-class-properties is enabled and runs after the decorators transform.'); }
+
+  let CvController = (_dec = (0, _controller.inject)('application'), _dec2 = (0, _computed.alias)('applicationController.theme'), _dec3 = (0, _computed.equal)('theme', 'dark'), (_class = class CvController extends _controller.default {
+    constructor() {
+      super(...arguments);
+
+      _initializerDefineProperty(this, "applicationController", _descriptor, this);
+
+      _initializerDefineProperty(this, "theme", _descriptor2, this);
+
+      _initializerDefineProperty(this, "isDarkMode", _descriptor3, this);
+
+      _defineProperty(this, "data", (0, _getCvData.default)());
+    }
+
+    print() {
+      window.print();
+    }
+
+    toggleTheme() {
+      return this.applicationController.toggleTheme(...arguments);
+    }
+
+  }, (_descriptor = _applyDecoratedDescriptor(_class.prototype, "applicationController", [_dec], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: null
+  }), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, "theme", [_dec2], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: null
+  }), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, "isDarkMode", [_dec3], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: null
+  }), _applyDecoratedDescriptor(_class.prototype, "print", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "print"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "toggleTheme", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "toggleTheme"), _class.prototype)), _class));
+  _exports.default = CvController;
 });
 ;define("personal/controllers/gaming/index", ["exports", "@ember/controller"], function (_exports, _controller) {
   "use strict";
@@ -758,6 +1054,63 @@
 
   _exports.default = _default;
 });
+;define("personal/helpers/camelize", ["exports", "ember-cli-string-helpers/helpers/camelize"], function (_exports, _camelize) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "camelize", {
+    enumerable: true,
+    get: function () {
+      return _camelize.camelize;
+    }
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _camelize.default;
+    }
+  });
+});
+;define("personal/helpers/capitalize", ["exports", "ember-cli-string-helpers/helpers/capitalize"], function (_exports, _capitalize) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "capitalize", {
+    enumerable: true,
+    get: function () {
+      return _capitalize.capitalize;
+    }
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _capitalize.default;
+    }
+  });
+});
+;define("personal/helpers/classify", ["exports", "ember-cli-string-helpers/helpers/classify"], function (_exports, _classify) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "classify", {
+    enumerable: true,
+    get: function () {
+      return _classify.classify;
+    }
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _classify.default;
+    }
+  });
+});
 ;define("personal/helpers/config", ["exports", "@ember/component/helper", "personal/utils/config"], function (_exports, _helper, _config) {
   "use strict";
 
@@ -773,7 +1126,26 @@
 
   _exports.default = _default;
 });
-;define("personal/helpers/eq", ["exports", "ember-truth-helpers/helpers/equal"], function (_exports, _equal) {
+;define("personal/helpers/dasherize", ["exports", "ember-cli-string-helpers/helpers/dasherize"], function (_exports, _dasherize) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "dasherize", {
+    enumerable: true,
+    get: function () {
+      return _dasherize.dasherize;
+    }
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _dasherize.default;
+    }
+  });
+});
+;define("personal/helpers/ensure-safe-component", ["exports", "@embroider/util"], function (_exports, _util) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -782,15 +1154,48 @@
   Object.defineProperty(_exports, "default", {
     enumerable: true,
     get: function () {
-      return _equal.default;
+      return _util.EnsureSafeComponentHelper;
+    }
+  });
+});
+;define("personal/helpers/eq", ["exports", "ember-truth-helpers/helpers/eq"], function (_exports, _eq) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _eq.default;
     }
   });
   Object.defineProperty(_exports, "equal", {
     enumerable: true,
     get: function () {
-      return _equal.equal;
+      return _eq.equal;
     }
   });
+});
+;define("personal/helpers/format-date", ["exports", "@ember/component/helper", "date-fns"], function (_exports, _helper, _dateFns) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = (0, _helper.helper)(function formatDate(_ref) {
+    let [date, fmt = 'dd MMM, yyyy'] = _ref;
+
+    if (!date instanceof Date) {
+      date = new Date();
+    }
+
+    return (0, _dateFns.format)(date, fmt);
+  });
+
+  _exports.default = _default;
 });
 ;define("personal/helpers/gt", ["exports", "ember-truth-helpers/helpers/gt"], function (_exports, _gt) {
   "use strict";
@@ -844,6 +1249,25 @@
 
   _exports.default = _default;
 });
+;define("personal/helpers/humanize", ["exports", "ember-cli-string-helpers/helpers/humanize"], function (_exports, _humanize) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _humanize.default;
+    }
+  });
+  Object.defineProperty(_exports, "humanize", {
+    enumerable: true,
+    get: function () {
+      return _humanize.humanize;
+    }
+  });
+});
 ;define("personal/helpers/is-array", ["exports", "ember-truth-helpers/helpers/is-array"], function (_exports, _isArray) {
   "use strict";
 
@@ -895,6 +1319,25 @@
     }
   });
 });
+;define("personal/helpers/lowercase", ["exports", "ember-cli-string-helpers/helpers/lowercase"], function (_exports, _lowercase) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _lowercase.default;
+    }
+  });
+  Object.defineProperty(_exports, "lowercase", {
+    enumerable: true,
+    get: function () {
+      return _lowercase.lowercase;
+    }
+  });
+});
 ;define("personal/helpers/lt", ["exports", "ember-truth-helpers/helpers/lt"], function (_exports, _lt) {
   "use strict";
 
@@ -933,7 +1376,7 @@
     }
   });
 });
-;define("personal/helpers/not-eq", ["exports", "ember-truth-helpers/helpers/not-equal"], function (_exports, _notEqual) {
+;define("personal/helpers/not-eq", ["exports", "ember-truth-helpers/helpers/not-eq"], function (_exports, _notEq) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -942,13 +1385,13 @@
   Object.defineProperty(_exports, "default", {
     enumerable: true,
     get: function () {
-      return _notEqual.default;
+      return _notEq.default;
     }
   });
   Object.defineProperty(_exports, "notEqualHelper", {
     enumerable: true,
     get: function () {
-      return _notEqual.notEqualHelper;
+      return _notEq.notEqualHelper;
     }
   });
 });
@@ -1019,6 +1462,120 @@
   _exports.default = void 0;
   var _default = _singularize.default;
   _exports.default = _default;
+});
+;define("personal/helpers/titleize", ["exports", "ember-cli-string-helpers/helpers/titleize"], function (_exports, _titleize) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _titleize.default;
+    }
+  });
+  Object.defineProperty(_exports, "titleize", {
+    enumerable: true,
+    get: function () {
+      return _titleize.titleize;
+    }
+  });
+});
+;define("personal/helpers/trim", ["exports", "ember-cli-string-helpers/helpers/trim"], function (_exports, _trim) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _trim.default;
+    }
+  });
+  Object.defineProperty(_exports, "trim", {
+    enumerable: true,
+    get: function () {
+      return _trim.trim;
+    }
+  });
+});
+;define("personal/helpers/truncate", ["exports", "ember-cli-string-helpers/helpers/truncate"], function (_exports, _truncate) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _truncate.default;
+    }
+  });
+  Object.defineProperty(_exports, "truncate", {
+    enumerable: true,
+    get: function () {
+      return _truncate.truncate;
+    }
+  });
+});
+;define("personal/helpers/underscore", ["exports", "ember-cli-string-helpers/helpers/underscore"], function (_exports, _underscore) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _underscore.default;
+    }
+  });
+  Object.defineProperty(_exports, "underscore", {
+    enumerable: true,
+    get: function () {
+      return _underscore.underscore;
+    }
+  });
+});
+;define("personal/helpers/uppercase", ["exports", "ember-cli-string-helpers/helpers/uppercase"], function (_exports, _uppercase) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _uppercase.default;
+    }
+  });
+  Object.defineProperty(_exports, "uppercase", {
+    enumerable: true,
+    get: function () {
+      return _uppercase.uppercase;
+    }
+  });
+});
+;define("personal/helpers/w", ["exports", "ember-cli-string-helpers/helpers/w"], function (_exports, _w) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _w.default;
+    }
+  });
+  Object.defineProperty(_exports, "w", {
+    enumerable: true,
+    get: function () {
+      return _w.w;
+    }
+  });
 });
 ;define("personal/helpers/xor", ["exports", "ember-truth-helpers/helpers/xor"], function (_exports, _xor) {
   "use strict";
@@ -1396,6 +1953,7 @@
     this.route('gaming', function () {});
     this.route('art', function () {});
     this.route('writing', function () {});
+    this.route('cv');
   });
 });
 ;define("personal/routes/art", ["exports", "@ember/routing/route"], function (_exports, _route) {
@@ -1422,6 +1980,18 @@
 
   _exports.default = ArtIndexRoute;
 });
+;define("personal/routes/cv", ["exports", "@ember/routing/route"], function (_exports, _route) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  class CvRoute extends _route.default {}
+
+  _exports.default = CvRoute;
+});
 ;define("personal/routes/gaming/index", ["exports", "@ember/routing/route"], function (_exports, _route) {
   "use strict";
 
@@ -1442,7 +2012,12 @@
   });
   _exports.default = void 0;
 
-  class HomeRoute extends _route.default {}
+  class HomeRoute extends _route.default {
+    activate() {
+      this.controllerFor('application').showLayout();
+    }
+
+  }
 
   _exports.default = HomeRoute;
 });
@@ -1586,6 +2161,19 @@
 
   _exports.default = ApplicationSerializer;
 });
+;define("personal/services/-ensure-registered", ["exports", "@embroider/util/services/ensure-registered"], function (_exports, _ensureRegistered) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _ensureRegistered.default;
+    }
+  });
+});
 ;define("personal/services/head-data", ["exports", "ember-meta/services/head-data"], function (_exports, _headData) {
   "use strict";
 
@@ -1647,6 +2235,7 @@
 
   const isProduction = EmberApp.env() === 'production';
   module.exports = {
+    content: ['./app/**/*.{hbs,js}'],
     purge: {
       enable: isProduction,
       mode: 'all',
@@ -1658,7 +2247,7 @@
       colors: {
         transparent: 'transparent',
         black: colors.black,
-        gray: colors.trueGray,
+        gray: colors.neutral,
         white: colors.white,
         blue: colors.blue,
         green: colors.emerald,
@@ -1684,8 +2273,8 @@
   _exports.default = void 0;
 
   var _default = (0, _templateFactory.createTemplateFactory)({
-    "id": "j5Aug497",
-    "block": "[[[8,[39,0],null,[[\"@theme\",\"@onInsert\"],[[30,0,[\"theme\"]],[30,0,[\"initialize\"]]]],[[\"default\"],[[[[1,\"\\n    \"],[8,[39,1],null,[[\"@theme\",\"@onToggleTheme\"],[[30,0,[\"theme\"]],[30,0,[\"toggleTheme\"]]]],null],[1,\"\\n    \"],[8,[39,2],[[24,0,\"dark:text-gray-400\"]],null,[[\"default\"],[[[[46,[28,[37,4],null,null],null,null,null]],[]]]]],[1,\"\\n    \"],[8,[39,5],null,[[\"@theme\",\"@onToggleTheme\"],[[30,0,[\"theme\"]],[30,0,[\"toggleTheme\"]]]],null],[1,\"\\n\"]],[]]]]]],[],false,[\"root\",\"header\",\"body\",\"component\",\"-outlet\",\"footer\"]]",
+    "id": "K46Y7F6A",
+    "block": "[[[8,[39,0],null,[[\"@theme\",\"@onInsert\"],[[30,0,[\"theme\"]],[30,0,[\"initialize\"]]]],[[\"default\"],[[[[1,\"\\n    \"],[8,[39,1],null,[[\"@theme\",\"@onToggleTheme\",\"@onPrint\",\"@visible\"],[[30,0,[\"theme\"]],[30,0,[\"toggleTheme\"]],[30,0,[\"print\"]],[30,0,[\"showHeader\"]]]],null],[1,\"\\n    \"],[8,[39,2],[[24,0,\"dark:text-gray-400\"]],null,[[\"default\"],[[[[46,[28,[37,4],null,null],null,null,null]],[]]]]],[1,\"\\n    \"],[8,[39,5],null,[[\"@theme\",\"@onToggleTheme\",\"@visible\"],[[30,0,[\"theme\"]],[30,0,[\"toggleTheme\"]],[30,0,[\"showFooter\"]]]],null],[1,\"\\n\"]],[]]]]]],[],false,[\"root\",\"header\",\"body\",\"component\",\"-outlet\",\"footer\"]]",
     "moduleName": "personal/templates/application.hbs",
     "isStrictMode": false
   });
@@ -1721,6 +2310,23 @@
     "id": "Fk1FyDxX",
     "block": "[[[10,0],[12],[1,\"\\n    \"],[10,\"h3\"],[14,0,\"page-title\"],[12],[1,\"🧑🏾‍🎨 I'm a big comic book nerd\"],[13],[1,\"\\n\\n    \"],[10,0],[14,0,\"mb-10\"],[12],[1,\"\\n        \"],[10,2],[12],[1,\"\\n            My earliest dream career was to be a comic book artist, work with stan lee and create comics. At an early age I was always drawing, \\n            but now that I'm older art and digital art is more of a relaxing hobby for me. It's one of my favorite hobbies as it allows me to \\n            bring my visions to life in some form. On this page I will be working on showcasing some of my favorite digital art as I continue my hobby.\\n        \"],[13],[1,\"\\n    \"],[13],[1,\"\\n\"],[13]],[],false,[]]",
     "moduleName": "personal/templates/art/index.hbs",
+    "isStrictMode": false
+  });
+
+  _exports.default = _default;
+});
+;define("personal/templates/cv", ["exports", "@ember/template-factory"], function (_exports, _templateFactory) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = (0, _templateFactory.createTemplateFactory)({
+    "id": "aDOeu9cJ",
+    "block": "[[[1,[28,[35,0],[\"Ronald A. Richardson - Senior Software Engineer - CV\"],null]],[1,\"\\n\"],[10,0],[14,0,\"cv-container my-12\"],[12],[1,\"\\n    \"],[10,0],[14,0,\"cv\"],[12],[1,\"\\n        \"],[10,0],[14,0,\"cv-section cv-header cv-section-header\"],[12],[1,\"\\n            \"],[10,0],[14,0,\"cv-title\"],[12],[1,\"\\n                \"],[10,\"h1\"],[14,0,\"cv-name\"],[12],[1,[30,0,[\"data\",\"name\"]]],[13],[1,\"\\n                \"],[10,0],[14,0,\"cv-personal-details\"],[12],[1,\"\\n                    \"],[10,0],[14,0,\"cv-personal-detail\"],[12],[1,\"\\n                        \"],[10,0],[14,0,\"w-6\"],[12],[1,\"\\n                            \"],[8,[39,1],null,[[\"@icon\"],[\"map-marker\"]],[[\"default\"],[[[],[]]]]],[1,\"\\n                        \"],[13],[1,\"\\n                        \"],[10,1],[12],[1,[30,0,[\"data\",\"location\"]]],[13],[1,\"\\n                    \"],[13],[1,\"\\n                    \"],[10,0],[14,0,\"cv-personal-detail\"],[12],[1,\"\\n                        \"],[10,0],[14,0,\"w-6\"],[12],[1,\"\\n                            \"],[8,[39,1],null,[[\"@icon\"],[\"envelope\"]],[[\"default\"],[[[],[]]]]],[1,\"\\n                        \"],[13],[1,\"\\n                        \"],[10,3],[15,6,[29,[\"mailto:\",[30,0,[\"data\",\"email\"]]]]],[12],[1,[30,0,[\"data\",\"email\"]]],[13],[1,\"\\n                    \"],[13],[1,\"\\n\"],[42,[28,[37,3],[[28,[37,3],[[30,0,[\"data\",\"phones\"]]],null]],null],null,[[[1,\"                        \"],[10,0],[14,0,\"cv-personal-detail\"],[12],[1,\"\\n                            \"],[10,0],[14,0,\"w-6\"],[12],[1,\"\\n                                \"],[8,[39,1],null,[[\"@icon\"],[\"phone\"]],[[\"default\"],[[[],[]]]]],[1,\"\\n                            \"],[13],[1,\"\\n                            \"],[10,3],[15,6,[29,[\"tel:\",[30,1]]]],[12],[1,[30,1]],[13],[1,\"\\n                        \"],[13],[1,\"\\n\"]],[1]],null],[1,\"                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n            \"],[10,0],[14,0,\"print:hidden\"],[12],[1,\"\\n                \"],[10,\"ul\"],[14,0,\"cv-links\"],[12],[1,\"\\n                    \"],[10,\"li\"],[12],[1,\"\\n                        \"],[10,0],[14,0,\"w-6\"],[12],[1,\"\\n                            \"],[8,[39,1],[[24,0,\"mr-1\"]],[[\"@icon\",\"@prefix\"],[\"github\",\"fab\"]],null],[1,\"\\n                        \"],[13],[1,\"\\n                        \"],[10,3],[15,6,[29,[\"https://github.com/\",[30,0,[\"data\",\"github\"]]]]],[14,\"target\",\"_github\"],[12],[1,\"github\"],[13],[1,\"\\n                    \"],[13],[1,\"\\n                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n        \"],[13],[1,\"\\n        \"],[10,0],[14,0,\"cv-section cv-section-tools-skills\"],[12],[1,\"\\n            \"],[10,0],[14,0,\"cv-section-title\"],[12],[1,\"Tools & Skills\"],[13],[1,\"\\n            \"],[10,0],[14,0,\"cv-grid-list gap-0 md:gap-4\"],[12],[1,\"\\n\"],[42,[28,[37,3],[[28,[37,3],[[30,0,[\"data\",\"skills\"]]],null]],null],null,[[[1,\"                    \"],[10,\"ul\"],[12],[1,\"\\n\"],[42,[28,[37,3],[[28,[37,3],[[30,2]],null]],null],null,[[[1,\"                            \"],[10,\"li\"],[12],[1,[30,3]],[13],[1,\"\\n\"]],[3]],null],[1,\"                    \"],[13],[1,\"\\n\"]],[2]],null],[1,\"            \"],[13],[1,\"\\n        \"],[13],[1,\"\\n        \"],[10,0],[14,0,\"cv-section cv-section-programming-languages\"],[12],[1,\"\\n            \"],[10,0],[14,0,\"cv-section-title\"],[12],[1,\"Programming Languages\"],[13],[1,\"\\n            \"],[10,0],[14,0,\"cv-grid-list\"],[12],[1,\"\\n\"],[42,[28,[37,3],[[28,[37,3],[[30,0,[\"data\",\"languages\"]]],null]],null],null,[[[1,\"                    \"],[10,\"ul\"],[12],[1,\"\\n\"],[42,[28,[37,3],[[28,[37,3],[[30,4]],null]],null],null,[[[1,\"                            \"],[10,\"li\"],[12],[1,[30,5]],[13],[1,\"\\n\"]],[5]],null],[1,\"                    \"],[13],[1,\"\\n\"]],[4]],null],[1,\"                \"],[10,\"figure\"],[12],[1,\"\\n                    \"],[10,\"figcaption\"],[12],[1,\"Frameworks\"],[13],[1,\"\\n                    \"],[10,\"ul\"],[12],[1,\"\\n\"],[42,[28,[37,3],[[28,[37,3],[[30,0,[\"data\",\"frameworks\"]]],null]],null],null,[[[1,\"                            \"],[10,\"li\"],[12],[1,[30,6]],[13],[1,\"\\n\"]],[6]],null],[1,\"                    \"],[13],[1,\"\\n                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n        \"],[13],[1,\"\\n        \"],[10,0],[14,0,\"cv-section cv-section-experience\"],[12],[1,\"\\n            \"],[10,0],[14,0,\"cv-section-title\"],[12],[1,\"Experience\"],[13],[1,\"\\n            \"],[10,0],[14,0,\"cv-experience-container\"],[12],[1,\"\\n                \"],[10,\"table\"],[14,0,\"cv-table\"],[12],[1,\"\\n                    \"],[10,\"tbody\"],[12],[1,\"\\n\"],[42,[28,[37,3],[[28,[37,3],[[30,0,[\"data\",\"experience\"]]],null]],null],null,[[[1,\"                            \"],[10,\"tr\"],[15,0,[29,[\"cv-experience-row with-\",[30,7,[\"highlights\",\"length\"]],\"-highlights\"]]],[12],[1,\"\\n                                \"],[10,\"td\"],[12],[1,\"\\n                                    \"],[10,0],[14,0,\"cv-experience-title\"],[12],[1,[30,7,[\"title\"]]],[13],[1,\"\\n                                    \"],[10,0],[14,0,\"cv-experience-role\"],[12],[1,[30,7,[\"role\"]]],[13],[1,\"\\n                                    \"],[10,0],[14,0,\"cv-experience-dates\"],[12],[1,[28,[35,4],[[28,[37,5],[[30,7,[\"dates\"]],0],null]],null]],[1,\" - \"],[1,[28,[35,4],[[28,[37,5],[[30,7,[\"dates\"]],1],null]],null]],[13],[1,\"\\n                                    \"],[10,0],[14,0,\"cv-experience-location\"],[12],[1,[30,7,[\"location\"]]],[13],[1,\"\\n                                \"],[13],[1,\"\\n                                \"],[10,\"td\"],[12],[1,\"\\n                                    \"],[10,\"ul\"],[14,0,\"cv-list\"],[12],[1,\"\\n\"],[42,[28,[37,3],[[28,[37,3],[[30,7,[\"highlights\"]]],null]],null],null,[[[1,\"                                            \"],[10,\"li\"],[12],[1,[30,8]],[13],[1,\"\\n\"]],[8]],null],[1,\"                                    \"],[13],[1,\"\\n                                \"],[13],[1,\"\\n                            \"],[13],[1,\"\\n\"]],[7]],null],[1,\"                    \"],[13],[1,\"\\n                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n        \"],[13],[1,\"\\n        \"],[10,0],[14,0,\"cv-section cv-section-education\"],[12],[1,\"\\n            \"],[10,0],[14,0,\"cv-section-title\"],[12],[1,\"Education\"],[13],[1,\"\\n            \"],[10,0],[14,0,\"cv-experience-container\"],[12],[1,\"\\n                \"],[10,\"table\"],[14,0,\"cv-table\"],[12],[1,\"\\n                    \"],[10,\"tbody\"],[12],[1,\"\\n\"],[42,[28,[37,3],[[28,[37,3],[[30,0,[\"data\",\"education\"]]],null]],null],null,[[[1,\"                            \"],[10,\"tr\"],[14,0,\"cv-experience-row\"],[12],[1,\"\\n                                \"],[10,\"td\"],[12],[1,\"\\n                                    \"],[10,0],[14,0,\"cv-experience-title\"],[12],[1,[30,9,[\"school\"]]],[13],[1,\"\\n\"],[41,[30,9,[\"study\"]],[[[1,\"                                        \"],[10,0],[14,0,\"cv-experience-study\"],[12],[1,[30,9,[\"study\"]]],[13],[1,\"\\n\"]],[]],null],[41,[28,[37,7],[[30,9,[\"dates\",\"length\"]],1],null],[[[1,\"                                        \"],[10,0],[14,0,\"cv-experience-dates\"],[12],[1,[28,[35,4],[[28,[37,5],[[30,9,[\"dates\"]],0],null],\"yyyy\"],null]],[13],[1,\"\\n\"]],[]],[[[1,\"                                        \"],[10,0],[14,0,\"cv-experience-dates\"],[12],[1,[28,[35,4],[[28,[37,5],[[30,9,[\"dates\"]],0],null],\"MMM, yyyy\"],null]],[1,\" - \"],[1,[28,[35,4],[[28,[37,5],[[30,9,[\"dates\"]],1],null],\"MMM, yyyy\"],null]],[13],[1,\"\\n\"]],[]]],[1,\"                                    \"],[10,0],[14,0,\"cv-experience-location\"],[12],[1,[30,9,[\"location\"]]],[13],[1,\"\\n                                \"],[13],[1,\"\\n                            \"],[13],[1,\"\\n\"]],[9]],null],[1,\"                    \"],[13],[1,\"\\n                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n        \"],[13],[1,\"\\n        \"],[10,0],[14,0,\"cv-section cv-section-projects\"],[12],[1,\"\\n            \"],[10,0],[14,0,\"cv-section-title\"],[12],[1,\"Projects\"],[13],[1,\"\\n            \"],[10,0],[14,0,\"cv-experience-container\"],[12],[1,\"\\n                \"],[10,\"table\"],[14,0,\"cv-table\"],[12],[1,\"\\n                    \"],[10,\"tbody\"],[12],[1,\"\\n\"],[42,[28,[37,3],[[28,[37,3],[[30,0,[\"data\",\"projects\"]]],null]],null],null,[[[1,\"                            \"],[10,\"tr\"],[14,0,\"cv-experience-row\"],[12],[1,\"\\n                                \"],[10,\"td\"],[12],[1,\"\\n                                    \"],[10,0],[14,0,\"cv-experience-title\"],[12],[1,\"\\n                                        \"],[1,[30,10,[\"name\"]]],[1,\"\\n\"],[41,[30,10,[\"status\"]],[[[1,\"                                            \"],[10,0],[15,0,[29,[\"cv-experience-title-status status-\",[28,[37,8],[[30,10,[\"status\"]]],null]]]],[12],[1,[30,10,[\"status\"]]],[13],[1,\"\\n\"]],[]],null],[1,\"                                    \"],[13],[1,\"\\n                                    \"],[10,0],[14,0,\"cv-experience-version\"],[12],[1,[30,10,[\"version\"]]],[13],[1,\"\\n                                    \"],[10,0],[14,0,\"cv-experience-description\"],[12],[1,[30,10,[\"description\"]]],[13],[1,\"\\n\"],[41,[30,10,[\"url\"]],[[[1,\"                                        \"],[10,0],[14,0,\"cv-experience-url\"],[12],[1,\"\\n                                            \"],[10,3],[15,6,[30,10,[\"url\"]]],[15,\"target\",[28,[37,8],[[30,10,[\"name\"]]],null]],[12],[1,[30,10,[\"url\"]]],[13],[1,\"\\n                                        \"],[13],[1,\"\\n\"]],[]],null],[1,\"                                \"],[13],[1,\"\\n                            \"],[13],[1,\"\\n\"]],[10]],null],[1,\"                    \"],[13],[1,\"\\n                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n        \"],[13],[1,\"\\n    \"],[13],[1,\"\\n\"],[13]],[\"phone\",\"skills\",\"skill\",\"languages\",\"lang\",\"framework\",\"experience\",\"highlight\",\"education\",\"project\"],false,[\"page-title\",\"fa-icon\",\"each\",\"-track-array\",\"format-date\",\"get\",\"if\",\"eq\",\"dasherize\"]]",
+    "moduleName": "personal/templates/cv.hbs",
     "isStrictMode": false
   });
 
@@ -1769,8 +2375,8 @@
   _exports.default = void 0;
 
   var _default = (0, _templateFactory.createTemplateFactory)({
-    "id": "mMyzrwX9",
-    "block": "[[[10,0],[12],[1,\"\\n    \"],[10,\"h3\"],[14,0,\"page-title\"],[12],[1,\"👋🏾 Hello, my name is Ron!\"],[13],[1,\"\\n    \"],[10,0],[14,0,\"mb-10 space-y-5\"],[12],[1,\"\\n        \"],[10,2],[12],[1,\"\\n            I'm a creative foremost, a software engineer, and entrepreneur. I have a passion for code, robotics, travel, art, gaming and writing. I’m also a former U.S. Marine with 6 years of military experience.\\n        \"],[13],[1,\"\\n        \"],[10,2],[12],[1,\"\\n            In my professional background I have developed software for start-ups to fortune 500 companies. Over the past 5 years I have developed two government sponsored supply chain platforms that have impacted both container shipping and bulk shipping industries. Currently I’m the co-founder of \"],[10,3],[14,6,\"https://fleetbase.io/\"],[14,0,\"text-blue-400\"],[12],[1,\"Fleetbase\"],[13],[1,\", based in Singapore. We focus on developing digital infrastructure for the supply chain industry.\\n        \"],[13],[1,\"\\n        \"],[10,2],[12],[1,\"\\n            Since starting \"],[10,3],[14,6,\"https://fleetbase.io/\"],[14,0,\"text-blue-400\"],[12],[1,\"Fleetbase\"],[13],[1,\", I've helped bootstrap the company from 0 to > $1m++ with active customers in 4 continents.\\n        \"],[13],[1,\"\\n        \"],[10,2],[12],[1,\"\\n            Recently some of my biggest interests have become VR and AR technologies and hope to eventually be able to deep dive into VR/AR applications.\\n        \"],[13],[1,\"\\n    \"],[13],[1,\"\\n\"],[13],[1,\"\\n\"],[10,0],[12],[1,\"\\n    \"],[10,\"h3\"],[14,0,\"page-title\"],[12],[1,\"Projects/ Ventures\"],[13],[1,\"\\n    \"],[10,0],[14,0,\"grid grid-cols-1 gap-4 mb-10\"],[12],[1,\"\\n        \"],[10,0],[14,0,\"project\"],[12],[1,\"\\n            \"],[10,0],[14,0,\"project-header\"],[12],[1,\"\\n                \"],[10,\"h4\"],[14,0,\"project-title\"],[12],[1,\"Fleetbase Pte Ltd.\"],[13],[1,\"\\n                \"],[10,1],[14,0,\"project-type\"],[12],[1,\"Venture\"],[13],[1,\"\\n            \"],[13],[1,\"\\n            \"],[10,2],[14,0,\"project-description\"],[12],[1,\"An modular based platform for digital supply chain infrastructure, currently focused on last-mile, logistics, and e-commerce. Actively contributing to open source to inspire and help digitize traditional sectors in supply chain.\"],[13],[1,\"\\n            \"],[10,0],[14,0,\"flex flex-row space-x-4\"],[12],[1,\"\\n                \"],[10,3],[14,6,\"https://fleetbase.io/\"],[14,0,\"project-link\"],[12],[1,\"\\n                    \"],[8,[39,0],[[24,0,\"mr-1\"]],[[\"@icon\"],[\"link\"]],null],[1,\"\\n                    \"],[10,1],[12],[1,\"View website\"],[13],[1,\"\\n                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n            \"],[10,0],[14,0,\"project-subprojects\"],[12],[1,\"\\n                \"],[10,\"h4\"],[14,0,\"project-subprojects-title\"],[12],[1,\"Subprojects\"],[13],[1,\"\\n                \"],[10,\"ul\"],[12],[1,\"\\n                    \"],[10,\"li\"],[12],[1,\"\\n                        \"],[10,0],[12],[1,\"\\n                            \"],[10,3],[14,6,\"https://github.com/fleetbase/fleetbase-js\"],[12],[1,\"@fleetbase/sdk\"],[13],[1,\"\\n                            \"],[10,1],[12],[1,\"Official Fleetbase Node/Javascript SDK. Used to develop on-demand/last-mile and logistics software blazingly fast.\"],[13],[1,\"\\n                        \"],[13],[1,\"\\n                    \"],[13],[1,\"\\n                    \"],[10,\"li\"],[12],[1,\"\\n                        \"],[10,0],[12],[1,\"\\n                            \"],[10,3],[14,6,\"https://github.com/fleetbase/storefront-js\"],[12],[1,\"@fleetbase/storefront\"],[13],[1,\"\\n                            \"],[10,1],[12],[1,\"Official Fleetbase Storefront Node/Javascript SDK. Used to develop e-commerce software for on-demand blazingly fast.\"],[13],[1,\"\\n                        \"],[13],[1,\"\\n                    \"],[13],[1,\"\\n                    \"],[10,\"li\"],[12],[1,\"\\n                        \"],[10,0],[12],[1,\"\\n                            \"],[10,3],[14,6,\"https://github.com/fleetbase/storefront-app\"],[12],[1,\"Storefront App\"],[13],[1,\"\\n                            \"],[10,1],[12],[1,\"Open sourced mobile application for launching an on-demand shopping or services app. Enables users to quickly setup and launch a native mobile app for a single on-demand shop or a multi-vendor marketplace powered by Fleetbase.\"],[13],[1,\"\\n                        \"],[13],[1,\"\\n                    \"],[13],[1,\"\\n                    \"],[10,\"li\"],[12],[1,\"\\n                        \"],[10,0],[12],[1,\"\\n                            \"],[10,3],[14,6,\"https://github.com/fleetbase/navigator-app\"],[12],[1,\"Navigator App\"],[13],[1,\"\\n                            \"],[10,1],[12],[1,\"Open sourced mobile app for Fleetbase drivers. Enables order activity updates, management, scheduling and route navigation.\"],[13],[1,\"\\n                        \"],[13],[1,\"\\n                    \"],[13],[1,\"\\n                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n        \"],[13],[1,\"\\n        \"],[10,0],[14,0,\"project\"],[12],[1,\"\\n            \"],[10,0],[14,0,\"project-header\"],[12],[1,\"\\n                \"],[10,\"h4\"],[14,0,\"project-title\"],[12],[1,\"LinkHaul (M) Sdn Bhd\"],[13],[1,\"\\n                \"],[10,1],[14,0,\"project-type\"],[12],[1,\"Venture\"],[13],[1,\"\\n            \"],[13],[1,\"\\n            \"],[10,2],[14,0,\"project-description\"],[12],[1,\"A shipping container marketplace for hauliers in Malaysia, built using Fleetbase. LinkHaul enables optimization of container transport by easing the process of subcontracting containers which as result reduces traffic congestion and creates more business for hauliers. LinkHaul is officially sponsored by the Malaysia Ministry of Transport and integrated directly with PKA (Port Klang Authority) the 11th busiest container port (2012) in the world.\"],[13],[1,\"\\n            \"],[10,0],[14,0,\"flex flex-row space-x-4\"],[12],[1,\"\\n                \"],[10,3],[14,6,\"https://linkhaul.net/\"],[14,0,\"project-link\"],[12],[1,\"\\n                    \"],[8,[39,0],[[24,0,\"mr-1\"]],[[\"@icon\"],[\"link\"]],null],[1,\"\\n                    \"],[10,1],[12],[1,\"View website\"],[13],[1,\"\\n                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n        \"],[13],[1,\"\\n        \"],[10,0],[14,0,\"project\"],[12],[1,\"\\n            \"],[10,0],[14,0,\"project-header\"],[12],[1,\"\\n                \"],[10,\"h4\"],[14,0,\"project-title\"],[12],[1,\"Horror Movie Night\"],[13],[1,\"\\n                \"],[10,1],[14,0,\"project-type\"],[12],[1,\"App\"],[13],[1,\"\\n            \"],[13],[1,\"\\n            \"],[10,2],[14,0,\"project-description\"],[12],[1,\"Horror Movie Night is a passion project mobile app that recommends the scariest horror movies. View upcoming horror movies, view trailers, where to stream, and track movies you've seen and want to see.\"],[13],[1,\"\\n            \"],[10,0],[14,0,\"flex flex-col space-y-4 lg:flex-row lg:space-x-4 lg:space-y-0\"],[12],[1,\"\\n                \"],[10,3],[14,6,\"https://apps.apple.com/ca/app/horror-movie-night/id1613495460\"],[14,0,\"project-link app-store\"],[14,\"target\",\"_hmn_ios\"],[12],[1,\"\\n                    \"],[8,[39,0],[[24,0,\"mr-1\"]],[[\"@icon\",\"@prefix\"],[\"apple\",\"fab\"]],null],[1,\"\\n                    \"],[10,1],[12],[1,\"View on App Store\"],[13],[1,\"\\n                \"],[13],[1,\"\\n                \"],[10,3],[14,6,\"https://play.google.com/store/apps/details?id=com.horrormovienight.app&hl=en&gl=US\"],[14,0,\"project-link play-store\"],[14,\"target\",\"_hmn_android\"],[12],[1,\"\\n                    \"],[8,[39,0],[[24,0,\"mr-1\"]],[[\"@icon\",\"@prefix\"],[\"android\",\"fab\"]],null],[1,\"\\n                    \"],[10,1],[12],[1,\"View on Play Store\"],[13],[1,\"\\n                \"],[13],[1,\"\\n                \"],[10,3],[14,6,\"https://horrormovienight.app/\"],[14,0,\"project-link\"],[14,\"target\",\"_hmn_web\"],[12],[1,\"\\n                    \"],[8,[39,0],[[24,0,\"mr-1\"]],[[\"@icon\"],[\"link\"]],null],[1,\"\\n                    \"],[10,1],[12],[1,\"View website\"],[13],[1,\"\\n                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n        \"],[13],[1,\"\\n        \"],[10,0],[14,0,\"project\"],[12],[1,\"\\n            \"],[10,0],[14,0,\"project-header\"],[12],[1,\"\\n                \"],[10,\"h4\"],[14,0,\"project-title\"],[12],[1,\"Cloudrealms\"],[13],[1,\"\\n                \"],[10,1],[14,0,\"project-type\"],[12],[1,\"SDK\"],[13],[1,\"\\n            \"],[13],[1,\"\\n            \"],[10,2],[14,0,\"project-description\"],[12],[1,\"Cloudrealms is an Javascript based RPG/MMORPG game engine.\"],[13],[1,\"\\n            \"],[10,0],[14,0,\"flex flex-row space-x-4\"],[12],[1,\"\\n                \"],[10,3],[14,6,\"https://github.com/cloudrealmsrpg\"],[14,0,\"project-link github\"],[14,\"target\",\"_cloudrealms_sdk\"],[12],[1,\"\\n                    \"],[8,[39,0],[[24,0,\"mr-1\"]],[[\"@icon\",\"@prefix\"],[\"github\",\"fab\"]],null],[1,\"\\n                    \"],[10,1],[12],[1,\"View on Github\"],[13],[1,\"\\n                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n        \"],[13],[1,\"\\n        \"],[10,0],[14,0,\"project\"],[12],[1,\"\\n            \"],[10,0],[14,0,\"project-header\"],[12],[1,\"\\n                \"],[10,\"h4\"],[14,0,\"project-title\"],[12],[1,\"Omniship PHP\"],[13],[1,\"\\n                \"],[10,1],[14,0,\"project-type\"],[12],[1,\"SDK\"],[13],[1,\"\\n            \"],[13],[1,\"\\n            \"],[10,2],[14,0,\"project-description\"],[12],[1,\"Omniship is a framework agnostic PHP library for accessing API's from multiple shipping/carrier service providers. Maintenance under Fleetbase.\"],[13],[1,\"\\n            \"],[10,0],[14,0,\"flex flex-row space-x-4\"],[12],[1,\"\\n                \"],[10,3],[14,6,\"https://github.com/fleetbase/omniship-php\"],[14,0,\"project-link github\"],[14,\"target\",\"_omniship_php\"],[12],[1,\"\\n                    \"],[8,[39,0],[[24,0,\"mr-1\"]],[[\"@icon\",\"@prefix\"],[\"github\",\"fab\"]],null],[1,\"\\n                    \"],[10,1],[12],[1,\"View on Github\"],[13],[1,\"\\n                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n        \"],[13],[1,\"\\n        \"],[10,0],[14,0,\"project\"],[12],[1,\"\\n            \"],[10,0],[14,0,\"project-header\"],[12],[1,\"\\n                \"],[10,\"h4\"],[14,0,\"project-title\"],[12],[1,\"AR Net\"],[13],[1,\"\\n                \"],[10,1],[14,0,\"project-type\"],[12],[1,\"App\"],[13],[1,\"\\n            \"],[13],[1,\"\\n            \"],[10,2],[14,0,\"project-description\"],[12],[1,\"AR Net is my own interpretation and implementation of an augmented reality based network. Allows users to connect and interact within an augmented reality network using their mobile device. Users can place and leave geospatial 3D text and objects in AR Net for others to view and comment.\"],[13],[1,\"\\n        \"],[13],[1,\"\\n        \"],[10,0],[14,0,\"project\"],[12],[1,\"\\n            \"],[10,0],[14,0,\"project-header\"],[12],[1,\"\\n                \"],[10,\"h4\"],[14,0,\"project-title\"],[12],[1,\"FixFlo\"],[13],[1,\"\\n                \"],[10,1],[14,0,\"project-type\"],[12],[1,\"App\"],[13],[1,\"\\n            \"],[13],[1,\"\\n            \"],[10,2],[14,0,\"project-description\"],[12],[1,\"FixFlo is a web application targeteted towards shipbrokers to enable rapid productivity. 99% of all bulk shipping data comes from emails, FixFlo parses email contents into structured fixture data which enable brokers to sort, filter, search and generate key reports for business.\"],[13],[1,\"\\n            \"],[10,0],[14,0,\"flex flex-row space-x-4\"],[12],[1,\"\\n                \"],[10,3],[14,6,\"https://fixflo.pro/\"],[14,0,\"project-link\"],[12],[1,\"\\n                    \"],[8,[39,0],[[24,0,\"mr-1\"]],[[\"@icon\"],[\"link\"]],null],[1,\"\\n                    \"],[10,1],[12],[1,\"View website\"],[13],[1,\"\\n                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n        \"],[13],[1,\"\\n    \"],[13],[1,\"\\n\"],[13]],[],false,[\"fa-icon\"]]",
+    "id": "9879Wo/8",
+    "block": "[[[10,0],[12],[1,\"\\n    \"],[10,0],[14,0,\"page-title my-6 h-12 items-center\"],[12],[1,\"\\n        \"],[10,1],[14,0,\"mr-0.5\"],[12],[1,\"👋🏾\"],[13],[1,\"\\n        \"],[10,1],[12],[1,\"Hello, my name is Ron!\"],[13],[1,\"\\n    \"],[13],[1,\"\\n    \"],[10,0],[14,0,\"mb-10 space-y-5\"],[12],[1,\"\\n        \"],[10,2],[12],[1,\"I am an American software engineer and former U.S. Marine with a passion for travel, coffee, video games, and horror. I am currently the co-founder and CTO of Fleetbase, a tech start-up that provides digital infrastructure for supply chain and logistics developers. I am also the founder of Horror Movie Night, an app and community for horror movie enthusiasts.\"],[13],[1,\"\\n    \"],[13],[1,\"\\n\"],[13]],[],false,[]]",
     "moduleName": "personal/templates/home.hbs",
     "isStrictMode": false
   });
@@ -1950,12 +2556,142 @@
     return (0, _object.get)(_environment.default, path);
   }
 });
+;define("personal/utils/get-cv-data", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = getCvData;
+
+  function getCvData() {
+    return {
+      name: 'Ronald A. Richardson',
+      location: 'Singapore - USA - Remote',
+      email: 'me@ron.dev',
+      phones: ['+65 9637 9222', '+1 704 303 8110'],
+      github: 'roncodes',
+      skills: [['Business Development', 'UI/UX for Digital Products', 'Adobe Photoshop/ Illustrator/ Figma', 'Robotics & Embedded Systems'], ['Desktop Software Development', 'Mobile Application Development', 'Web Application Development', 'Package/ Library Development'], ['DevOps', 'Amazon Web Services', 'Docker/ Kubernetes', 'Git/ Subversion'], ['Unit Testing', 'Automated UI Testing', 'QA', 'CSS/ Stylesheet Processors']],
+      languages: [['C', 'C++', 'Rust', 'Javascript', 'PHP'], ['Typescript', 'Dart', 'Java', 'Python'], ['Lua', 'Scala', 'Groovy', 'Elixir']],
+      frameworks: ['React/ React Native', 'Flutter', 'Ember.js', 'Laravel', 'Grails', 'Freeswitch'],
+      experience: [{
+        title: 'Freelance',
+        role: 'Web Developer',
+        dates: [new Date('Feb 2005'), new Date('June 2008')],
+        location: 'Charlotte, NC',
+        highlights: ['I designed and developed websites for local businesses and notable clients such as the Mayor of Huntersville, motivation speaker Tawana Williams, and Newbirth Charlotte baptist church.']
+      }, {
+        title: 'United States Marine Corps',
+        role: 'Corporal',
+        dates: [new Date('Aug 2008'), new Date('Dec 2014')],
+        location: 'Charlotte, NC',
+        highlights: ['As a Marine I operated in the combat operations center, I was responsible for tracking hundreds of Marines, convoys, and missions.', 'I also participated in bulk fueling operations for mission-critical vehicles and served as a fire team leader, overseeing the completion of all necessary work and tasks for successful mission completion.']
+      }, {
+        title: 'Full Speed Marketing',
+        role: 'Lead Developer',
+        dates: [new Date('Jul 2011'), new Date('Jul 2012')],
+        location: 'Charlotte, NC',
+        highlights: ['I developed and released an original Spintax API/Class for Python and PHP, which is now used for marketing on hundreds of websites.', 'I also created scripts and Wordpress Plugins to support SEO and marketing strategies, helping clients increase traffic and improve their rankings on Google, resulting in increased sales for clients.']
+      }, {
+        title: 'VUURR, Digital Agency',
+        role: 'Lead Developer',
+        dates: [new Date('Aug 2012'), new Date('Dec 2013')],
+        location: 'Chandler, AZ',
+        highlights: ['I have developed web applications for SMEs and enterprise companies, including notable clients such as Salesforce, Infusionsoft, Plivo, Shamrock Farms, and Authority Labs.', 'I have also written several official SDKs for these companies, which are available on Github.', 'In addition to leading technical consulting projects, I have used my SEO and marketing skills to help companies increase their online presence.']
+      }, {
+        title: 'Tango Card, Inc',
+        role: 'Software Engineer',
+        dates: [new Date('Jan 2013'), new Date('Aug 2014')],
+        location: 'Seattle, WA',
+        highlights: ['I assisted in the onboarding of over a hundred companies through the custom-built "Rewards Genius" platform, which has now become Tango Card\'s premier offering.', 'I designed and developed the frontend and backend for the Rewards Genius platform, as well as internal tools to improve efficiency for the engineering team.']
+      }, {
+        title: 'Rarbuilt, LLC',
+        role: 'Software Engineer/ Consultant',
+        dates: [new Date('Oct 2014'), new Date('May 2017')],
+        location: 'Seattle, WA/ Remote',
+        highlights: ['I have helped consult numerous SME companies and professionals on scaling their business with software solutions. I have also developed and designed web applications for businesses through the customer onboarding phase.']
+      }, {
+        title: 'TRAFYK/ Dial Digits',
+        role: 'Lead Software Engineer/ Consultant',
+        dates: [new Date('Dec 2015'), new Date('May 2017')],
+        location: 'Seattle, WA/ Remote',
+        highlights: ['I worked with the head of Google\'s Telephony Platform to develop a custom Freeswitch solution to handle and route hundreds of thousands of phone calls.', 'I designed and developed the Dial Digits web application, which is used for configuring Freeswitch, managing call logs, and viewing reports. I also scaled the Freeswitch infrastructure and web application to handle high call volumes, resulting in company revenue reaching millions of dollars.']
+      }, {
+        title: 'Ebazaa Pte Ltd',
+        role: 'CTO',
+        dates: [new Date('Dec 2016'), new Date('Dec 2017')],
+        location: 'Singapore',
+        highlights: ['I developed an ecommerce fulfilment system for the SE Asia and Central Asia regions. I onboarded and developed SOPs for existing ecommerce companies to provide end-to-end order fulfilment.', 'As a team leader, I assisted with code reviews, interviews, and implemented CI/CD for the Ebazaa platform. I regularly communicated with the CEO and COO and provided technical updates to the team and investors.']
+      }, {
+        title: 'LinkHaul by LinkEffect (M) Sdn Bhd',
+        role: 'Lead SWE/ Consultant',
+        dates: [new Date('May 2018'), new Date('June 2021')],
+        location: 'Port Klang, Malaysia - Singapore',
+        highlights: ['I developed and built a freight container marketplace using Fleetbase as the development framework. I worked closely with the Port Klang Authority and Ministry of Transport to design and develop a port integrated system to reduce congestion and increase subcontract transactions between hauliers.', 'I have a deep understanding of the end-to-end business of freight forwarding and haulage in the SE Asia region, and have consulted several haulier companies on using our digital solution to increase business.', 'I conducted presentations with government organizations and assisted in integrating our solution into each port terminal. I also created and narrated the launch video for the LinkHaul system.']
+      }, {
+        title: 'Fleetbase Pte Ltd',
+        role: 'Co-Founder/ CTO',
+        dates: [new Date('May 2018'), new Date()],
+        location: 'Singapore',
+        highlights: ['I bootstrapped and scaled Fleetbase to over half a million SGD in ARR.', 'I designed and developed the Fleetbase platform and API, which is used by over 100 companies globally.', 'I was awarded a grant from Singapore Enterprise to develop a bulk shipping platform in a joint venture, and all obligations were successfully met.']
+      }],
+      education: [{
+        school: 'Phillip O. Berry Academy of Technology',
+        location: 'Charlotte, NC',
+        dates: [new Date('Aug 2006'), new Date('June 2007')],
+        study: null
+      }, {
+        school: 'Hopewell Highschool',
+        location: 'Charlotte, NC',
+        dates: [new Date('Aug 2007'), new Date('June 2009')],
+        study: 'Highschool Diploma'
+      }, {
+        school: 'University of Advancing Technology',
+        location: 'Tempe, AZ',
+        dates: [new Date('2012')],
+        study: 'Robotics and Embedded Systems'
+      }],
+      projects: [{
+        name: 'Horror Movie Night',
+        description: 'Horror Movie Night or HMN is a mobile app and community for horror enthusiast, the core feature of HMN is to recommend a scary horror movie based on the users mood. Since it\'s debut HMN has grown to over 3,000 active users between Play Store and Apple App Store.',
+        url: 'https://horrormovienight.app',
+        version: 'v1',
+        status: 'Active'
+      }, {
+        name: 'AR Net',
+        description: 'AR Net is a REST API based augmented reality network, with an open public API users are able to publish 3D objects to the physical world using GeoJSON. Additionally there is an open source app which allows users to create "worlds" and publish objects to the AR Net.',
+        url: 'https://github.com/cybereye-digital',
+        version: 'v1',
+        status: 'Paused'
+      }, {
+        name: 'Cloudrealms',
+        description: 'Cloudrealms is javascript library for developing web based RPG and MMORPG games, the engine is capable of generating tile based game canvas and handling animations, additionally able to handle rpg game mechanics with both promise and event based flow.',
+        url: 'https://github.com/cloudrealmsrpg/cloudrealms.js',
+        version: 'v2',
+        status: 'Paused'
+      }]
+    };
+  }
+});
+;define("personal/utils/titleize", ["exports", "ember-cli-string-helpers/utils/titleize"], function (_exports, _titleize) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _titleize.default;
+    }
+  });
+});
 ;
 
 ;define('personal/config/environment', [], function() {
   
           var exports = {
-            'default': {"modulePrefix":"personal","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":false,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"personal","version":"0.1.1+e14c6d00"},"social":{"github":"https://github.com/roncodes","twitter":"https://twitter.com/wreckitron28","twitch":"https://www.twitch.tv/wreckitron28","youtube":"https://www.youtube.com/channel/UCmM_EzTI4T7qxDc-YDiKkgw","instagram":"https://www.instagram.com/wreckitron28","tiktok":"","facebook":"","linkedin":"https://www.linkedin.com/in/ronald-a-richardson/","deviantart":"https://www.deviantart.com/ghosted28"},"ember-meta":{"description":"entrepreneur, software engineer, roboticist, adventurer, gamer","imgSrc":"/meta/favicon.png","siteName":"ron.dev","title":"ron.dev - ronald a. richardson - entrepreneur, software engineer, roboticist, adventurer, gamer","twitterUsername":"@WreckItRon28","url":"https://ron.dev/"},"ember-cli-markdown-resolver":{"folders":{"posts":"app/posts"}},"exportApplicationGlobal":true,"currentRevision":"e14c6d006d","longRevision":"e14c6d006d857f05c5b46790401c8e11afc3e0bd","tag":null,"branch":"main"}
+            'default': {"modulePrefix":"personal","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":false,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"personal","version":"0.1.1+d1801eb1"},"social":{"github":"https://github.com/roncodes","twitter":"https://twitter.com/wreckitron28","twitch":"https://www.twitch.tv/wreckitron28","youtube":"https://www.youtube.com/channel/UCmM_EzTI4T7qxDc-YDiKkgw","instagram":"https://www.instagram.com/wreckitron28","tiktok":"","facebook":"","linkedin":"https://www.linkedin.com/in/ronald-a-richardson/","deviantart":"https://www.deviantart.com/ghosted28"},"fontawesome":{"defaultPrefix":"fad"},"ember-meta":{"description":"entrepreneur, software engineer, roboticist, adventurer, gamer","imgSrc":"/meta/favicon.png","siteName":"ron.dev","title":"ron.dev - ronald a. richardson - entrepreneur, software engineer, roboticist, adventurer, gamer","twitterUsername":"@WreckItRon28","url":"https://ron.dev/"},"ember-cli-markdown-resolver":{"folders":{"posts":"app/posts"}},"exportApplicationGlobal":true,"currentRevision":"d1801eb12d","longRevision":"d1801eb12dbbfec048a989810b5f196ad0790576","tag":null,"branch":"main"}
           };
           Object.defineProperty(exports, '__esModule', {value: true});
           return exports;
@@ -1964,7 +2700,7 @@
 
 ;
           if (!runningTests) {
-            require("personal/app")["default"].create({"name":"personal","version":"0.1.1+e14c6d00"});
+            require("personal/app")["default"].create({"name":"personal","version":"0.1.1+d1801eb1"});
           }
         
 //# sourceMappingURL=ron.dev.map
