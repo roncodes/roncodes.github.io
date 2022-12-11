@@ -142,6 +142,29 @@ ul.cv-links > li {
     margin-right: 1rem;
 } 
 
+@media only screen and (max-width: 600px) {
+    .cv .cv-table .cv-experience-row td:first-child {
+        width: 100%;
+    }
+
+    .cv .cv-table .cv-experience-row .cv-experience-title .cv-experience-title-status {
+        display: none;
+    }
+
+    .cv .cv-table .cv-experience-row .cv-experience-description {
+        display: flex;
+        flex-wrap: wrap;
+        width: 90%;
+    }
+
+    .cv .cv-table .cv-experience-row .cv-experience-url {
+        display: flex;
+        flex-wrap: wrap;
+        width: 90%;
+        margin-top: .5rem;
+    }
+}
+
 @media print {
     --p-sm-font-size: 7px;
     --p-md-font-size: 9px;
@@ -232,14 +255,8 @@ ul.cv-links > li {
 		margin-top: -.5rem !important;
 	} */
 
-    .cv .cv-section.cv-section-experience .cv-experience-container {
-        margin-top: -1.35rem !important;
-    }
-
-    .cv .cv-section.cv-section-education .cv-experience-container {
-        margin-top: -1.35rem !important;
-    }
-    
+    .cv .cv-section.cv-section-experience .cv-experience-container,
+    .cv .cv-section.cv-section-education .cv-experience-container,
     .cv .cv-section.cv-section-projects .cv-experience-container {
         margin-top: -1.35rem !important;
     }

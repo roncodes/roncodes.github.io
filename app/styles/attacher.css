@@ -274,9 +274,3 @@
 	padding-top: calc(75% + 2rem);
 	float: left;
 }
-@media (max-width: 450px) {
-	.ember-attacher-tooltip {
-		max-width: 96%;
-		max-width: calc(100% - 42px);
-	}
-}
