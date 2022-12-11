@@ -48,7 +48,7 @@ export default function getCvData() {
 			{
 				title: 'Freelance',
 				role: 'Web Developer',
-				dates: [new Date('Feb 2005'), new Date('June 2008')],
+				dates: [new Date('Feb 01, 2005'), new Date('June 01, 2008')],
 				location: 'Charlotte, NC',
 				highlights: [
 					'I designed and developed websites for local businesses and notable clients such as the Mayor of Huntersville, motivation speaker Tawana Williams, and Newbirth Charlotte baptist church.',
@@ -57,7 +57,7 @@ export default function getCvData() {
 			{
 				title: 'United States Marine Corps',
 				role: 'Corporal',
-				dates: [new Date('Aug 2008'), new Date('Dec 2014')],
+				dates: [new Date('Aug 01, 2008'), new Date('Dec 01, 2014')],
 				location: 'Charlotte, NC',
 				highlights: [
 					'As a Marine I operated in the combat operations center, I was responsible for tracking hundreds of Marines, convoys, and missions.',
@@ -67,7 +67,7 @@ export default function getCvData() {
 			{
 				title: 'Full Speed Marketing',
 				role: 'Lead Developer',
-				dates: [new Date('Jul 2011'), new Date('Jul 2012')],
+				dates: [new Date('Jul 01, 2011'), new Date('Jul 01, 2012')],
 				location: 'Charlotte, NC',
 				highlights: [
 					'I developed and released an original Spintax API/Class for Python and PHP, which is now used for marketing on hundreds of websites.',
@@ -77,7 +77,7 @@ export default function getCvData() {
 			{
 				title: 'VUURR, Digital Agency',
 				role: 'Lead Developer',
-				dates: [new Date('Aug 2012'), new Date('Dec 2013')],
+				dates: [new Date('Aug 01, 2012'), new Date('Dec 01, 2013')],
 				location: 'Chandler, AZ',
 				highlights: [
 					'I have developed web applications for SMEs and enterprise companies, including notable clients such as Salesforce, Infusionsoft, Plivo, Shamrock Farms, and Authority Labs.',
@@ -88,7 +88,7 @@ export default function getCvData() {
 			{
 				title: 'Tango Card, Inc',
 				role: 'Software Engineer',
-				dates: [new Date('Jan 2013'), new Date('Aug 2014')],
+				dates: [new Date('Jan 01, 2013'), new Date('Aug 01, 2014')],
 				location: 'Seattle, WA',
 				highlights: [
 					'I assisted in the onboarding of over a hundred companies through the custom-built "Rewards Genius" platform, which has now become Tango Card\'s premier offering.',
@@ -98,7 +98,7 @@ export default function getCvData() {
 			{
 				title: 'Rarbuilt, LLC',
 				role: 'Software Engineer/ Consultant',
-				dates: [new Date('Oct 2014'), new Date('May 2017')],
+				dates: [new Date('Oct 01, 2014'), new Date('May 01, 2017')],
 				location: 'Seattle, WA/ Remote',
 				highlights: [
 					'I have helped consult numerous SME companies and professionals on scaling their business with software solutions. I have also developed and designed web applications for businesses through the customer onboarding phase.',
@@ -107,7 +107,7 @@ export default function getCvData() {
 			{
 				title: 'TRAFYK/ Dial Digits',
 				role: 'Lead Software Engineer/ Consultant',
-				dates: [new Date('Dec 2015'), new Date('May 2017')],
+				dates: [new Date('Dec 01, 2015'), new Date('May 01, 2017')],
 				location: 'Seattle, WA/ Remote',
 				highlights: [
 					"I worked with the head of Google's Telephony Platform to develop a custom Freeswitch solution to handle and route hundreds of thousands of phone calls.",
@@ -117,7 +117,7 @@ export default function getCvData() {
 			{
 				title: 'Ebazaa Pte Ltd',
 				role: 'CTO',
-				dates: [new Date('Dec 2016'), new Date('Dec 2017')],
+				dates: [new Date('Dec 01, 2016'), new Date('Dec 01, 2017')],
 				location: 'Singapore',
 				highlights: [
 					'I developed an ecommerce fulfilment system for the SE Asia and Central Asia regions. I onboarded and developed SOPs for existing ecommerce companies to provide end-to-end order fulfilment.',
@@ -127,7 +127,7 @@ export default function getCvData() {
 			{
 				title: 'LinkHaul by LinkEffect (M) Sdn Bhd',
 				role: 'Lead SWE/ Consultant',
-				dates: [new Date('May 2018'), new Date('June 2021')],
+				dates: [new Date('May 01, 2018'), new Date('June 01, 2021')],
 				location: 'Port Klang, Malaysia - Singapore',
 				highlights: [
 					'I developed and built a freight container marketplace using Fleetbase as the development framework. I worked closely with the Port Klang Authority and Ministry of Transport to design and develop a port integrated system to reduce congestion and increase subcontract transactions between hauliers.',
@@ -138,7 +138,7 @@ export default function getCvData() {
 			{
 				title: 'Fleetbase Pte Ltd',
 				role: 'Co-Founder/ CTO',
-				dates: [new Date('May 2018'), new Date()],
+				dates: [new Date('May 01, 2018'), new Date()],
 				location: 'Singapore',
 				highlights: [
 					'I bootstrapped and scaled Fleetbase to over half a million SGD in ARR.',
@@ -151,13 +151,13 @@ export default function getCvData() {
 			{
 				school: 'Phillip O. Berry Academy of Technology',
 				location: 'Charlotte, NC',
-				dates: [new Date('Aug 2006'), new Date('June 2007')],
+				dates: [new Date('Aug 01, 2006'), new Date('June 01, 2007')],
 				study: null,
 			},
 			{
 				school: 'Hopewell Highschool',
 				location: 'Charlotte, NC',
-				dates: [new Date('Aug 2007'), new Date('June 2009')],
+				dates: [new Date('Aug 01, 2007'), new Date('June 01, 2009')],
 				study: 'Highschool Diploma',
 			},
 			{
