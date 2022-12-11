@@ -32,7 +32,7 @@ module.exports = function (environment) {
 			tiktok: '',
 			facebook: '',
 			linkedin: 'https://www.linkedin.com/in/ronald-a-richardson/',
-			deviantart: 'https://www.deviantart.com/ghosted28',
+			// deviantart: 'https://www.deviantart.com/ghosted28',
 		},
 
 		fontawesome: {
