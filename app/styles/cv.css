@@ -143,6 +143,10 @@ ul.cv-links > li {
 } 
 
 @media only screen and (max-width: 600px) {
+    body, html, .cv-container, .page-container-wrapper, .page-container {
+        overflow-x: hidden;
+    }
+
     .cv .cv-table .cv-experience-row td:first-child {
         width: 100%;
     }
@@ -172,6 +176,7 @@ ul.cv-links > li {
 
 	body {
         @apply bg-white dark:bg-white;
+        background-color: #fff !important;
         width: 210mm !important;
         height: 297mm !important;
         margin: auto !important;
@@ -192,6 +197,7 @@ ul.cv-links > li {
 	}
 
 	.cv {
+        background-color: #fff !important;
 		@apply text-gray-900 dark:text-gray-900;
 	}
 
@@ -486,5 +492,9 @@ ul.cv-links > li {
 		line-height: 12px !important;
 		border: 0 !important;
 		background-color: #fff !important;
+    }
+
+    .href-tooltip {
+        display: none !important;
     }
 }
