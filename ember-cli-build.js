@@ -69,11 +69,17 @@ module.exports = function (defaults) {
 		collate: true,
 	});
 
-	// copy index.html to error.html for gh-pages fallback
-	const indexFallback = funnel('app', {
-		files: ['index.html'],
-		getDestinationPath: (relativePath) => 'error.html',
-	});
+	// copy index.html to error/404.html for gh-pages fallback
+	const indexFallback = [
+		funnel('app', {
+			files: ['index.html'],
+			getDestinationPath: (relativePath) => 'error.html',
+		}),
+		funnel('app', {
+			files: ['index.html'],
+			getDestinationPath: (relativePath) => '404.html',
+		}),
+	];
 
-	return app.toTree([postsJson, indexFallback]);
+	return app.toTree([postsJson, ...indexFallback]);
 };
