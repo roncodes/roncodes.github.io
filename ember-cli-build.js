@@ -23,6 +23,20 @@ module.exports = function (defaults) {
 			},
 		},
 
+		multiIndex: {
+			targets: [
+				{
+					outputPath: 'index.html',
+				},
+				{
+					outputPath: 'error.html',
+				},
+				{
+					outputPath: '404.html',
+				},
+			],
+		},
+
 		'ember-fetch': {
 			preferNative: true,
 		},
@@ -69,17 +83,5 @@ module.exports = function (defaults) {
 		collate: true,
 	});
 
-	// copy index.html to error/404.html for gh-pages fallback
-	const indexFallback = [
-		funnel('app', {
-			files: ['index.html'],
-			getDestinationPath: (relativePath) => 'error.html',
-		}),
-		funnel('app', {
-			files: ['index.html'],
-			getDestinationPath: (relativePath) => '404.html',
-		}),
-	];
-
-	return app.toTree([postsJson, ...indexFallback]);
+	return app.toTree([postsJson]);
 };
