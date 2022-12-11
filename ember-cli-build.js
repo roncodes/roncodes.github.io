@@ -26,9 +26,6 @@ module.exports = function (defaults) {
 		multiIndex: {
 			targets: [
 				{
-					outputPath: 'index.html',
-				},
-				{
 					outputPath: 'error.html',
 				},
 				{
