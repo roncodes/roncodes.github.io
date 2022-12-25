@@ -149,22 +149,13 @@ export default function getCvData() {
 		],
 		education: [
 			{
-				school: 'Phillip O. Berry Academy of Technology',
-				location: 'Charlotte, NC',
-				dates: [new Date('Aug 01, 2006'), new Date('June 01, 2007')],
-				study: null,
-			},
-			{
-				school: 'Hopewell Highschool',
-				location: 'Charlotte, NC',
-				dates: [new Date('Aug 01, 2007'), new Date('June 01, 2009')],
-				study: 'Highschool Diploma',
-			},
-			{
 				school: 'University of Advancing Technology',
 				location: 'Tempe, AZ',
 				dates: [new Date('2012')],
 				study: 'Robotics and Embedded Systems',
+				highlights: [
+					'Awarded the Ray Kurzweil Scholarship'
+				]
 			},
 		],
 		projects: [

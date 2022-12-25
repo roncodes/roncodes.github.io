@@ -11,6 +11,7 @@ export default class TravelsIndexController extends Controller {
 		'los angeles, ca, usa',
 		'las vegas, nv, usa',
 		'singapore',
+		'tokyo, japan',
 		'kuala lumpur, malaysia',
 		'klang, malaysia',
 		'manila, phillipines',

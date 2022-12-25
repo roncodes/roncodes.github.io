@@ -2,6 +2,7 @@ module.exports = function () {
 	return {
 		'pro-solid-svg-icons': [
 			'home',
+			'code',
 			'file-lines',
 			'link',
 			'map-marker',
@@ -13,6 +14,7 @@ module.exports = function () {
 		],
 		'pro-duotone-svg-icons': [
 			'home',
+			'code',
 			'file-lines',
 			'link',
 			'map-marker',

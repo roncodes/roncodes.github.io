@@ -114,6 +114,11 @@
                                         <div class="cv-experience-dates">{{format-date (get education.dates 0) 'MMM, yyyy'}} - {{format-date (get education.dates 1) 'MMM, yyyy'}}</div>
                                     {{/if}}
                                     <div class="cv-experience-location">{{education.location}}</div>
+                                    <ul class="cv-list cv-education-highlights">
+                                        {{#each education.highlights as |highlight|}}
+                                            <li>{{highlight}}</li>
+                                        {{/each}}
+                                    </ul>
                                 </td>
                             </tr>
                         {{/each}}
