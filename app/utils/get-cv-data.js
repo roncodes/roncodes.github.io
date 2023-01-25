@@ -5,36 +5,32 @@ export default function getCvData() {
 		email: 'me@ron.dev',
 		phones: ['+65 9637 9222', '+1 704 303 8110'],
 		github: 'roncodes',
+		about: '',
 		skills: [
 			[
-				'Business Development',
-				'UI/UX for Digital Products',
-				'Adobe Photoshop/ Illustrator/ Figma',
+				'Code/Programming',
+				'UI/UX',
 				'Robotics & Embedded Systems',
 			],
 			[
-				'Desktop Software Development',
-				'Mobile Application Development',
-				'Web Application Development',
-				'Package/ Library Development',
+				'DevOps/CI/Terraform/AWS',
+				'Docker/Kubernetes',
+				'Git/Svn/Github/Gitlab',
 			],
 			[
-				'DevOps',
-				'Amazon Web Services',
-				'Docker/ Kubernetes',
-				'Git/ Subversion',
+				'Unit Testing/UI Testing/QA',
+				'CSS/PostCSS/SASS'
 			],
 			[
-				'Unit Testing',
-				'Automated UI Testing',
-				'QA',
-				'CSS/ Stylesheet Processors',
-			],
+				'REST Design',
+				'API Documentation/Markdown'
+			]
 		],
 		languages: [
-			['C', 'C++', 'Rust', 'Javascript', 'PHP'],
-			['Typescript', 'Dart', 'Java', 'Python'],
-			['Lua', 'Scala', 'Groovy', 'Elixir'],
+			['C/C++', 'Rust', 'Javascript/Typescript/Ember.js'],
+			['PHP/Laravel/Composer', 'Groovy/Grails', 'Java/Spring'],
+			['Dart/Flutter', 'Python', 'Lua'],
+			['Elixir', 'SQL', 'RegEx']
 		],
 		frameworks: [
 			'React/ React Native',
@@ -51,17 +47,18 @@ export default function getCvData() {
 				dates: [new Date('Feb 01, 2005'), new Date('June 01, 2008')],
 				location: 'Charlotte, NC',
 				highlights: [
-					'I designed and developed websites for local businesses and notable clients such as the Mayor of Huntersville, motivation speaker Tawana Williams, and Newbirth Charlotte baptist church.',
+					'Designed and developed Wordpress websites while in high school for local businesses and notable clients such as the Mayor of Huntersville, motivation speaker Tawana Williams, and Newbirth Charlotte baptist church.',
 				],
 			},
 			{
 				title: 'United States Marine Corps',
 				role: 'Corporal',
-				dates: [new Date('Aug 01, 2008'), new Date('Dec 01, 2014')],
+				dates: [new Date('Aug 01, 2008'), new Date('Dec 01, 2016')],
 				location: 'Charlotte, NC',
 				highlights: [
-					'As a Marine I operated in the combat operations center, I was responsible for tracking hundreds of Marines, convoys, and missions.',
-					'I also participated in bulk fueling operations for mission-critical vehicles and served as a fire team leader, overseeing the completion of all necessary work and tasks for successful mission completion.',
+					'Served honourably with three different duty stations across the continental U.S. over 6 years (CLB-23, BULK FUEL CO C - 6TH ESB, 4TH MAINT BN) as 0111.',
+					'Managed a fire team of 3 Marines, overseeing responsibilities, tracking performance, and awarding commendations.',
+					'Assisted in combat operations center with tracking hundreds of Marines, in addition to tracking convoys and providing radio for missions.'
 				],
 			},
 			{
@@ -70,8 +67,9 @@ export default function getCvData() {
 				dates: [new Date('Jul 01, 2011'), new Date('Jul 01, 2012')],
 				location: 'Charlotte, NC',
 				highlights: [
-					'I developed and released an original Spintax API/Class for Python and PHP, which is now used for marketing on hundreds of websites.',
-					'I also created scripts and Wordpress Plugins to support SEO and marketing strategies, helping clients increase traffic and improve their rankings on Google, resulting in increased sales for clients.',
+					'Developed utility scripts in Python and PHP to automate and support SEO tasks for clients, and also developed custom Wordpress plugins.',
+					'Developed and launched a Spintax API for both Python and PHP, now widely used in content generation on the web.',
+					'Developed, tested, debugged, and maintained CodeIgniter based PHP + MySQL web application which could be used to generate hundreds of thousands websites based on SEO criteria such as postal codes.',
 				],
 			},
 			{
@@ -80,9 +78,9 @@ export default function getCvData() {
 				dates: [new Date('Aug 01, 2012'), new Date('Dec 01, 2013')],
 				location: 'Chandler, AZ',
 				highlights: [
-					'I have developed web applications for SMEs and enterprise companies, including notable clients such as Salesforce, Infusionsoft, Plivo, Shamrock Farms, and Authority Labs.',
-					'I have also written several official SDKs for these companies, which are available on Github.',
-					'In addition to leading technical consulting projects, I have used my SEO and marketing skills to help companies increase their online presence.',
+					'Developed PHP based web applications for SMEs and enterprise companies, including notable clients Salesforce, Infusionsoft, Plivo, Shamrock Farms, and Authority Labs.',
+					'Developed and published the official Python SDK for Infusionsoft, the Plivo PHP SDK, and a search ranking utility for Authority Labs.',
+					'Worked in cohesion with the developer team for the planning, development, and maintenance of client projects.',
 				],
 			},
 			{
@@ -91,8 +89,9 @@ export default function getCvData() {
 				dates: [new Date('Jan 01, 2013'), new Date('Aug 01, 2014')],
 				location: 'Seattle, WA',
 				highlights: [
-					'I assisted in the onboarding of over a hundred companies through the custom-built "Rewards Genius" platform, which has now become Tango Card\'s premier offering.',
-					'I designed and developed the frontend and backend for the Rewards Genius platform, as well as internal tools to improve efficiency for the engineering team.',
+					'Lead frontend development for the flagship product and platform Rewards Genius ®, which once launched assisted in the onboarding of thousands of companies globally.',
+					'Designed, developed, documented and maintained internal tool for logging written in Groovy/Grails which enabled easier error and exception logging and tracking via HTTP.',
+					'Represented engineering team at AWS re:Invent conference in which with my participation I was able to recommend best practices and services for Tango Card\'s AWS stack.',
 				],
 			},
 			{
@@ -101,27 +100,31 @@ export default function getCvData() {
 				dates: [new Date('Oct 01, 2014'), new Date('May 01, 2017')],
 				location: 'Seattle, WA/ Remote',
 				highlights: [
-					'I have helped consult numerous SME companies and professionals on scaling their business with software solutions. I have also developed and designed web applications for businesses through the customer onboarding phase.',
+					'Provided software development consultation for numerous SME and professionals throughout the PNW region to assist in digital product planning, development and maintenance.',
+					'Designed, developed, debugged and maintained 5+ web applications written with Ember.js and Laravel for clients.',
+					'Funded and hosted free weekly coding classes to local community of Olympia, WA (under Grindlab, LLC) exploring new and experimental languages and concepts at the time such as Elixir.'
 				],
 			},
 			{
-				title: 'TRAFYK/ Dial Digits',
+				title: 'TRAFYK/ DialDigits.com',
 				role: 'Lead Software Engineer/ Consultant',
 				dates: [new Date('Dec 01, 2015'), new Date('May 01, 2017')],
 				location: 'Seattle, WA/ Remote',
 				highlights: [
-					"I worked with the head of Google's Telephony Platform to develop a custom Freeswitch solution to handle and route hundreds of thousands of phone calls.",
-					'I designed and developed the Dial Digits web application, which is used for configuring Freeswitch, managing call logs, and viewing reports. I also scaled the Freeswitch infrastructure and web application to handle high call volumes, resulting in company revenue reaching millions of dollars.',
+					'Coordinated with the head of Google\'s Telephony Platform to develop a custom Freeswitch service written and configured with XML, Lua, and PHP to handle and route hundreds of thousands of phone calls via VOIP.',
+					'Designed, developed, debugged, documented and maintained the Dial Digits web application written in Ember.js and Laravel; which is used for configuring Freeswitch, managing call logs, and viewing reports.',
+					'Optimized and scaled freeswitch service and web application infrastructure to handle high call volumes (100 calls per second) resulting in company revenue reaching millions of dollars.'
 				],
 			},
 			{
 				title: 'Ebazaa Pte Ltd',
 				role: 'CTO',
-				dates: [new Date('Dec 01, 2016'), new Date('Dec 01, 2017')],
+				dates: [new Date('Sep 01, 2017'), new Date('Dec 01, 2017')],
 				location: 'Singapore',
 				highlights: [
-					'I developed an ecommerce fulfilment system for the SE Asia and Central Asia regions. I onboarded and developed SOPs for existing ecommerce companies to provide end-to-end order fulfilment.',
-					'As a team leader, I assisted with code reviews, interviews, and implemented CI/CD for the Ebazaa platform. I regularly communicated with the CEO and COO and provided technical updates to the team and investors.',
+					'Designed, developed, tested and implemented an ecommerce fulfilment system for the south east asia region written in Ember.js and Laravel; which was used in partner warehouses to optimize order fulfilment.',
+					'Designed, developed and published on-demand ordering mobile app (Zengora) written in Ember.js + Cordova and published to iOS App Store and Google Play.',
+					'Maintained daily communication and updates with executive team, participated in code reviews, candidate interviews, and implemented CI/CD for the Ebazaa platform.',
 				],
 			},
 			{
@@ -130,9 +133,10 @@ export default function getCvData() {
 				dates: [new Date('May 01, 2018'), new Date('June 01, 2021')],
 				location: 'Port Klang, Malaysia - Singapore',
 				highlights: [
-					'I developed and built a freight container marketplace using Fleetbase as the development framework. I worked closely with the Port Klang Authority and Ministry of Transport to design and develop a port integrated system to reduce congestion and increase subcontract transactions between hauliers.',
-					'I have a deep understanding of the end-to-end business of freight forwarding and haulage in the SE Asia region, and have consulted several haulier companies on using our digital solution to increase business.',
-					'I conducted presentations with government organizations and assisted in integrating our solution into each port terminal. I also created and narrated the launch video for the LinkHaul system.',
+					'Developed, designed and launched a freight container marketplace using Ember.js, Laravel, and Fleetbase, while working closely with the Port Klang Authority and Ministry of Transport to design and develop a port integrated system to reduce congestion and increase subcontract transactions between hauliers.',
+					'Participated in planning and implementation for core integrations such as the PKA ETP & Gatepass system, CargoMove API, and PKA Northport systems; utilizing C#, and PHP for these integrations.',
+					'Conducted demo presentations with port authorities, hauliers and logistics SME\'s as well as maintainted documentation, guides, and media materials for onboarding to Linkhaul.',
+					'Developed and published the Linkhaul driver app written using React Native + SocketCluster + JS which enabled QR code based container status updates and real-time tracking of drivers.',
 				],
 			},
 			{
@@ -141,9 +145,11 @@ export default function getCvData() {
 				dates: [new Date('May 01, 2018'), new Date()],
 				location: 'Singapore',
 				highlights: [
-					'I bootstrapped and scaled Fleetbase to over half a million SGD in ARR.',
-					'I designed and developed the Fleetbase platform and API, which is used by over 100 companies globally.',
-					'I was awarded a grant from Singapore Enterprise to develop a bulk shipping platform in a joint venture, and all obligations were successfully met.',
+					'Founded Fleetbase as a API based web service for developing logistics and supply chain services and integrations, which is currently utilized by 100+ companies globally.',
+					'Designed, developed, debug, and maintain open-source and internal distributed core services written in PHP as well as maintain the frontend console and core frontend extensions written in Ember.js + Javascript/Typescript.',
+					'Wrote and published the official API documentation, as well as maintain Fleetbase SDK codebases and releases on Github. Designed, developed, documented and maintain the open-source Fleetbase Storefront mobile application written in React Native + Javascript with over 50 stars on Github.',
+					'Provisioned infrastructure and services using Terragrunt and Terraform for AWS services like ECS, ELB, RDS, S3/Cloudfront, and ElastiCache. I also used natural language processing for document parsing. Additionally, I helped plan, integrate, and set up web services for supply chain and logistics for small and large business clients.',
+					'Awarded $300k+ grant from Singapore Enterprise which was used to design and develop a oil & chemicals bulk shipping platform for charterparties and timecharters covering commercial, ops, finance, claims and reporting.'
 				],
 			},
 		],
@@ -151,10 +157,11 @@ export default function getCvData() {
 			{
 				school: 'University of Advancing Technology',
 				location: 'Tempe, AZ',
-				dates: [new Date('2012')],
-				study: 'Robotics and Embedded Systems',
+				dates: [new Date('May 2011'), new Date('2013')],
+				study: 'B.S. Robotics and Embedded Systems',
 				highlights: [
-					'Awarded the Ray Kurzweil Scholarship'
+					'Awarded the Ray Kurzweil Scholarship.',
+					'Withdrew after 4 semesters for military service reasons.'
 				]
 			},
 		],

@@ -110,8 +110,13 @@ ul.cv-links > li {
 }
 
 .cv .cv-table .cv-experience-row .cv-experience-title {
-	@apply text-base font-semibold mb-0.5 pt-5 md:pt-0 relative;
+	@apply flex flex-row text-base font-semibold mb-0.5 pt-5 md:pt-0 relative;
 }
+
+.cv .cv-table .cv-experience-row .cv-experience-title > .cv-experience-version {
+	@apply ml-1 text-xs;
+}
+
 .cv .cv-table .cv-experience-row .cv-experience-version {
 	@apply mb-2;
 }
@@ -254,10 +259,6 @@ ul.cv-links > li {
         margin-bottom: .75rem !important;
     }
 
-    .cv .cv-section:first-child {
-        margin-bottom: .75rem !important;
-    }
-
     .cv .cv-section:nth-child(3) {
         margin-top: .5rem !important;
     }
@@ -271,7 +272,11 @@ ul.cv-links > li {
     .cv .cv-section.cv-section-experience .cv-experience-container,
     .cv .cv-section.cv-section-education .cv-experience-container,
     .cv .cv-section.cv-section-projects .cv-experience-container {
-        margin-top: -1.35rem !important;
+        margin-top: -1rem !important;
+    }
+
+    .cv .cv-section.cv-section-projects {
+        display: none;
     }
 
 	.cv .cv-section .cv-section-title {
@@ -387,16 +392,19 @@ ul.cv-links > li {
         margin-bottom: -.5rem !important;
     } 
 
+    
     .cv .cv-section.cv-section-experience .cv-table .cv-experience-row.with-2-highlights {
         margin-bottom: -1.5rem !important;
     } 
 
+    .cv .cv-section.cv-section-experience .cv-table .cv-experience-row.with-4-highlights,
+    .cv .cv-section.cv-section-experience .cv-table .cv-experience-row.with-5-highlights,
     .cv .cv-section.cv-section-experience .cv-table .cv-experience-row.with-3-highlights {
         margin-bottom: -2rem !important;
-    } 
+    }
 
     .cv .cv-section.cv-section-experience .cv-table .cv-experience-row:last-child {
-        margin-bottom: 0rem !important;
+        margin-bottom: 1rem !important;
     } 
 
     /* .cv .cv-section.cv-section-experience .cv-table .cv-experience-row:first-child {
@@ -451,6 +459,8 @@ ul.cv-links > li {
     .cv .cv-section.cv-section-education .cv-table .cv-experience-row > td > .cv-experience-title,
     .cv .cv-section.cv-section-projects .cv-table .cv-experience-row > td > .cv-experience-title,
 	.cv .cv-table .cv-experience-row .cv-experience-title {
+        display: flex;
+        flex-direction: row;
 		font-size: 8px !important;
 		line-height: 12px !important;
 		margin-top: 0 !important;

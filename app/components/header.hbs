@@ -8,18 +8,6 @@
                         <div class="href-tooltip">Home</div>
                     </Attach::Tooltip>
                 </LinkTo>
-                <LinkTo @route="cv" class="flex items-center justify-center w-8 hover:opacity-50">
-                    <FaIcon @icon="file-lines" />
-                    <Attach::Tooltip @animation="scale" @placement="bottom" @showOn="mouseenter focus">
-                        <div class="href-tooltip">CV</div>
-                    </Attach::Tooltip>
-                </LinkTo>
-                <button type="button" class="flex items-center justify-center w-8 hover:opacity-50" {{on "click" this.onPrint}}>
-                    <FaIcon @icon="print" />
-                    <Attach::Tooltip @animation="scale" @placement="bottom" @showOn="mouseenter focus">
-                        <div class="href-tooltip">Print/ PDF</div>
-                    </Attach::Tooltip>
-                </button>
                 <button type="button" class="flex items-center justify-center w-8 hover:opacity-50" {{on "click" this.onToggleTheme}}>
                     <FaIcon @icon={{if this.isDarkMode "lightbulb" "lightbulb-on"}} />
                     <Attach::Tooltip @animation="scale" @placement="bottom" @showOn="mouseenter focus">

@@ -60,14 +60,14 @@
                         {{/each}}
                     </ul>
                 {{/each}}
-                <figure>
+                {{!-- <figure>
                     <figcaption>Frameworks</figcaption>
                     <ul>
                         {{#each this.data.frameworks as |framework|}}
                             <li>{{framework}}</li>
                         {{/each}}
                     </ul>
-                </figure>
+                </figure> --}}
             </div>
         </div>
         <div class="cv-section cv-section-experience">
@@ -136,11 +136,11 @@
                                 <td>
                                     <div class="cv-experience-title">
                                         {{project.name}}
-                                        {{#if project.status}}
+                                        {{!-- {{#if project.status}}
                                             <div class="cv-experience-title-status status-{{dasherize project.status}}">{{project.status}}</div>
-                                        {{/if}}
+                                        {{/if}} --}}
+                                        <div class="cv-experience-version">{{project.version}}</div>
                                     </div>
-                                    <div class="cv-experience-version">{{project.version}}</div>
                                     <div class="cv-experience-description">{{project.description}}</div>
                                     {{#if project.url}}
                                         <div class="cv-experience-url">
