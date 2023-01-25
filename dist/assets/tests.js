@@ -513,18 +513,6 @@ define("personal/tests/unit/controllers/projects/index-test", ["qunit", "ember-q
     });
   });
 });
-define("personal/tests/unit/controllers/travels/index-test", ["qunit", "ember-qunit"], function (_qunit, _emberQunit) {
-  "use strict";
-
-  (0, _qunit.module)('Unit | Controller | travels/index', function (hooks) {
-    (0, _emberQunit.setupTest)(hooks); // TODO: Replace this with your real tests.
-
-    (0, _qunit.test)('it exists', function (assert) {
-      let controller = this.owner.lookup('controller:travels/index');
-      assert.ok(controller);
-    });
-  });
-});
 define("personal/tests/unit/models/post-test", ["qunit", "ember-qunit"], function (_qunit, _emberQunit) {
   "use strict";
 
@@ -703,7 +691,7 @@ define("personal/tests/unit/utils/get-cv-data-test", ["personal/utils/get-cv-dat
 define('personal/config/environment', [], function() {
   
           var exports = {
-            'default': {"modulePrefix":"personal","environment":"test","rootURL":"/","locationType":"none","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":false,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"LOG_ACTIVE_GENERATION":false,"LOG_VIEW_LOOKUPS":false,"rootElement":"#ember-testing","autoboot":false,"name":"personal","version":"0.1.3+4d70f6ad"},"social":{"github":"https://github.com/roncodes","twitter":"https://twitter.com/wreckitron28","twitch":"https://www.twitch.tv/wreckitron28","youtube":"https://www.youtube.com/channel/UCmM_EzTI4T7qxDc-YDiKkgw","instagram":"https://www.instagram.com/wreckitron28","tiktok":"","facebook":"","linkedin":"https://www.linkedin.com/in/ronald-a-richardson/"},"fontawesome":{"defaultPrefix":"fad"},"ember-meta":{"description":"entrepreneur, software engineer, roboticist, adventurer, gamer","imgSrc":"/meta/favicon.png","siteName":"ron.dev","title":"ron.dev - ronald a. richardson - entrepreneur, software engineer, roboticist, adventurer, gamer","twitterUsername":"@WreckItRon28","url":"https://ron.dev/"},"ember-cli-markdown-resolver":{"folders":{"posts":"app/posts"}},"exportApplicationGlobal":true,"currentRevision":"4d70f6ad0a","longRevision":"4d70f6ad0a7ae26a9a6b5b233e549572117a03b5","tag":null,"branch":"main"}
+            'default': {"modulePrefix":"personal","environment":"test","rootURL":"/","locationType":"none","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":false,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"LOG_ACTIVE_GENERATION":false,"LOG_VIEW_LOOKUPS":false,"rootElement":"#ember-testing","autoboot":false,"name":"personal","version":"0.1.3+63c7df89"},"social":{"github":"https://github.com/roncodes","twitter":"https://twitter.com/wreckitron28","twitch":"https://www.twitch.tv/wreckitron28","youtube":"https://www.youtube.com/channel/UCmM_EzTI4T7qxDc-YDiKkgw","instagram":"https://www.instagram.com/wreckitron28","tiktok":"","facebook":"","linkedin":"https://www.linkedin.com/in/ronald-a-richardson/"},"fontawesome":{"defaultPrefix":"fad"},"ember-meta":{"description":"entrepreneur, software engineer, roboticist, adventurer, gamer","imgSrc":"/meta/favicon.png","siteName":"ron.dev","title":"ron.dev - ronald a. richardson - entrepreneur, software engineer, roboticist, adventurer, gamer","twitterUsername":"@WreckItRon28","url":"https://ron.dev/"},"ember-cli-markdown-resolver":{"folders":{"posts":"app/posts"}},"exportApplicationGlobal":true,"currentRevision":"63c7df894b","longRevision":"63c7df894b8d4c503943b252aaef3bca9ecd5e3c","tag":null,"branch":"main"}
           };
           Object.defineProperty(exports, '__esModule', {value: true});
           return exports;
