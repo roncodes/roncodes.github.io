@@ -1949,27 +1949,6 @@
 
   _exports.default = ProjectsIndexController;
 });
-;define("personal/controllers/travels/index", ["exports", "@ember/controller"], function (_exports, _controller) {
-  "use strict";
-
-  Object.defineProperty(_exports, "__esModule", {
-    value: true
-  });
-  _exports.default = void 0;
-
-  function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-  class TravelsIndexController extends _controller.default {
-    constructor() {
-      super(...arguments);
-
-      _defineProperty(this, "places", ['new york, ny, usa', 'philadelphia, pa, usa', 'miami, fl, usa', 'phoenix, az, usa', 'seattle, wa, usa', 'san diego, ca, usa', 'los angeles, ca, usa', 'las vegas, nv, usa', 'singapore', 'tokyo, japan', 'kuala lumpur, malaysia', 'klang, malaysia', 'manila, phillipines', 'ulaanbaatar, mongolia', 'bangkok, thailand', 'hong kong', 'shanghai, china', 'jakarta, indonesia', 'bali, indonesia', 'batam, indonesia', 'ho chi min, vietnam', 'ulan-ude, siberia, russia', 'bahamas']);
-    }
-
-  }
-
-  _exports.default = TravelsIndexController;
-});
 ;define("personal/data-adapter", ["exports", "@ember-data/debug"], function (_exports, _debug) {
   "use strict";
 
@@ -3713,17 +3692,14 @@
   Router.map(function () {
     this.route('home', {
       path: '/'
-    });
-    this.route('posts', function () {
-      this.route('post', {
-        path: '/:id'
-      });
-    });
-    this.route('projects', function () {});
-    this.route('travels', function () {});
-    this.route('gaming', function () {});
-    this.route('art', function () {});
-    this.route('writing', function () {});
+    }); // this.route('posts', function () {
+    // 	this.route('post', { path: '/:id' });
+    // });
+    // this.route('projects', function () {});
+    // this.route('gaming', function () {});
+    // this.route('art', function () {});
+    // this.route('writing', function () {});
+
     this.route('cv');
   });
 });
@@ -4205,23 +4181,6 @@
 
   _exports.default = _default;
 });
-;define("personal/templates/travels/index", ["exports", "@ember/template-factory"], function (_exports, _templateFactory) {
-  "use strict";
-
-  Object.defineProperty(_exports, "__esModule", {
-    value: true
-  });
-  _exports.default = void 0;
-
-  var _default = (0, _templateFactory.createTemplateFactory)({
-    "id": "2WUO+cVu",
-    "block": "[[[10,0],[12],[1,\"\\n    \"],[10,\"h3\"],[14,0,\"page-title\"],[12],[1,\"🌍 My travels\"],[13],[1,\"\\n    \\n    \"],[10,0],[14,0,\"grid grid-cols-1 md:grid-cols-4 gap-4 mb-10\"],[12],[1,\"\\n\"],[42,[28,[37,1],[[28,[37,1],[[30,0,[\"places\"]]],null]],null],null,[[[1,\"            \"],[10,0],[14,0,\"flex flex-col rounded-md border border-gray-300 hover:border-green-400 hover:text-green-400 truncate\"],[12],[1,\"\\n                \"],[10,0],[14,0,\"px-4 py-2\"],[12],[1,\"\\n                    \"],[10,\"h3\"],[12],[1,[30,1]],[13],[1,\"\\n                \"],[13],[1,\"\\n            \"],[13],[1,\"\\n\"]],[1]],null],[1,\"    \"],[13],[1,\"\\n\"],[13]],[\"place\"],false,[\"each\",\"-track-array\"]]",
-    "moduleName": "personal/templates/travels/index.hbs",
-    "isStrictMode": false
-  });
-
-  _exports.default = _default;
-});
 ;define("personal/templates/writing/index", ["exports", "@ember/template-factory"], function (_exports, _templateFactory) {
   "use strict";
 
@@ -4454,7 +4413,7 @@
 ;define('personal/config/environment', [], function() {
   
           var exports = {
-            'default': {"modulePrefix":"personal","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":false,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"personal","version":"0.1.3+4d70f6ad"},"social":{"github":"https://github.com/roncodes","twitter":"https://twitter.com/wreckitron28","twitch":"https://www.twitch.tv/wreckitron28","youtube":"https://www.youtube.com/channel/UCmM_EzTI4T7qxDc-YDiKkgw","instagram":"https://www.instagram.com/wreckitron28","tiktok":"","facebook":"","linkedin":"https://www.linkedin.com/in/ronald-a-richardson/"},"fontawesome":{"defaultPrefix":"fad"},"ember-meta":{"description":"entrepreneur, software engineer, roboticist, adventurer, gamer","imgSrc":"/meta/favicon.png","siteName":"ron.dev","title":"ron.dev - ronald a. richardson - entrepreneur, software engineer, roboticist, adventurer, gamer","twitterUsername":"@WreckItRon28","url":"https://ron.dev/"},"ember-cli-markdown-resolver":{"folders":{"posts":"app/posts"}},"exportApplicationGlobal":true,"currentRevision":"4d70f6ad0a","longRevision":"4d70f6ad0a7ae26a9a6b5b233e549572117a03b5","tag":null,"branch":"main"}
+            'default': {"modulePrefix":"personal","environment":"development","rootURL":"/","locationType":"auto","EmberENV":{"FEATURES":{},"EXTEND_PROTOTYPES":{"Date":false},"_APPLICATION_TEMPLATE_WRAPPER":false,"_DEFAULT_ASYNC_OBSERVERS":true,"_JQUERY_INTEGRATION":false,"_TEMPLATE_ONLY_GLIMMER_COMPONENTS":true},"APP":{"name":"personal","version":"0.1.3+63c7df89"},"social":{"github":"https://github.com/roncodes","twitter":"https://twitter.com/wreckitron28","twitch":"https://www.twitch.tv/wreckitron28","youtube":"https://www.youtube.com/channel/UCmM_EzTI4T7qxDc-YDiKkgw","instagram":"https://www.instagram.com/wreckitron28","tiktok":"","facebook":"","linkedin":"https://www.linkedin.com/in/ronald-a-richardson/"},"fontawesome":{"defaultPrefix":"fad"},"ember-meta":{"description":"entrepreneur, software engineer, roboticist, adventurer, gamer","imgSrc":"/meta/favicon.png","siteName":"ron.dev","title":"ron.dev - ronald a. richardson - entrepreneur, software engineer, roboticist, adventurer, gamer","twitterUsername":"@WreckItRon28","url":"https://ron.dev/"},"ember-cli-markdown-resolver":{"folders":{"posts":"app/posts"}},"exportApplicationGlobal":true,"currentRevision":"63c7df894b","longRevision":"63c7df894b8d4c503943b252aaef3bca9ecd5e3c","tag":null,"branch":"main"}
           };
           Object.defineProperty(exports, '__esModule', {value: true});
           return exports;
@@ -4463,7 +4422,7 @@
 
 ;
           if (!runningTests) {
-            require("personal/app")["default"].create({"name":"personal","version":"0.1.3+4d70f6ad"});
+            require("personal/app")["default"].create({"name":"personal","version":"0.1.3+63c7df89"});
           }
         
 //# sourceMappingURL=ron.dev.map
