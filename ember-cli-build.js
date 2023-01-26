@@ -80,5 +80,7 @@ module.exports = function (defaults) {
 		collate: true,
 	});
 
+	app.import('node_modules/glightbox/dist/css/glightbox.min.css');
+
 	return app.toTree([postsJson]);
 };

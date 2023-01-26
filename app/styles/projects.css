@@ -1,0 +1,125 @@
+.project {
+    @apply border border-transparent rounded-md shadow-sm;
+}
+
+.project-wrapper {
+    @apply flex flex-col flex-1;
+}
+
+.project-wrapper .project-links > .project-links-container {
+    @apply px-4 py-2 flex flex-row flex-grow-0 flex-shrink-0 space-x-4;
+}
+
+.project-wrapper .project-links > .project-links-container a {
+    @apply text-gray-100 text-sm;
+}
+
+.project {
+    height: 370px;
+    background-size: cover;
+}
+
+.project .project-header {
+    @apply hidden;
+}
+
+.project .project-body > .project-body-inner {
+    @apply flex flex-grow-0 flex-col;
+}
+
+.project .project-body > .project-body-inner .project-description {
+    @apply text-sm;
+}
+
+.project.project-fleetbase {
+    background-image: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .1)), url('https://user-images.githubusercontent.com/816371/214926258-465c1d6c-13b1-4e2b-90c3-33dd65f5f29d.png');
+}
+
+.project.project-fleetbase:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('https://user-images.githubusercontent.com/816371/214926258-465c1d6c-13b1-4e2b-90c3-33dd65f5f29d.png');
+}
+
+.project.project-opswiz {
+    background-image: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .1)), url('https://user-images.githubusercontent.com/816371/214946020-b38c6566-b146-4010-98a8-28d44f87472c.png');
+}
+
+.project.project-opswiz:hover{
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('https://user-images.githubusercontent.com/816371/214946020-b38c6566-b146-4010-98a8-28d44f87472c.png');
+}
+
+.project.project-fixflo {
+    background-image: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .1)), url('https://user-images.githubusercontent.com/816371/214947898-27591663-f362-4502-bd5e-7f78e9de6c23.png');
+}
+
+.project.project-fixflo:hover{
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('https://user-images.githubusercontent.com/816371/214947898-27591663-f362-4502-bd5e-7f78e9de6c23.png');
+}
+
+.project.project-dialdigits {
+    background-image: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .1)), url('https://user-images.githubusercontent.com/816371/214952783-53c70564-f616-4ed1-bda3-499b15c2eb84.png');
+}
+
+.project.project-dialdigits:hover{
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('https://user-images.githubusercontent.com/816371/214952783-53c70564-f616-4ed1-bda3-499b15c2eb84.png');
+}
+
+.project.project-dialdigits .project-body,
+.project.project-fixflo .project-body,
+.project.project-opswiz .project-body,
+.project.project-fleetbase .project-body {
+    @apply h-full flex flex-col justify-end p-10;
+}
+
+.project.project-dialdigits .project-body > .project-body-inner .project-title,
+.project.project-fixflo .project-body > .project-body-inner .project-title,
+.project.project-fleetbase .project-body > .project-body-inner .project-title {
+    @apply hidden;
+}
+
+.project.project-dialdigits .project-body > .project-body-inner .project-title,
+.project.project-opswiz .project-body > .project-body-inner .project-title {
+    @apply mb-1 font-semibold text-lg;
+}
+
+.project.project-dialdigits .project-body > .project-body-inner,
+.project.project-fixflo .project-body > .project-body-inner,
+.project.project-opswiz .project-body > .project-body-inner,
+.project.project-fleetbase .project-body > .project-body-inner {
+    @apply bg-black bg-opacity-75 text-white shadow rounded-md py-2 px-4;
+}
+
+.project.project-dialdigits .project-body > .project-body-inner p,
+.project.project-fixflo .project-body > .project-body-inner p,
+.project.project-opswiz .project-body > .project-body-inner p,
+.project.project-fleetbase .project-body > .project-body-inner p {
+    @apply text-white text-sm;
+}
+
+.project-page.project-page-dialdigits .page-title-project,
+.project-page.project-page-fixflo .page-title-project,
+.project-page.project-page-fleetbase .page-title-project {
+    @apply hidden;
+}
+
+.project-page.project-page-fixflo .project-logo-wrapper,
+.projects-index .project.project-fixflo .project-logo-wrapper {
+    @apply flex flex-grow-0 flex-shrink items-center justify-center w-24 pb-2 mb-2 bg-white rounded-md shadow-sm;
+}
+
+.project-page.project-page-fixflo .project-logo-wrapper > img,
+.projects-index .project.project-fixflo .project-logo-wrapper> img {
+    @apply mb-0;
+}
+
+.project-page .project-section-title {
+    @apply text-white font-semibold mb-3;
+}
+
+.project-page .screenshot-link {
+    @apply flex flex-col -ml-3;
+}
+
+.project-page .project-description,
+.project-page .project-screenshots {
+    @apply mb-6;
+}

@@ -24,10 +24,16 @@ body.dark .page-title {
     @apply text-gray-300;
 }
 
+.page-title.page-title-projects,
 .page-title.page-title-home {
     @apply mb-8 text-gray-50;
 }
 
+.page-title.page-title-project {
+    @apply mb-0;
+}
+
+.page-title.page-title-projects span,
 .page-title.page-title-home span {
     @apply text-white;
 }
@@ -67,77 +73,18 @@ nav.main-nav > a.active {
     @apply opacity-50;
 }
 
-.project {
-    @apply flex flex-col lg:ml-8 mb-3 pl-6 pb-1 border-l-4 border-blue-400 flex-grow-0 flex-shrink-0;
+.hmn-link {
+    @apply text-red-500 underline transition-opacity opacity-100;
 }
 
-.project > .project-header {
-    @apply flex flex-row items-center justify-between mb-3;
-}  
-
-.project > .project-header > .project-title {
-    @apply font-semibold text-white;
+.hmn-link:hover,
+.hmn-link:visited,
+.hmn-link:active {
+    @apply text-red-500;
 }
 
-.project > .project-header > .project-type {
-    @apply flex flex-row px-4 py-0.5 rounded-md border border-black shadow-sm bg-blue-500 text-white text-sm;
-}
-
-.project .project-description {
-    @apply mb-4;
-}
-
-.project .project-subprojects {
-    @apply lg:ml-9 pr-3 mt-6;
-}
-
-.project .project-subprojects .project-subprojects-title {
-    @apply lg:-ml-9 mb-4;
-}
-
-.project .project-subprojects > ul {
-    @apply list-disc;
-}
-
-.project .project-subprojects > ul > li {
-    @apply mb-4 text-xs;
-}
-.project .project-subprojects > ul > li > div {
-    @apply ml-1.5;
-}
-
-.project .project-subprojects > ul > li a {
-    @apply text-white block mb-1;
-}
-
-.project .project-subprojects > ul > li span {
-    @apply text-gray-300;
-}
-
-.project .project-link {
-    @apply text-sm text-blue-400 px-2 py-0.5 border border-blue-400 rounded-md;
-}
-
-.project .project-link:hover {
+.hmn-link:hover {
     @apply opacity-50;
-}
-
-.project .project-link.app-store {
-    @apply text-white border-white;
-}
-
-.project .project-link.app-store > .fa-apple,
-.project .project-link.app-store > span {
-    @apply text-gray-50;
-}
-
-.project .project-link.play-store {
-    @apply text-green-400 border-green-400;
-}
-
-.project .project-link.play-store > .fa-android,
-.project .project-link.play-store > span {
-    @apply text-green-400;
 }
 
 .href-tooltip {

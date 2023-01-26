@@ -7,30 +7,20 @@ export default function getCvData() {
 		github: 'roncodes',
 		about: '',
 		skills: [
-			[
-				'Code/Programming',
-				'UI/UX',
-				'Robotics & Embedded Systems',
-			],
+			['Code/Programming', 'UI/UX', 'Robotics & Embedded Systems'],
 			[
 				'DevOps/CI/Terraform/AWS',
 				'Docker/Kubernetes',
 				'Git/Svn/Github/Gitlab',
 			],
-			[
-				'Unit Testing/UI Testing/QA',
-				'CSS/PostCSS/SASS'
-			],
-			[
-				'REST Design',
-				'API Documentation/Markdown'
-			]
+			['Unit Testing/UI Testing/QA', 'CSS/PostCSS/SASS'],
+			['REST Design', 'API Documentation/Markdown'],
 		],
 		languages: [
 			['C/C++', 'Rust', 'Javascript/Typescript/Ember.js'],
 			['PHP/Laravel/Composer', 'Groovy/Grails', 'Java/Spring'],
 			['Dart/Flutter', 'Python', 'Lua'],
-			['Elixir', 'SQL', 'RegEx']
+			['Elixir', 'SQL', 'RegEx'],
 		],
 		frameworks: [
 			'React/ React Native',
@@ -58,7 +48,7 @@ export default function getCvData() {
 				highlights: [
 					'Served honourably with three different duty stations across the continental U.S. over 6 years (CLB-23, BULK FUEL CO C - 6TH ESB, 4TH MAINT BN) as 0111.',
 					'Managed a fire team of 3 Marines, overseeing responsibilities, tracking performance, and awarding commendations.',
-					'Assisted in combat operations center with tracking hundreds of Marines, in addition to tracking convoys and providing radio for missions.'
+					'Assisted in combat operations center with tracking hundreds of Marines, in addition to tracking convoys and providing radio for missions.',
 				],
 			},
 			{
@@ -91,7 +81,7 @@ export default function getCvData() {
 				highlights: [
 					'Lead frontend development for the flagship product and platform Rewards Genius ®, which once launched assisted in the onboarding of thousands of companies globally.',
 					'Designed, developed, documented and maintained internal tool for logging written in Groovy/Grails which enabled easier error and exception logging and tracking via HTTP.',
-					'Represented engineering team at AWS re:Invent conference in which with my participation I was able to recommend best practices and services for Tango Card\'s AWS stack.',
+					"Represented engineering team at AWS re:Invent conference in which with my participation I was able to recommend best practices and services for Tango Card's AWS stack.",
 				],
 			},
 			{
@@ -102,7 +92,7 @@ export default function getCvData() {
 				highlights: [
 					'Provided software development consultation for numerous SME and professionals throughout the PNW region to assist in digital product planning, development and maintenance.',
 					'Designed, developed, debugged and maintained 5+ web applications written with Ember.js and Laravel for clients.',
-					'Funded and hosted free weekly coding classes to local community of Olympia, WA (under Grindlab, LLC) exploring new and experimental languages and concepts at the time such as Elixir.'
+					'Funded and hosted free weekly coding classes to local community of Olympia, WA (under Grindlab, LLC) exploring new and experimental languages and concepts at the time such as Elixir.',
 				],
 			},
 			{
@@ -111,9 +101,9 @@ export default function getCvData() {
 				dates: [new Date('Dec 01, 2015'), new Date('May 01, 2017')],
 				location: 'Seattle, WA/ Remote',
 				highlights: [
-					'Coordinated with the head of Google\'s Telephony Platform to develop a custom Freeswitch service written and configured with XML, Lua, and PHP to handle and route hundreds of thousands of phone calls via VOIP.',
+					"Coordinated with the head of Google's Telephony Platform to develop a custom Freeswitch service written and configured with XML, Lua, and PHP to handle and route hundreds of thousands of phone calls via VOIP.",
 					'Designed, developed, debugged, documented and maintained the Dial Digits web application written in Ember.js and Laravel; which is used for configuring Freeswitch, managing call logs, and viewing reports.',
-					'Optimized and scaled freeswitch service and web application infrastructure to handle high call volumes (100 calls per second) resulting in company revenue reaching millions of dollars.'
+					'Optimized and scaled freeswitch service and web application infrastructure to handle high call volumes (100 calls per second) resulting in company revenue reaching millions of dollars.',
 				],
 			},
 			{
@@ -135,7 +125,7 @@ export default function getCvData() {
 				highlights: [
 					'Developed, designed and launched a freight container marketplace using Ember.js, Laravel, and Fleetbase, while working closely with the Port Klang Authority and Ministry of Transport to design and develop a port integrated system to reduce congestion and increase subcontract transactions between hauliers.',
 					'Participated in planning and implementation for core integrations such as the PKA ETP & Gatepass system, CargoMove API, and PKA Northport systems; utilizing C#, and PHP for these integrations.',
-					'Conducted demo presentations with port authorities, hauliers and logistics SME\'s as well as maintainted documentation, guides, and media materials for onboarding to Linkhaul.',
+					"Conducted demo presentations with port authorities, hauliers and logistics SME's as well as maintainted documentation, guides, and media materials for onboarding to Linkhaul.",
 					'Developed and published the Linkhaul driver app written using React Native + SocketCluster + JS which enabled QR code based container status updates and real-time tracking of drivers.',
 				],
 			},
@@ -149,7 +139,7 @@ export default function getCvData() {
 					'Designed, developed, debug, and maintain open-source and internal distributed core services written in PHP as well as maintain the frontend console and core frontend extensions written in Ember.js + Javascript/Typescript.',
 					'Wrote and published the official API documentation, as well as maintain Fleetbase SDK codebases and releases on Github. Designed, developed, documented and maintain the open-source Fleetbase Storefront mobile application written in React Native + Javascript with over 50 stars on Github.',
 					'Provisioned infrastructure and services using Terragrunt and Terraform for AWS services like ECS, ELB, RDS, S3/Cloudfront, and ElastiCache. I also used natural language processing for document parsing. Additionally, I helped plan, integrate, and set up web services for supply chain and logistics for small and large business clients.',
-					'Awarded $300k+ grant from Singapore Enterprise which was used to design and develop a oil & chemicals bulk shipping platform for charterparties and timecharters covering commercial, ops, finance, claims and reporting.'
+					'Awarded $300k+ grant from Singapore Enterprise which was used to design and develop a oil & chemicals bulk shipping platform for charterparties and timecharters covering commercial, ops, finance, claims and reporting.',
 				],
 			},
 		],
@@ -161,8 +151,8 @@ export default function getCvData() {
 				study: 'B.S. Robotics and Embedded Systems',
 				highlights: [
 					'Awarded the Ray Kurzweil Scholarship.',
-					'Withdrew after 3 semesters for military service reasons.'
-				]
+					'Withdrew after 3 semesters for military service reasons.',
+				],
 			},
 		],
 		projects: [

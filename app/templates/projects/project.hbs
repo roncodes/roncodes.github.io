@@ -1,0 +1,47 @@
+{{page-title @model.title}}
+
+<div class="project-page project-page-{{dasherize @model.slug}}">
+    {{#if @model.logo_url}}
+        <div class="project-logo">
+            <div class="project-logo-wrapper"><img src={{@model.logo_url}} class="h-6 mb-3" title={{@model.title}} /></div>
+        </div>
+    {{/if}}
+
+    <h3 class="page-title page-title-project">{{@model.title}}</h3>
+
+    <div class="mt-1 mb-10">
+        <LinkTo @route="projects.index" class="flb-link">← Back to all projects</LinkTo>
+    </div>
+
+    <div class="project-description">
+        <h4 class="project-section-title">Description:</h4>
+        <div class="text-base">{{@model.description}}</div>
+    </div>
+
+    <Lightbox class="project-screenshots">
+        <h4 class="project-section-title">Screenshots:</h4>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            {{#each @model.screenshots as |screenshotUrl|}}
+                <a href={{screenshotUrl}} class="screenshot-link flex flex-1">
+                    <img src={{screenshotUrl}} alt={{@model.description}} />
+                </a>
+            {{/each}}
+        </div>
+    </Lightbox>
+
+    {{#if @model.urls}}
+        <div class="project-links">
+            <h4 class="project-section-title">Links:</h4>
+            <ul>
+                {{#each-in @model.urls as |icon url|}}
+                    <li>
+                        <a href={{url}} target={{concat "_" @model.title}} class="text-xs">
+                            <FaIcon @icon={{icon}} @prefix={{if (eq icon 'link') 'fas' 'fab'}} class="mr-0.5" />
+                            <span>{{icon}}</span>
+                        </a>
+                    </li>
+                {{/each-in}}
+            </ul>
+        </div>
+    {{/if}}
+</div>

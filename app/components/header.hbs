@@ -8,6 +8,12 @@
                         <div class="href-tooltip">Home</div>
                     </Attach::Tooltip>
                 </LinkTo>
+                <LinkTo @route="projects" class="flex items-center justify-center w-8 hover:opacity-50">
+                    <FaIcon @icon="folder-tree" />
+                    <Attach::Tooltip @animation="scale" @placement="bottom" @showOn="mouseenter focus">
+                        <div class="href-tooltip">Projects</div>
+                    </Attach::Tooltip>
+                </LinkTo>
                 <button type="button" class="flex items-center justify-center w-8 hover:opacity-50" {{on "click" this.onToggleTheme}}>
                     <FaIcon @icon={{if this.isDarkMode "lightbulb" "lightbulb-on"}} />
                     <Attach::Tooltip @animation="scale" @placement="bottom" @showOn="mouseenter focus">
