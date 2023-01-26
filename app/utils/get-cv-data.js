@@ -145,7 +145,7 @@ export default function getCvData() {
 				dates: [new Date('May 01, 2018'), new Date()],
 				location: 'Singapore',
 				highlights: [
-					'Founded Fleetbase as a API based web service for developing logistics and supply chain services and integrations, which is currently utilized by 100+ companies globally.',
+					'Co-founded Fleetbase, an API-based platform that enables fast creation of logistics and supply chain services and apps. My contributions led to over $1 million SGD in revenue, and Fleetbase being used by over 100 companies globally.',
 					'Designed, developed, debug, and maintain open-source and internal distributed core services written in PHP as well as maintain the frontend console and core frontend extensions written in Ember.js + Javascript/Typescript.',
 					'Wrote and published the official API documentation, as well as maintain Fleetbase SDK codebases and releases on Github. Designed, developed, documented and maintain the open-source Fleetbase Storefront mobile application written in React Native + Javascript with over 50 stars on Github.',
 					'Provisioned infrastructure and services using Terragrunt and Terraform for AWS services like ECS, ELB, RDS, S3/Cloudfront, and ElastiCache. I also used natural language processing for document parsing. Additionally, I helped plan, integrate, and set up web services for supply chain and logistics for small and large business clients.',
@@ -157,11 +157,11 @@ export default function getCvData() {
 			{
 				school: 'University of Advancing Technology',
 				location: 'Tempe, AZ',
-				dates: [new Date('May 2011'), new Date('2013')],
+				dates: [new Date('May 2010'), new Date('Sep 2011')],
 				study: 'B.S. Robotics and Embedded Systems',
 				highlights: [
 					'Awarded the Ray Kurzweil Scholarship.',
-					'Withdrew after 4 semesters for military service reasons.'
+					'Withdrew after 3 semesters for military service reasons.'
 				]
 			},
 		],

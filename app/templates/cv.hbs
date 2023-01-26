@@ -1,4 +1,13 @@
 {{page-title "Ronald A. Richardson - Senior Software Engineer - CV"}}
+<div class="flex flex-row items-center justify-end -mr-3">
+    <button type="button" class="flex items-center justify-center w-8 hover:opacity-50" {{on "click" this.print}}>
+        <FaIcon @icon="print" />
+        <Attach::Tooltip @animation="scale" @placement="bottom" @showOn="mouseenter focus">
+            <div class="href-tooltip">Print/ PDF</div>
+        </Attach::Tooltip>
+    </button>
+</div>
+
 <div class="cv-container md:my-12 lg:my-12">
     <div class="cv">
         <div class="cv-section cv-header cv-section-header">

@@ -24,6 +24,14 @@ body.dark .page-title {
     @apply text-gray-300;
 }
 
+.page-title.page-title-home {
+    @apply mb-8 text-gray-50;
+}
+
+.page-title.page-title-home span {
+    @apply text-white;
+}
+
 .post-title {
     @apply w-full border-b border-gray-600 pb-3 mb-10;
 }
@@ -39,6 +47,24 @@ nav.main-nav > a {
 body.dark nav.main-nav > a.active,
 nav.main-nav > a.active {
     @apply border-green-400 text-green-400;
+}
+
+.aboutme p {
+    margin-bottom: 1.75rem;
+}
+
+.flb-link {
+    @apply text-blue-400 underline transition-opacity opacity-100;
+}
+
+.fb-link:hover,
+.fb-link:visited,
+.fb-link:active {
+    @apply text-blue-400;
+}
+
+.fb-link:hover {
+    @apply opacity-50;
 }
 
 .project {
