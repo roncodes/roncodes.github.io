@@ -13,7 +13,7 @@ export default function getCvData() {
 				'Docker/Kubernetes',
 				'Git/Svn/Github/Gitlab',
 			],
-			['Unit Testing/UI Testing/QA', 'CSS/PostCSS/SASS'],
+			['Unit Testing/UI Testing/QA', 'CSS/PostCSS/SASS', 'GIS/Maps/Leaflet'],
 			['REST Design', 'API Documentation/Markdown'],
 		],
 		languages: [
