@@ -1,4 +1,4 @@
-{{page-title @model.title}}
+{{page-title (concat @model.title " - " @model.description)}}
 
 <div class="project-page project-page-{{dasherize @model.slug}}">
     {{#if @model.logo_url}}
@@ -16,6 +16,15 @@
     <div class="project-description">
         <h4 class="project-section-title">Description:</h4>
         <div class="text-base">{{@model.description}}</div>
+    </div>
+
+    <div class="project-description">
+        <h4 class="project-section-title">Technologies:</h4>
+        <div class="flex flex-row flex-wrap">
+            {{#each @model.stack as |tech|}}
+                <div class="tech-badge">{{tech}}</div>
+            {{/each}}
+        </div>
     </div>
 
     <Lightbox class="project-screenshots">

@@ -1,7 +1,8 @@
 {{#if this.visible}}
     <div class="relative print:hidden" ...attributes>
-        <PageContainer class="flex flex-row justify-end my-6">
-            <div class="flex flex-row justify-end items-center dark:text-gray-400 -mr-3">
+        <PageContainer class="flex flex-row justify-between my-6">
+            <div id="page-title-wormhole" class="flex flex-row items-center"></div>
+            <div class="flex-1 flex flex-row justify-end items-center dark:text-gray-400 -mr-3">
                 <LinkTo @route="home" class="flex items-center justify-center w-8 hover:opacity-50">
                     <FaIcon @icon="home" />
                     <Attach::Tooltip @animation="scale" @placement="bottom" @showOn="mouseenter focus">

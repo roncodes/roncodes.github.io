@@ -112,7 +112,11 @@
 }
 
 .project-page .project-section-title {
-    @apply text-white font-semibold mb-3;
+    @apply text-gray-900 font-semibold mb-3;
+}
+
+body.dark .project-page .project-section-title {
+    @apply text-white;
 }
 
 .project-page .screenshot-link {
@@ -122,4 +126,8 @@
 .project-page .project-description,
 .project-page .project-screenshots {
     @apply mb-6;
+}
+
+.project-page .tech-badge {
+    @apply flex flex-row items-center justify-center px-2 py-0.5 rounded-md bg-blue-500 text-white text-xs shadow-sm mr-4;
 }

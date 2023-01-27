@@ -1,40 +1,44 @@
-{{page-title "My projects"}}
+{{page-title "🗂 My Projects"}}
 
 <div class="projects-index">
-    <h3 class="page-title page-title-projects">🗂 My projects</h3>
+    {{#in-element (dom-query-select "#page-title-wormhole")}}
+        <h3 class="page-title page-title-projects">🗂 My Projects</h3>
+    {{/in-element}}
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-        {{#each this.projects as |project|}}
-            <div class="project-wrapper">
-                <LinkTo @route="projects.project" @model={{project}} class="project project-{{project.slug}}">
-                    <div class="project-header">
-                        <h3 class="project-title">{{project.title}}</h3>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-body-inner">
+    <div class="-ml-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+            {{#each this.projects as |project|}}
+                <div class="project-wrapper">
+                    <LinkTo @route="projects.project" @model={{project}} class="project project-{{project.slug}}">
+                        <div class="project-header">
                             <h3 class="project-title">{{project.title}}</h3>
-                            {{#if project.logo_url}}
-                                <div class="project-logo-wrapper"><img src={{project.logo_url}} class="h-6 mb-3" title={{project.title}} /></div>
-                            {{/if}}
-                            <p class="project-description">
-                                {{project.description}}
-                            </p>
                         </div>
-                    </div>
-                </LinkTo>
-                {{#if project.urls}}
-                    <div class="project-links">
-                        <div class="project-links-container">
-                            {{#each-in project.urls as |icon url|}}
-                                <a href={{url}} target={{concat "_" project.title}}>
-                                    <FaIcon @icon={{icon}} @prefix={{if (eq icon 'link') 'fas' 'fab'}} class="mr-0.5" />
-                                    <span>{{icon}}</span>
-                                </a>
-                            {{/each-in}}
+                        <div class="project-body">
+                            <div class="project-body-inner">
+                                <h3 class="project-title">{{project.title}}</h3>
+                                {{#if project.logo_url}}
+                                    <div class="project-logo-wrapper"><img src={{project.logo_url}} class="h-6 mb-3" title={{project.title}} /></div>
+                                {{/if}}
+                                <p class="project-description">
+                                    {{project.description}}
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                {{/if}}
-            </div>
-        {{/each}}
+                    </LinkTo>
+                    {{#if project.urls}}
+                        <div class="project-links">
+                            <div class="project-links-container">
+                                {{#each-in project.urls as |icon url|}}
+                                    <a href={{url}} target={{concat "_" project.title}}>
+                                        <FaIcon @icon={{icon}} @prefix={{if (eq icon 'link') 'fas' 'fab'}} class="mr-0.5" />
+                                        <span>{{icon}}</span>
+                                    </a>
+                                {{/each-in}}
+                            </div>
+                        </div>
+                    {{/if}}
+                </div>
+            {{/each}}
+        </div>
     </div>
 </div>

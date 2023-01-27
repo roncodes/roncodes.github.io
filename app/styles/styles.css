@@ -16,25 +16,24 @@ body.dark {
     @apply bg-gray-900;
 }
 
+#page-title-wormhole .page-title {
+    margin-bottom: 0 !important;
+}
 .page-title {
     @apply text-xl font-semibold text-gray-900;
 }
 
 body.dark .page-title {
-    @apply text-gray-300;
+    @apply text-gray-50;
 }
 
-.page-title.page-title-projects,
+.page-title.page-title-project,
 .page-title.page-title-home {
-    @apply mb-8 text-gray-50;
+    @apply mb-8;
 }
 
-.page-title.page-title-project {
-    @apply mb-0;
-}
-
-.page-title.page-title-projects span,
-.page-title.page-title-home span {
+body.dark .page-title.page-title-projects span,
+body.datk .page-title.page-title-home span {
     @apply text-white;
 }
 
