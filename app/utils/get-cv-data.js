@@ -50,7 +50,7 @@ export default function getCvData() {
 				dates: [new Date('Aug 01, 2008'), new Date('Dec 01, 2016')],
 				location: 'Charlotte, NC',
 				highlights: [
-					'Served honourably with three different duty stations across the continental U.S. over 6 years (CLB-23, BULK FUEL CO C - 6TH ESB, 4TH MAINT BN) as 0111.',
+					'Served honourably with three different duty stations across the continental U.S. over 6 years (CLB-23, BULK FUEL CO C - 6TH ESB, 4TH MAINT BN).',
 					'Managed a fire team of 3 Marines, overseeing responsibilities, tracking performance, and awarding commendations.',
 					'Assisted in combat operations center with tracking hundreds of Marines, in addition to tracking convoys and providing radio for missions.',
 				],
@@ -139,7 +139,7 @@ export default function getCvData() {
 				dates: [new Date('May 01, 2018'), new Date()],
 				location: 'Singapore',
 				highlights: [
-					'Co-founded Fleetbase, an API-based platform that enables fast creation of logistics and supply chain services and apps. My contributions led to over $1 million SGD in revenue, and Fleetbase being used by over 100 companies globally.',
+					'Co-founded Fleetbase, an API-based platform that enables fast creation of logistics and supply chain services and apps. My contributions led to over $1 million SGD in revenue, and Fleetbase being used by over 500 companies globally.',
 					'Designed, developed, debug, and maintain open-source and internal distributed core services written in PHP as well as maintain the frontend console and core frontend extensions written in Ember.js + Javascript/Typescript.',
 					'Wrote and published the official API documentation, as well as maintain Fleetbase SDK codebases and releases on Github. Designed, developed, documented and maintain the open-source Fleetbase Storefront mobile application written in React Native + Javascript with over 50 stars on Github.',
 					'Provisioned infrastructure and services using Terragrunt and Terraform for AWS services like ECS, ELB, RDS, S3/Cloudfront, and ElastiCache. I also used natural language processing for document parsing. Additionally, I helped plan, integrate, and set up web services for supply chain and logistics for small and large business clients.',
