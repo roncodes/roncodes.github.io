@@ -1,18 +1,62 @@
-{{page-title "Hello, my name is Ron, and I am a Software Engineer"}}
+{{page-title "Ronald A. Richardson - Entrepreneur & Software Engineer"}}
 
 <div>
-    <div class="page-title page-title-home">
-        <span class="mr-0.5">👋🏾</span>
-        <span>Hello, my name is Ron, and I am a Software Engineer and former Marine.</span>
+    <div class="page-header">
+        <h1 class="page-title page-title-home">
+            Ronald A. Richardson
+        </h1>
+        <h3 class="page-subtitle">Entrepreneur & Software Engineer</h3>
     </div>
 
     <div class="aboutme">
-        <p>My journey in tech began in middle school when my father introduced me to computers. My mother further sparked my interest by introducing me to a web page builder by Bellsouth.net, leading me down a rabbit hole of learning to code and build.</p>
-        <p>Since then, I served in the Marines and studied Robotics and Embedded Systems at the University of Advancing Technology which enabled me to kick-start my professional career as a software engineer. This unique combination of experience, along with my innate passion for building and learning, is why I’m now obsessed with creating innovative digital products and experiences that perform like magic.</p>
-        <p>Before the outbreak of COVID-19, I co-founded <a href="https://fleetbase.io" class="flb-link" target="_fleetbase">Fleetbase</a> - an API-based platform that enables fast development of logistics and supply-chain apps. While building Fleetbase, I gained a deep understanding of the shipping and logistics industries, including common challenges. This allowed me to develop innovative software solutions that tackle complex problems.</p>
-        <p>When I’m not working professionally I like to explore new technologies and hack on side-projects in augmented reality, game development, and apps.</p>
-        <p>One of my passion projects, <a href="https://horrormovienight.app/" class="hmn-link" target="_horrormovienight">Horror Movie Night</a>, recommends the most skin-crawling horror movies based on user's mood and is used by over 6,000 iOS and Android users globally.</p>
-        <p>Some of my non technical hobbies include hiking, coffee, travel, and gaming.</p>
-    </div>
+        <h2 class="mb-8 dark:text-white">🛠 Currently Building</h2>
 
+        <ol class="building-list">
+            <li>
+                <div class="flex flex-row">
+                    <div class="w-20">
+                        <img src="/images/fleetbase-icon.png" width="48" height="48" class="w-12 h-12 rounded-md shadow-md" />
+                    </div>
+                    <div class="flex-1">
+                        <a href="https://github.com/fleetbase" target="_fleetbase" class="dark:text-white text-sm block mb-1.5">Fleetbase</a>
+                        <p class="text-xs dark:text-gray-100">Fleetbase is an open source logistics platform that offers a robust and flexible digital infrastructure, enabling the rapid development and customization of logistics and supply chain applications to streamline operations. Additionally Fleetbase also supports extensions for managing and running operations, with the ability to effortlessly build custom extensions or leverage the Fleetbase ecosystem's range of installable extensions for supply chain.</p>
+                        <div class="flex flex-row items-center">
+                            <a href="https://fleetbase.io" target="_fleetbase" class="btn btn-xs btn-default mr-2"><FaIcon @icon="globe" class="mr-2" />Website</a>
+                            <a href="https://github.com/fleetbase" target="_fleetbase_github" class="btn btn-xs btn-default"><FaIcon @icon="github" @prefix="fab" class="mr-2" />Github</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="flex flex-row">
+                    <div class="w-20">
+                        <img src="/images/cybereye-icon.png" width="48" height="48" class="w-12 h-12 rounded-md shadow-md" />
+                    </div>
+                    <div class="flex-1">
+                        <a href="https://github.com/cybereye-digital" target="_arnet" class="dark:text-white text-sm block mb-1.5">ARNet/ CyberEye</a>
+                        <p class="text-xs dark:text-gray-100">ARNet is an "ARVerse" which allows users to create 3D augmented reality experiences anchored in geospatial real world. It's an open source project which utilizes machine learning based object detection and feature matching via ORB algorithm to anchor 3D visuals to real world. Users can place 3D objects or scenes in real space via the ARNet [<a href="https://api.arnet.cloud/" target="_arnet">https://api.arnet.cloud</a>]. Users can then use a ARNet client (CyberEye) to view the augmented reality experiences. The ARNet client is open source so organizations and users can zone lock their AR experiences to a client as well.</p>
+                        <div class="flex flex-row items-center">
+                            <a href="https://github.com/cybereye-digital" target="_cybereye_github" class="btn btn-xs btn-default mr-2"><FaIcon @icon="github" @prefix="fab" class="mr-2" />Github</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="flex flex-row">
+                    <div class="w-20">
+                        <img src="/images/hmn-icon.png" width="48" height="48" class="w-12 h-12 rounded-md shadow-md" />
+                    </div>
+                    <div class="flex-1">
+                        <a href="https://github.com/roncodes/horror-movie-night-curated" target="_hmn" class="dark:text-white text-sm block mb-1.5">Horror Movie Night</a>
+                        <p class="text-xs dark:text-gray-100">Horror Movie Night is a passion project and app which recommends horror movies. Horror Movie Night is just the app you need to kick off your horror movie night, whether it's a night alone with your loved one or having a spooky night with friends. Horror Movie Night will recommend only the scariest movies to leave you and your guests trembling. Whether you're in the mood for a classic jump scare or want the slow build of a disturbing horror that will get under your skin. Horror Movie Night curates and updates selected movies which are sure to give you the Horror Movie Night you're looking for. No more searching endlessly though blogs and websites and lame rankings, we've done all the work to guarantee a spooky night.</p>
+                        <div class="flex flex-row items-center">
+                            <span class="font-semibold dark:text-white mr-4 text-sm">> 10k Downloads</span>
+                            <a href="https://apps.apple.com/us/app/horror-movie-night/id1613495460" target="_hmn_appstore" class="btn btn-xs btn-default mr-2"><FaIcon @icon="apple" @prefix="fab" class="mr-2" />Find on App Store</a>
+                            <a href="https://play.google.com/store/apps/details?id=com.horrormovienight.app" target="_hmn_playstore" class="btn btn-xs btn-default btn-android"><FaIcon @icon="android" @prefix="fab" class="mr-2" />Find on Play Store</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
 </div>

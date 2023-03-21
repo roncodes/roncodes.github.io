@@ -16,20 +16,28 @@ body.dark {
     @apply bg-gray-900;
 }
 
+body.light {
+    @apply bg-gray-100;
+}
+
+.page-header {
+    @apply mb-10;
+}
+
 #page-title-wormhole .page-title {
     margin-bottom: 0 !important;
 }
+
 .page-title {
     @apply text-xl font-semibold text-gray-900;
 }
 
-body.dark .page-title {
-    @apply text-gray-50;
+.page-subtitle {
+    @apply text-sm;
 }
 
-.page-title.page-title-project,
-.page-title.page-title-home {
-    @apply mb-8;
+body.dark .page-title {
+    @apply text-gray-50;
 }
 
 body.dark .page-title.page-title-projects span,
@@ -88,4 +96,12 @@ nav.main-nav > a.active {
 
 .href-tooltip {
     @apply rounded-md bg-black shadow-sm border border-black px-2 py-1 text-white text-xs flex items-center justify-center truncate;
+}
+
+.building-list {
+    @apply pl-8;
+}
+
+.building-list > li {
+    @apply mb-6;
 }

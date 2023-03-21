@@ -2,8 +2,11 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 const StaticSiteJson = require('broccoli-static-site-json');
-const tailwind = require('tailwindcss');
 const funnel = require('broccoli-funnel');
+const postcssImport = require('postcss-import');
+const autoprefixer = require('autoprefixer');
+const postcssPresetEnv = require('postcss-preset-env');
+const tailwind = require('tailwindcss');
 
 module.exports = function (defaults) {
 	let app = new EmberApp(defaults, {
@@ -39,18 +42,9 @@ module.exports = function (defaults) {
 		},
 
 		postcssOptions: {
-			cacheInclude: [/.*\.(css|scss|hbs)$/, /.tailwind\.config\.js$/],
+			cacheInclude: [/.*\.(css|scss|hbs)$/, /.tailwind\.js$/],
 			compile: {
-				plugins: [
-					{
-						module: require('postcss-import'),
-						options: {
-							path: ['node_modules'],
-						},
-					},
-					tailwind('./app/tailwind/tailwind.config.js'),
-					require('autoprefixer'),
-				],
+				plugins: [postcssImport({ path: 'node_modules' }), autoprefixer, postcssPresetEnv({ stage: 1 }), tailwind('./tailwind.js')],
 			},
 		},
 	});

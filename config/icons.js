@@ -14,6 +14,7 @@ module.exports = function () {
 			'lightbulb-on',
 			'phone',
 			'envelope',
+			'globe',
 			'print',
 		],
 		'pro-duotone-svg-icons': [
@@ -30,6 +31,7 @@ module.exports = function () {
 			'lightbulb-on',
 			'phone',
 			'envelope',
+			'globe',
 			'print',
 		],
 		'free-brands-svg-icons': [

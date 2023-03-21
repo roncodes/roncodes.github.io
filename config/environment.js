@@ -45,7 +45,7 @@ module.exports = function (environment) {
 			'entrepreneur, software engineer, roboticist, adventurer, gamer',
 		imgSrc: '/meta/favicon.png',
 		siteName: 'ron.dev',
-		title: 'ron.dev - ronald a. richardson - entrepreneur, software engineer, roboticist, adventurer, gamer',
+		title: 'Ronald A. Richardson -  Entrepreneur & Software Engineer',
 		twitterUsername: '@WreckItRon28',
 		url: 'https://ron.dev/',
 	};
