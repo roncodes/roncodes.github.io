@@ -154,8 +154,7 @@ export default function getCvData() {
 				dates: [new Date('May 2010'), new Date('Sep 2011')],
 				study: 'B.S. Robotics and Embedded Systems',
 				highlights: [
-					'Awarded the Ray Kurzweil Scholarship.',
-					'Withdrew after 3 semesters for military service reasons.',
+					'Awarded the Ray Kurzweil Scholarship.'
 				],
 			},
 		],
